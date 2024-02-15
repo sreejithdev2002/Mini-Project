@@ -1,10 +1,11 @@
 import React from 'react'
+import Login from '../../Components/User/Login/Login'
 
 function UserLogin() {
   return (
-    <div>
-      
-    </div>
+    <>
+      <Login/>
+    </>
   )
 }
 
