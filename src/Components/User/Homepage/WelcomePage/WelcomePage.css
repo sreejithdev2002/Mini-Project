@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  padding: 20px 0px;
+}
+
+.welcomeHeading {
+  font-size: 40px;
+  word-spacing: 10px;
+}
+
+#shoooz {
+  font-family: "Play", sans-serif;
+  font-size: 50px;
+}
+
+.welcomeSubHeading {
+  font-size: 15px;
+  letter-spacing: 5px;
+  margin-top: 5px;
+  font-family: monospace;
+}
+
+.welcomeLinks {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+}
+
+.welcomeLinks a {
+  text-decoration: none;
+  margin: 0px 10px;
+}
+
+.welcomeLinks a:hover {
+  color: #7c7c7c;
+}
+
+@media only screen and (max-width: 768px) {
+  .welcome {
+    margin-top: 150px;
+  }
+
+  .welcomeHeading {
+    font-size: 30px;
+  }
+
+  #shoooz {
+    font-size: 40px;
+  }
+
+  .welcomeSubHeading {
+    font-size: 13px;
+    margin-top: 5px;
+  }
+}

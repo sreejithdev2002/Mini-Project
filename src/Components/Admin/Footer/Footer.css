@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+.footer{
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(32, 38, 51);
+}
+
+.footerContent1 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-between;
+  padding: 20px 50px;
+  border-bottom-color: #ffffff1a;
+  border-bottom-width: 0.1px;
+  border-bottom-style: solid;
+}
+
+.footerBrand a{
+  text-decoration: none;
+  color: white;
+}
+
+.footerBrand h2{
+  font-family: "Play", sans-serif;
+}
+
+.footerContent1 div {
+  padding: 50px 100px;
+  border-radius: 5px;
+}
+
+
+.footerSupportLinks ul a{
+  text-decoration: none;
+  list-style: none;
+}
+
+.footerSupportLinks ul a li{
+  margin: 10px 0px;
+  color: white;
+}
+
+.footerSupportLinks ul a li:hover{
+  color: rgb(216, 216, 216);
+}
+
+
+.footerMainLinks ul a{
+  text-decoration: none;
+  list-style: none;
+}
+
+.footerMainLinks ul a li{
+  margin: 10px 0px;
+  color: white;
+}
+
+.footerMainLinks ul a li:hover{
+  color: rgb(216, 216, 216);
+}
+
+.footerContent2 {
+  display: flex;
+  padding: 20px 50px;
+  justify-content: center;
+  border-bottom-color: #ffffff1a;
+  border-bottom-width: 0.1px;
+  border-bottom-style: solid;
+}
+
+.footerSearch {
+  margin: 0px 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.footerSearch h3{
+  color: white;
+  font-family: sans-serif;
+}
+
+.footerSearch input {
+  padding: 10px 20px;
+  width: 50vw;
+  border: none;
+  border-radius: 32px;
+  margin: 0px 20px;
+}
+
+.footerContent3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px ;
+}
+
+.footerContent3 p{
+  font-family: monospace;
+  font-size: 12px;
+  color: white;
+}
+
+.footerContent3 p a{
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+}
+
+.footerContent3 p a:hover{
+  color: rgb(204, 204, 204);
+}
+
+@media only screen and (max-width: 768px){
+  .footerContent1{
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+
+  .footerContent1 div{
+    padding: 10px 20px;
+  }
+}

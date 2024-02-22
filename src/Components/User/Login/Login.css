@@ -1,53 +1,132 @@
-.login-container {
-  max-width: 400px;
-  margin: 0px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  position: relative;
-  top: 20vh;
+.login {
+  display: flex;
+  flex-direction: row;
+  margin: 220px 0px;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 2px;
 }
 
-#loginH2 {
-  text-align: center;
+.loginSection{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: aquamarine; */
+  height: 57vh;
+}
+
+.loginSection form{
+  padding: 0px 50px;
+}
+
+.loginSection form h1{
   font-size: 2.5em;
-  margin: 20px 0;
+  margin-bottom: 10px;
 }
 
-.loginForm, .login-container, .loginFormForgotPassword {
+.loginUsername, .loginPassword{
   display: flex;
   flex-direction: column;
+}
+
+.loginUsername{
+  margin-top: 20px;
+}
+
+.loginUserInput div label{
+  margin: 10px 0px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.loginPassword{
+  margin-bottom: 10px;
+}
+
+.loginSubmit{
+  display: flex;
+  align-items: center;
   justify-content: center;
-  align-self: center;
 }
 
-.loginInput, .loginBtn {
-  margin: 10px 100px; 
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.loginBtn {
-  background-color: #007bff;
-  color: #fff;
+.loginSubmit button{
+  height: 6vh;
+  width: 26vw;
+  padding: 10px 50px;
+  background-color: rgb(206, 68, 37);
+  color: white;
   cursor: pointer;
+  border: none;
+  font-size: 18px;
+  border-radius: 2px;
 }
 
-.loginBtn:hover {
-  background-color: #0056b3;
+.loginSubmit button:hover{
+  background-color: rgb(228, 82, 49);
 }
 
-#loginForgotPassword {
-  text-align: center;
+.loginInput {
+  padding: 10px 10px;
+  border: none;
+  width: 25vw;
+  height: 4vh;
+  border-radius: 2px;
+  border: solid 1px #eaeaea;
+}
+
+.loginOr{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginCreateAccount{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginCreateAccount button{
+  height: 6vh;
+  width: 26vw;
+  padding: 10px 50px;
+  color: rgb(206, 68, 37);
+  background-color: white;
   cursor: pointer;
-  margin-bottom: 20px;
-  font-size: 0.9em;
+  border: solid 1px rgb(206, 68, 37) ;
+  font-size: 18px;
+  border-radius: 2px;
 }
 
-@media (max-width: 480px) {
-  .login-container {
-    max-width: 90%;
+.loginCreateAccount button:hover{
+  color: white;
+  background-color: rgb(206, 68, 37);
+}
+
+
+.loginImage {
+  height: 500px;
+  width: 500px;
+  background-color: burlywood;
+  margin-left: 50px;
+}
+
+@media only screen and (max-width: 768px){
+
+  .loginImage{
+    display: none;
+  }
+
+  .loginInput{
+    width: 60vw;
+  }
+
+  .loginSubmit button{
+    width: 60vw;
+  }
+
+  .loginCreateAccount button {
+    width: 60vw;
   }
 }

@@ -1,54 +1,133 @@
-.signup-container {
-  max-width: 400px;
-  margin: 0px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  position: relative;
-  top: 20vh;
+.signup {
+  display: flex;
+  flex-direction: row;
+  margin: 220px 0px;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 2px;
 }
 
-#signupH2 {
-  text-align: center;
+.signupSection{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: aquamarine; */
+  height: 57vh;
+}
+
+.signupSection form{
+  padding: 0px 50px;
+}
+
+.signupSection form h1{
   font-size: 2.5em;
-  margin: 20px 0;
+  margin-bottom: 10px;
 }
 
-.signupForm, .signup-container {
+.signupUsername, .signupEmail , .signupPassword{
   display: flex;
   flex-direction: column;
+}
+
+.signupUsername{
+  margin-top: 20px;
+}
+
+.signupUserInput div label{
+  margin: 10px 0px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.signupPassword{
+  margin-bottom: 10px;
+}
+
+.signupSubmit{
+  display: flex;
+  align-items: center;
   justify-content: center;
-  align-self: center;
 }
 
-.signupInput, #SignupBtn {
-  margin: 10px 100px; 
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-#SignupBtn {
-  background-color: #22a342;
-  color: #fff;
+.signupSubmit button{
+  height: 6vh;
+  width: 26vw;
+  padding: 10px 50px;
+  background-color: rgb(206, 68, 37);
+  color: white;
   cursor: pointer;
+  border: none;
+  font-size: 18px;
+  border-radius: 2px;
 }
 
-#SignupBtn:hover {
-  background-color: #258a3e;
+.signupSubmit button:hover{
+  background-color: rgb(228, 82, 49);
 }
 
-.loginLink {
-  text-align: center;
+.signupInput {
+  padding: 10px 10px;
+  width: 25vw;
+  height: 4vh;
+  border-radius: 2px;
+  border: solid 1px #eaeaea;
+}
+
+.signupOr{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signupLoginAccount{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signupLoginAccount button{
+  height: 6vh;
+  width: 26vw;
+  padding: 10px 50px;
+  color: rgb(206, 68, 37);
+  background-color: white;
   cursor: pointer;
-  margin-bottom: 20px;
-  font-size: 0.9em;
+  border: solid 1px rgb(206, 68, 37) ;
+  font-size: 18px;
+  border-radius: 2px;
 }
 
+.signupLoginAccount button:hover{
+  color: white;
+  background-color: rgb(206, 68, 37);
+}
 
-@media (max-width: 480px) {
-  .signup-container {
-    max-width: 90%;
+.signupImage {
+  height: 500px;
+  width: 500px;
+  background-color: burlywood;
+  margin-left: 50px;
+}
+
+@media only screen and (max-width: 768px){
+
+  .signup{
+    margin: 300px 50px;
+    justify-content: center;
   }
+
+  .signupSection form h1{
+    font-size: 2em;
+  }
+
+  .signupImage{
+    display: none;
+  }
+
+  .signupInput, .signupSubmit button, .signupLoginAccount button{
+    width: 60vw;
+  }
+
+
 }

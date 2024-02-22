@@ -1,0 +1,21 @@
+.adsBanner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0px;
+}
+
+
+.adsBanner img {
+    height: 50vh;
+    width: 87vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 768px){
+    .adsBanner img {
+        height: 30vh;
+        width: 80vw;
+    }
+}

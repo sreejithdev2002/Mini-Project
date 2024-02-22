@@ -1,0 +1,20 @@
+.error{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.error h1 {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 6em;
+    font-family: system-ui;
+}
+
+.error h1 span {
+    color: #a50000;
+    font-size: 5.5em;
+    align-self: center;
+}
