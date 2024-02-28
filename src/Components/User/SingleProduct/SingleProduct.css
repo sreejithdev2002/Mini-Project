@@ -1,0 +1,115 @@
+.singleProduct {
+  margin: 150px 0px;
+}
+
+.sinPrdTopSection {
+  display: flex;
+  flex-direction: row;
+  margin: 0px 50px;
+}
+
+.sinPrdImgSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.sinPrdImg {
+  background-color: burlywood;
+  height: 100px;
+  width: 100px;
+  margin: 10px 20px;
+  cursor: pointer;
+}
+
+.sinPrdImg:hover {
+  background-color: rgb(181, 145, 99);
+}
+
+#sinPrdImg {
+  background-color: burlywood;
+  height: 500px;
+  width: 700px;
+}
+
+.sinPrdImgSelection {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.sinPrdDetailSection {
+  display: flex;
+  flex-direction: row;
+  margin-left: 100px;
+}
+
+.sinPrdDetailSection h3 {
+  margin: 5px 0px;
+  color: rgb(95 95 95);
+  font-weight: normal;
+}
+
+.sinPrdDetailSection p {
+  margin: 20px 0px;
+}
+
+.sinPrdDetailsPrice {
+  color: rgb(255, 59, 59);
+  font-weight: bold;
+}
+
+.sinPrdDetailsSizes {
+  display: flex;
+  flex-direction: row;
+}
+
+.sinPrdSizes {
+  display: flex;
+  height: 50px;
+  width: 50px;
+  background-color: burlywood;
+  margin: 10px 10px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.sinPrdSizes:hover {
+  background-color: rgb(183, 150, 107);
+}
+
+.sinPrdButtons {
+  position: relative;
+  margin: 0px 10px;
+  top: 50px;
+  z-index: -1;
+}
+
+.sinPrdBtn {
+  width: 10vw;
+  height: 50px;
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#sinPrdBtn2 {
+  background-color: rgb(255, 59, 59);
+  color: white;
+}
+
+#sinPrdBtn2:hover{
+    background-color: rgb(235, 33, 33)
+}
+
+#sinPrdBtn1{
+    color: rgb(255, 59, 59);
+}
+
+#sinPrdBtn1:hover{
+    background-color: rgb(223, 223, 223);
+}

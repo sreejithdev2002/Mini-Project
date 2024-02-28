@@ -1,14 +1,14 @@
 import React from "react";
 import Login from "../../Components/Admin/Login/Login";
-import Header from "../../Components/Admin/Header/Header";
-import Footer from "../../Components/Admin/Footer/Footer";
+// import Header from "../../Components/Admin/Header/Header";
+// import Footer from "../../Components/Admin/Footer/Footer";
 
 function AdminLogin() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Login />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

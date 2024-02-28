@@ -1,10 +1,19 @@
 import React from "react";
 import "./Login.css";
+import loginImage from '../../../Assets/Images/login.jpg';
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+
+  const navigate = useNavigate();
+  const handleClick = () => navigate('/signup');
+
+  
   return (
     <>
-      <div className="login">
+      <div className="loginUser">
+        <h1 className="loginUsrh1">SHOOOZ</h1>
+        <div className="loginUsr">
         <div className="loginSection">
           <form action="">
             <h1>Account Login</h1>
@@ -43,14 +52,15 @@ function Login() {
               </div>
               <br />
               <div className="loginCreateAccount">
-                <button type="submit">Create Account</button>
+                <button type="submit" onClick={handleClick}>Create Account</button>
               </div>
             </div>
           </form>
         </div>
         <div className="loginImageSection">
-          <div className="loginImage"></div>
+          <img src={loginImage} alt="" className="loginImage" />
         </div>
+      </div>
       </div>
     </>
   );

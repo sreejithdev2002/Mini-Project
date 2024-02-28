@@ -1,54 +1,76 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { CartIcon, ProfileIcon, WishlistIcon } from "../../../Assets/Icons";
 import "./Header.css";
+import {Link} from 'react-router-dom';
 
 function Header() {
+  const [isSolid, setIsSolid] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 50) {
+        setIsSolid(true);
+      } else {
+        setIsSolid(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
-      <div className="header">
+      <div className={isSolid ? "header" : "transHeader"}>
         <div className="headerName">
-          <h2>SHOOOZ</h2>
+          <Link to="/admin">
+            <h2>SHOOOZ</h2>
+          </Link>
         </div>
         <div className="headerLinks">
-          <a href="#">
+          <Link to="#">
             <div className="headerLinksIndividual" id="latestArrivals">
               <p>Latest Arrivals</p>
             </div>
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <div className="headerLinksIndividual" id="Mens">
               <p>Mens</p>
             </div>
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <div className="headerLinksIndividual" id="Womens">
               <p>Womens</p>
             </div>
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <div className="headerLinksIndividual" id="categories">
               <p>Categories</p>
             </div>
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <div className="headerLinksIndividual" id="Luxury">
               <p>Luxury</p>
             </div>
-          </a>
+          </Link>
         </div>
         <div className="headerButtons">
-        <div className="headerSearchBox">
-          <input type="search"  id="" placeholder="Search..." />
-        </div>
-          <a href="#">
+          {/* <div className="headerSearchBox">
+            <input type="search" id="" placeholder="Search..." />
+          </div> */}
+          <Link to="#">
             <WishlistIcon />
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <CartIcon />
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <ProfileIcon />
-          </a>
+          </Link>
         </div>
       </div>
     </>

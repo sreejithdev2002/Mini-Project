@@ -9,9 +9,9 @@ function WelcomePage() {
           Welcome to <span id="shoooz">SHOOOZ</span>
         </h1>
         <h3 className="welcomeSubHeading">YOUR FOOTWEAR DESTINATION</h3>
-        <div className="welcomeLinks">
+        {/* <div className="welcomeLinks">
         <a href="/login"><p className="welcomeLogin">Login</p></a><span>|</span><a href="/signup"><p className="welcomeSignup">Sign Up</p></a>
-        </div>
+        </div> */}
       </div>
     </>
   );

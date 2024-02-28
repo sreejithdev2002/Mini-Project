@@ -1,0 +1,22 @@
+.formals{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px;
+    padding-top: 150px;
+    background-color: #f0f0f045;
+}
+
+.formalsHeading{
+    margin-left: 50px;
+}
+
+@media only screen and (max-width: 768px){
+
+    .formals{
+        padding-top: 200px;
+    }
+
+    .formalsHeading{
+        margin-left: 90px;
+    }
+}

@@ -1,0 +1,30 @@
+.adminHome{
+    margin: 100px 20px;
+}
+
+.adminHome h1, .adminHome h2{
+    margin: 20px 0px;
+}
+
+.userListTable{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.userListTable th, .userListTable td {
+    border : 1px solid #ddd;
+    padding: 8px;
+}
+
+.userListTable th{
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+.userListTable tbody tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.userListTable tbody tr:hover{
+    background-color: #ddd;
+}

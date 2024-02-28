@@ -10,55 +10,11 @@
     margin-left: 50px;
 }
 
-.MensGrids{
-    display: grid;
-    justify-content: space-evenly;
-    grid-template-columns: auto auto auto auto;
-    row-gap: 30px;
-    column-gap: 10px;
-    margin: 50px 0px;
-}
-
-.MensGrid{
-    width: 350px;
-    height: 500px;
-}
-
-.MensProductImg{
-    background-color: burlywood;
-    height: 350px;
-    width: 350px;
-}
-
-.MensProductDetails{
-    margin: 20px 0px;
-}
-
-.MensProductDetails h2 {
-    margin-bottom: 5px;
-}
-
-.MensProductDetails h3 {
-    color: #ff4444;
-    font-size: 25px;
-    margin-bottom: 5px;
-}
-
-.MensProductDetails p{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis ;
-}
-
 
 @media only screen and (max-width: 768px){
 
     .Mens{
         padding-top: 200px;
-    }
-
-    .MensGrids{
-        grid-template-columns: auto;
     }
 
     .MensHeading{

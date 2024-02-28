@@ -1,0 +1,114 @@
+{
+    "shoes": [
+      {
+        "id": 1,
+        "name": "Running Shoes",
+        "brand": "Adidas",
+        "description": "Comfortable and durable running shoes for all your fitness needs.",
+        "price": 99.99,
+        "gender": "Men",
+        "isLuxury": false,
+        "dateAdded": "2024-02-21",
+        "category": "Sneakers"
+      },
+      {
+        "id": 2,
+        "name": "High Heels",
+        "brand": "Nike",
+        "description": "Elegant high heels for any occasion, crafted with premium materials.",
+        "price": 79.99,
+        "gender": "Women",
+        "isLuxury": false,
+        "dateAdded": "2024-02-20",
+        "category": "Formals"
+      },
+      {
+        "id": 3,
+        "name": "Leather Boots",
+        "brand": "Reebok",
+        "description": "Classic leather boots for men, perfect for formal or casual wear.",
+        "price": 149.99,
+        "gender": "Men",
+        "isLuxury": true,
+        "dateAdded": "2024-02-22",
+        "category": "Formals"
+      },
+      {
+        "id": 4,
+        "name": "Sneakers",
+        "brand": "Nike",
+        "description": "Stylish sneakers designed for comfort and performance.",
+        "price": 119.99,
+        "gender": "Women",
+        "isLuxury": false,
+        "dateAdded": "2024-02-23",
+        "category": "Sneakers"
+      },
+      {
+        "id": 5,
+        "name": "Casual Loafers",
+        "brand": "Reebok",
+        "description": "Versatile loafers for men, perfect for everyday wear.",
+        "price": 89.99,
+        "gender": "Men",
+        "isLuxury": false,
+        "dateAdded": "2024-02-24",
+        "category": "Casuals"
+      },
+      {
+        "id": 6,
+        "name": "Ankle Boots",
+        "brand": "Puma",
+        "description": "Trendy ankle boots for women, featuring a sleek design.",
+        "price": 129.99,
+        "gender": "Women",
+        "isLuxury": false,
+        "dateAdded": "2024-02-25",
+        "category": "Casuals"
+      },
+      {
+        "id": 7,
+        "name": "Formal Oxfords",
+        "brand": "Puma",
+        "description": "Sophisticated Oxford shoes for men, suitable for formal occasions.",
+        "price": 179.99,
+        "gender": "Men",
+        "isLuxury": true,
+        "dateAdded": "2024-02-26",
+        "category": "Formals"
+      },
+      {
+        "id": 8,
+        "name": "Platform Sandals",
+        "brand": "Adidas",
+        "description": "Fashionable platform sandals for women, perfect for summer outings.",
+        "price": 69.99,
+        "gender": "Women",
+        "isLuxury": false,
+        "dateAdded": "2024-02-27",
+        "category": "Sandals"
+      },
+      {
+        "id": 9,
+        "name": "Dress Shoes",
+        "brand": "Nike",
+        "description": "Classic dress shoes for men, ideal for formal events.",
+        "price": 129.99,
+        "gender": "Men",
+        "isLuxury": false,
+        "dateAdded": "2024-02-28",
+        "category": "Formals"
+      },
+      {
+        "id": 10,
+        "name": "Fashion Boots",
+        "brand": "Puma",
+        "description": "Trendy fashion boots for women, featuring stylish details.",
+        "price": 149.99,
+        "gender": "Women",
+        "isLuxury": true,
+        "dateAdded": "2024-02-29",
+        "category": "Casuals"
+      }
+    ]
+  }

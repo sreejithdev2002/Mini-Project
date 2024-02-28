@@ -1,7 +1,19 @@
-.login {
+.loginUser{
+  display: flex;
+  flex-direction: column;
+  margin: 20px 50px;
+}
+
+.loginUsrh1{
+  font-size: 2em;
+  font-family: "Play", sans-serif;
+}
+
+
+.loginUsr {
   display: flex;
   flex-direction: row;
-  margin: 220px 0px;
+  margin: 100px 0px;
   align-items: center;
   justify-content: space-evenly;
   border-radius: 2px;

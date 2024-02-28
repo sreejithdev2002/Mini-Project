@@ -1,79 +1,57 @@
 import React from "react";
 import "../Footer/Footer.css";
+import {Link} from 'react-router-dom';
 
 const Footer = () => {
   return (
-    // <footer>
-    //   <div className="footer-content">
-    //     <div className="logo">
-    //       <a href="/">Shoooz.com</a>
-    //     </div>
-    //     <ul className="footer-nav-links">
-    //       <li><a href="/about">About Us</a></li>
-    //       <li><a href="/contact">Contact</a></li>
-    //       <li><a href="/terms">Terms & Conditions</a></li>
-    //       <li><a href="/privacy">Privacy Policy</a></li>
-    //     </ul>
-    //   </div>
-    //   <div className="social-icons">
-    //     <a href="#"><i className="fa fa-facebook"></i></a>
-    //     <a href="#"><i className="fa fa-twitter"></i></a>
-    //     <a href="#"><i className="fa fa-instagram"></i></a>
-    //   </div>
-    //   <div className="newsletter">
-    //     <h3>Subscribe to our Newsletter</h3>
-    //     <form>
-    //       <input type="email" placeholder="Enter your email" />
-    //       <button type="submit">Subscribe</button>
-    //     </form>
-    //   </div>
-    // </footer>
 
     <>
       <div className="footer">
         <div className="footerContent1">
           <div className="footerBrand">
-            <a href="/">
+            <Link to="/">
               <h2>SHOOOZ</h2>
-            </a>
+              <h6>YOUR FOOTWEAR DESTINATION</h6>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae commodi velit sed delectus, nulla doloremque perspiciatis quasi, eos enim aperiam saepe corrupti cupiditate quo illum voluptatum, ipsa dignissimos animi deserunt?</p>
+            </Link>
           </div>
           <div className="footerSupportLinks">
             <ul>
-              <a href="#">
+              <Link to="#">
                 <li>About Us</li>
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="#">
                 <li>Contact</li>
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="#">
                 <li>Terms & Conditions</li>
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="#">
                 <li>Privacy Policy</li>
-              </a>
+              </Link>
             </ul>
           </div>
           <div className="footerMainLinks">
             <ul>
-              <a href="#">
+              <Link to="/latestarrival">
                 <li>Latest Arrivals</li>
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="/mens">
                 <li>Mens</li>
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="/womens">
                 <li>Womens</li>
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="/categories">
                 <li>Categories</li>
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="/luxury">
                 <li>Luxury</li>
-              </a>
+              </Link>
             </ul>
           </div>
         </div>
-        <div className="footerContent2">
+        {/* <div className="footerContent2">
           <div className="footerSearch">
             <h3>Search</h3>
             <input type="search" placeholder="Type here to search..." />
@@ -81,7 +59,7 @@ const Footer = () => {
         </div>
         <div className="footerContent3">
           <p>This Website is created by <a href="#">SreejithDev2002</a></p>
-        </div>
+        </div> */}
       </div>
     </>
   );

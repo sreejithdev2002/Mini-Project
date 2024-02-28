@@ -1,7 +1,18 @@
-.login {
+.loginAdmin{
+  display: flex;
+  flex-direction: column;
+  margin: 20px 50px;
+}
+
+.loginAdmh1{
+  font-size: 2em;
+  font-family: "Play", sans-serif;
+}
+
+.loginAdm {
   display: flex;
   flex-direction: row;
-  margin: 220px 0px;
+  margin: 100px 0px;
   align-items: center;
   justify-content: space-evenly;
   border-radius: 2px;
@@ -81,28 +92,6 @@
   align-items: center;
 }
 
-.loginCreateAccount{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.loginCreateAccount button{
-  height: 6vh;
-  width: 26vw;
-  padding: 10px 50px;
-  color: rgb(206, 68, 37);
-  background-color: white;
-  cursor: pointer;
-  border: solid 1px rgb(206, 68, 37) ;
-  font-size: 18px;
-  border-radius: 2px;
-}
-
-.loginCreateAccount button:hover{
-  color: white;
-  background-color: rgb(206, 68, 37);
-}
 
 
 .loginImage {

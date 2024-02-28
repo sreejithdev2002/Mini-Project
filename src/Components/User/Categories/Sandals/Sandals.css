@@ -1,0 +1,22 @@
+.sandals{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px;
+    padding-top: 150px;
+    background-color: #f0f0f045;
+}
+
+.sandalsHeading{
+    margin-left: 50px;
+}
+
+@media only screen and (max-width: 768px){
+
+    .sandals{
+        padding-top: 200px;
+    }
+
+    .sandalsHeading{
+        margin-left: 90px;
+    }
+}
