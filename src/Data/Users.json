@@ -6,7 +6,8 @@
         "email": "anandhu@gmail.com",
         "name": "Anandhu KB",
         "password": "anandhu123",
-        "role": "User"
+        "role": "User",
+        "isBlocked": false
       },
       {
         "id": 2,
@@ -14,7 +15,8 @@
         "email": "nikhil@gmail.com",
         "name": "Nikhil K",
         "password": "nikhil123",
-        "role": "User"
+        "role": "User",
+        "isBlocked": false
       },
       {
         "id": 3,
@@ -22,7 +24,8 @@
         "email": "saneesh@gmail.com",
         "name": "Saneesh NT",
         "password": "saneesh123",
-        "role": "User"
+        "role": "User",
+        "isBlocked": false
       },
       {
         "id": 4,
@@ -30,7 +33,35 @@
         "email": "sreejithdev2002@gmail.com",
         "name": "Sreejith U",
         "password": "sreejith123",
-        "role": "User"
+        "role": "User",
+        "isBlocked": false
+      },
+      {
+        "id": 5,
+        "username": "aasa",
+        "email": "aasasasikumar@gmail.com",
+        "name": "Aasa S",
+        "password": "aasa123",
+        "role": "User",
+        "isBlocked": false
+      },
+      {
+        "id": 6,
+        "username": "nikhitha",
+        "email": "nikhitha@gmail.com",
+        "name": "Nikhitha",
+        "password": "nikhitha123",
+        "role": "User",
+        "isBlocked": false
+      },
+      {
+        "id": 7,
+        "username": "vasihnima",
+        "email": "vaishnima@gmail.com",
+        "name": "Vaishnima",
+        "password": "vaishnima123",
+        "role": "User",
+        "isBlocked": true
       }
     ]
   }

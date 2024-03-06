@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { CartIcon, ProfileIcon, WishlistIcon } from "../../../Assets/Icons";
+import { CartIcon, ProfileIcon, WishlistIconTrue } from "../../../Assets/Icons";
 import "./Header.css";
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Header() {
   const [isSolid, setIsSolid] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,54 +24,61 @@ function Header() {
     };
   }, []);
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen(prevState => !prevState);
+  };
+
+  const handleLogout = () => {
+    // Handle logout logic here
+    console.log("Logout clicked");
+    // For example, you can clear local storage or log out from the server
+  };
+
   return (
     <>
       <div className={isSolid ? "header" : "transHeader"}>
         <div className="headerName">
           <Link to="/admin">
-            <h2>SHOOOZ</h2>
+            <h2>SHOOOZ <span style={{ fontFamily: 'sans-serif', fontSize: '20px' }}>Admin</span></h2>
           </Link>
         </div>
         <div className="headerLinks">
-          <Link to="#">
+          <Link to="/admin/view">
             <div className="headerLinksIndividual" id="latestArrivals">
-              <p>Latest Arrivals</p>
+              <p>View Products</p>
             </div>
           </Link>
-          <Link to="#">
+          <Link to="/admin/add">
             <div className="headerLinksIndividual" id="Mens">
-              <p>Mens</p>
+              <p>Add Products</p>
             </div>
           </Link>
-          <Link to="#">
+          <Link to="/admin/edit/:productId">
             <div className="headerLinksIndividual" id="Womens">
-              <p>Womens</p>
+              <p>Edit Product</p>
             </div>
           </Link>
           <Link to="#">
             <div className="headerLinksIndividual" id="categories">
-              <p>Categories</p>
-            </div>
-          </Link>
-          <Link to="#">
-            <div className="headerLinksIndividual" id="Luxury">
-              <p>Luxury</p>
+              <p>Stats</p>
             </div>
           </Link>
         </div>
         <div className="headerButtons">
-          {/* <div className="headerSearchBox">
-            <input type="search" id="" placeholder="Search..." />
-          </div> */}
           <Link to="#">
-            <WishlistIcon />
+            <WishlistIconTrue />
           </Link>
           <Link to="#">
             <CartIcon />
           </Link>
-          <Link to="#">
+          <button style={{ border: 'none', backgroundColor: 'transparent', cursor: 'pointer' }} onClick={toggleDropdown}>
             <ProfileIcon />
-          </Link>
+          </button>
+          {isDropdownOpen && (
+            <div className="dropdownContent">
+              <button onClick={handleLogout}>Logout</button>
+            </div>
+          )}
         </div>
       </div>
     </>

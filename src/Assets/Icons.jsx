@@ -1,8 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons'
 
-const WishlistIcon = () => {
+const WishlistIconTrue = () => {
   return <FontAwesomeIcon icon={faHeart} style={{ color: 'red',fontSize: '22px'}} />;
+};
+
+const WishlistIconFalse = () => {
+  return <FontAwesomeIcon icon={faHeart} style={{ color: 'white',fontSize: '22px'}} />;
 };
 
 const CartIcon = () => {
@@ -13,4 +17,4 @@ const ProfileIcon = () => {
   return <FontAwesomeIcon icon={faUser} style={{ color: 'black',fontSize: '22px' }}/>
 }
 
-export { WishlistIcon, CartIcon, ProfileIcon};
+export { WishlistIconTrue, WishlistIconFalse ,CartIcon, ProfileIcon};

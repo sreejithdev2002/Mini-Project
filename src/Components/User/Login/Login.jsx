@@ -1,66 +1,90 @@
 import React from "react";
 import "./Login.css";
-import loginImage from '../../../Assets/Images/login.jpg';
+import loginImage from "../../../Assets/Images/login.jpg";
 import { useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 function Login() {
-
   const navigate = useNavigate();
-  const handleClick = () => navigate('/signup');
 
-  
+  const validationSchema = Yup.object().shape({
+    email: Yup.string().email("Invalid email address").required("Email is required"),
+    password: Yup.string().required("Password is required"),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      // You can handle form submission logic here
+      console.log("Form submitted:", values);
+    },
+  });
+
+  const handleClick = () => navigate("/signup");
+
   return (
     <>
       <div className="loginUser">
         <h1 className="loginUsrh1">SHOOOZ</h1>
         <div className="loginUsr">
-        <div className="loginSection">
-          <form action="">
-            <h1>Account Login</h1>
-            <p>Please enter your email and password.</p>
-            <div className="loginUserInput">
-              <div className="loginUsername">
-                <label htmlFor="email">Username</label>
-                <input
-                  type="email"
-                  name="email"
-                  id="loginEmail"
-                  className="loginInput"
-                  placeholder="Enter your name"
-                  required
-                />
+          <div className="loginSection">
+            <form onSubmit={formik.handleSubmit}>
+              <h1>Account Login</h1>
+              <p>Please enter your email and password.</p>
+              <div className="loginUserInput">
+                <div className="loginUsername">
+                  <label htmlFor="email">Username</label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="loginEmail"
+                    className="loginInput"
+                    placeholder="Enter your email"
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  />
+                  {formik.touched.email && formik.errors.email && <p className="error-message" style={{ marginTop: "5px", color: "red"}}>{formik.errors.email}</p>}
+                </div>
+                <br />
+                <div className="loginPassword">
+                  <label htmlFor="password">Password</label>
+                  <input
+                    type="password"
+                    name="password"
+                    id="loginPassword"
+                    className="loginInput"
+                    placeholder="Enter your password"
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  />
+                  {formik.touched.password && formik.errors.password && <p className="error-message" style={{ marginTop: "5px", color: "red"}}>{formik.errors.password}</p>}
+                </div>
+                <br />
+                <div className="loginSubmit">
+                  <button type="submit">Login</button>
+                </div>
+                <br />
+                <div className="loginOr">
+                  <p>or</p>
+                </div>
+                <br />
+                <div className="loginCreateAccount">
+                  <button type="button" onClick={handleClick}>Create Account</button>
+                </div>
               </div>
-              <br />
-              <div className="loginPassword">
-                <label htmlFor="password">Password</label>
-                <input
-                  type="password"
-                  name="password"
-                  id="loginPassword"
-                  className="loginInput"
-                  placeholder="Enter your password"
-                  required
-                />
-              </div>
-              <br />
-              <div className="loginSubmit">
-                <button type="submit">Login</button>
-              </div>
-              <br />
-              <div className="loginOr">
-              <p>or</p>
-              </div>
-              <br />
-              <div className="loginCreateAccount">
-                <button type="submit" onClick={handleClick}>Create Account</button>
-              </div>
-            </div>
-          </form>
+            </form>
+          </div>
+          <div className="loginImageSection">
+            <img src={loginImage} alt="" className="loginImage" />
+          </div>
         </div>
-        <div className="loginImageSection">
-          <img src={loginImage} alt="" className="loginImage" />
-        </div>
-      </div>
       </div>
     </>
   );

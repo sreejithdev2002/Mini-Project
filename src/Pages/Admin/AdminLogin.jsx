@@ -1,16 +1,12 @@
-import React from "react";
-import Login from "../../Components/Admin/Login/Login";
-// import Header from "../../Components/Admin/Header/Header";
-// import Footer from "../../Components/Admin/Footer/Footer";
+import React from 'react';
+import Login from '../../Components/Admin/Login/Login';
 
 function AdminLogin() {
   return (
     <>
-      {/* <Header /> */}
-      <Login />
-      {/* <Footer /> */}
+      <Login/>
     </>
-  );
+  )
 }
 
-export default AdminLogin;
+export default AdminLogin

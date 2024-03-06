@@ -61,28 +61,32 @@
 .sinPrdDetailsSizes {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
+  background-color: beige;
+  border-radius: 10px;
 }
 
 .sinPrdSizes {
   display: flex;
   height: 50px;
   width: 50px;
-  background-color: burlywood;
-  margin: 10px 10px;
+  background-color: #ff5656;
+  margin: 10px 0px;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  border-radius: 50px;
+  font-size: 18px;
+  color: white;
 }
 
 .sinPrdSizes:hover {
-  background-color: rgb(183, 150, 107);
+  background-color: #ef3737;
 }
 
 .sinPrdButtons {
-  position: relative;
+  display: flex;
   margin: 0px 10px;
-  top: 50px;
-  z-index: -1;
 }
 
 .sinPrdBtn {
@@ -95,6 +99,7 @@
   border-radius: 5px;
   font-size: 15px;
   font-weight: bold;
+  margin-top: 100px;
 }
 
 #sinPrdBtn2 {

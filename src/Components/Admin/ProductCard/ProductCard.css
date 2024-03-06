@@ -69,17 +69,22 @@
     font-size: 15px;
 }
 
-#prdCardBtnCart{
+#prdCardBtnDelete{
     background-color: #ff4444;
     color: white;
 }
 
-#prdCardBtnCart:hover{
+#prdCardBtnDelete:hover{
     background-color: #ff2525;
 }
 
-#prdCardBtnWishlist {
+#prdCardBtnEdit:hover{
     background-color: #ff4444;
+    color: white;
+}
+
+#prdCardBtnEdit{
+    background-color: white;
+    color: #ff4444;
     border: 1px solid #ff4444;
-    border: none
 }

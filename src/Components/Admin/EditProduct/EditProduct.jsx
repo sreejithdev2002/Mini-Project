@@ -1,82 +1,70 @@
-import React, { useState } from "react";
-import "./AddProduct.css";
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import ShoesData from '../../../Data/Shoes.json';
+import './EditProduct.css'
 
-function AddProduct() {
-  const [product, setProduct] = useState({
-    id: "",
-    name: "",
-    brand: "Adidas",
-    description: "",
-    price: "",
-    gender: "Male",
-    isLuxury: false,
-    dateAdded: "",
-    category: "Casuals",
-  });
+function EditProduct() {
+    const [product, setProduct] = useState({ id: '', name: '', brand: '', description: ''  ,price: 0, gender: '', isLuxury: false, dateAdded: '',category: ''});
+    const { productId } = useParams();
+    const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setProduct((prevProduct) => ({
-      ...prevProduct,
-      [name]: value,
-    }));
-  };
+    useEffect(() => {
+        // Find the product with the matching productId
+        const foundProduct = ShoesData.shoes.find(item => item.id === parseInt(productId));
+        if (foundProduct) {
+            setProduct(foundProduct);
+        }
+    }, [productId]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setProduct({ ...product, [name]: value });
+    }
 
-    console.log("Product Data", product);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Here you can handle the submission of the edited product details
+        console.log("Updated Product:", product);
+        // Redirect or perform any necessary actions after submission
+        navigate('/admin/view'); // For example, navigate to the products page
+    };
 
-    setProduct({
-      id: "",
-      name: "",
-      brand: "Adidas",
-      description: "",
-      price: "",
-      gender: "Male",
-      isLuxury: false,
-      dateAdded: "",
-      category: "Casuals",
-    });
-  };
-
-  return (
-    <>
-      <div className="addProduct">
-        <h1>Add Product</h1>
-        <div className="addProductSection">
-          <form onSubmit={handleSubmit}>
-            <div className="addProductInputDiv">
+    return (
+        <div className='adminEditProduct'>
+            <h1>Edit Product</h1>
+            <div className="editProductSection">
+            <form onSubmit={handleSubmit}>
+            <div className="editProductInputDiv">
               <label>ID</label>
               <input
                 type="number"
                 name="id"
                 value={product.id}
-                onChange={handleChange}
+                onChange={handleInputChange}
                 placeholder="ENTER PRODUCT ID..."
                 id="input"
               />
             </div>
             <br />
-            <div className="addProductInputDiv">
+            <div className="editProductInputDiv">
               <label>Name</label>
               <input
                 type="text"
                 name="name"
                 value={product.name}
-                onChange={handleChange}
+                onChange={handleInputChange}
                 placeholder="ENTER NAME HERE..."
                 id="input"
               />
             </div>
 
             <br />
-            <div className="addProductInputDiv">
+            <div className="editProductInputDiv">
               <label>Brand</label>
               <select
                 name="brand"
                 value={product.brand}
-                onChange={handleChange}
+                onChange={handleInputChange}
                 id="input"
               >
                 <option value="Adidas">Adidas</option>
@@ -87,37 +75,37 @@ function AddProduct() {
             </div>
 
             <br />
-            <div className="addProductInputDiv">
+            <div className="editProductInputDiv">
               <label>Description</label>
               <textarea
                 name="description"
                 value={product.description}
-                onChange={handleChange}
+                onChange={handleInputChange}
                 placeholder="PRODUCT DESCRIPTION..."
                 id="input"
               />
             </div>
 
             <br />
-            <div className="addProductInputDiv">
+            <div className="editProductInputDiv">
               <label>Price</label>
               <input
                 type="number"
                 name="price"
                 value={product.price}
-                onChange={handleChange}
+                onChange={handleInputChange}
                 placeholder="ENTER PRICE HERE ..."
                 id="input"
               />
             </div>
 
             <br />
-            <div className="addProductInputDiv">
+            <div className="editProductInputDiv">
               <label>Gender</label>
               <select
                 name="gender"
                 value={product.gender}
-                onChange={handleChange}
+                onChange={handleInputChange}
                 id="input"
               >
                 <option value="Male">Male</option>
@@ -126,12 +114,12 @@ function AddProduct() {
             </div>
 
             <br />
-            <div className="addProductInputDiv">
+            <div className="editProductInputDiv">
               <label>Luxury</label>
               <select
                 name="isLuxury"
                 value={product.isLuxury}
-                onChange={handleChange}
+                onChange={handleInputChange}
                 id="input"
               >
                 <option value={true}>yes</option>
@@ -139,25 +127,25 @@ function AddProduct() {
               </select>
             </div>
             <br />
-            <div className="addProductInputDiv">
+            <div className="editProductInputDiv">
               <label>Date Added</label>
               <input
                 type="text"
                 name="dateAdded"
                 value={product.dateAdded}
-                onChange={handleChange}
+                onChange={handleInputChange}
                 placeholder="YYYY - MM - DD"
                 id="input"
               />
             </div>
 
             <br />
-            <div className="addProductInputDiv">
+            <div className="editProductInputDiv">
               <label>Category</label>
               <select
                 name="category"
                 value={product.category}
-                onChange={handleChange}
+                onChange={handleInputChange}
                 id="input"
               >
                 <option value="Casuals">Casuals</option>
@@ -168,14 +156,13 @@ function AddProduct() {
             </div>
 
             <br />
-            <button type="submit" id="AddProductBtn">
-              Add Product
+            <button type="submit" id="editProductBtn">
+              Save Changes
             </button>
           </form>
+            </div>
         </div>
-      </div>
-    </>
-  );
+    )
 }
 
-export default AddProduct;
+export default EditProduct;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { CartIcon, ProfileIcon, WishlistIcon } from "../../../Assets/Icons";
+import { CartIcon, ProfileIcon, WishlistIconTrue } from "../../../Assets/Icons";
 import "./Header.css";
 import {Link} from 'react-router-dom';
 
@@ -62,8 +62,8 @@ function Header() {
           {/* <div className="headerSearchBox">
             <input type="search" id="" placeholder="Search..." />
           </div> */}
-          <Link to="#">
-            <WishlistIcon />
+          <Link to="/wishlist">
+            <WishlistIconTrue />
           </Link>
           <Link to="#">
             <CartIcon />

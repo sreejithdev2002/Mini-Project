@@ -71,10 +71,6 @@
   border-radius: 100%;
 }
 
-.headerButtons a:hover {
-  background-color: rgb(233, 233, 233);
-}
-
 @media only screen and (max-width: 768px) {
   .header {
     flex-direction: column;

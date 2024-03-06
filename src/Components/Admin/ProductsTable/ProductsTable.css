@@ -1,46 +1,48 @@
-.adminHome{
+.adminProducts{
     margin: 100px 20px;
 }
 
-.adminHome h1, .adminHome h2{
+.adminProducts h1{
     margin: 20px 0px;
 }
 
-.userListTable{
+.proTable{
     width: 100%;
     border-collapse: collapse;
 }
 
-.userListTable th, .userListTable td {
+.proTable th, .proTable td {
     border : 1px solid #ddd;
     padding: 8px;
 }
 
-.userListTable th{
+.proTable th{
     background-color: #f2f2f2;
     text-align: left;
 }
 
-.userListTable tbody tr:nth-child(even){
+.proTable tbody tr:nth-child(even){
     background-color: #f2f2f2;
 }
 
-.userListTable tbody tr:hover{
+.proTable tbody tr:hover{
     background-color: #ddd;
 }
 
-.adminUserListBlock {
-    width: 50%;
-    height: 30px;
+.adminProTableBtn {
+    width: 100%;
+    height: 50px;
+    margin: 5px 0px;
     border: none;
     background-color: #ff5a5a;
     border-radius: 10px;
     color: white;
     font-size: 15px;
+    font-weight: bolder;
     font-family: sans-serif;
     cursor: pointer;
 }
 
-.adminUserListBlock:hover{
+.adminProTableBtn:hover{
     background-color: #ff3e3e;
 }
