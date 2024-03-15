@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { CartIcon, ProfileIcon, WishlistIconTrue } from "../../../Assets/Icons";
+import { ProfileIcon, WishlistIconTrue } from "../../../Assets/Icons";
 import "./Header.css";
-import {Link} from 'react-router-dom';
+import { Link , useNavigate} from "react-router-dom";
 
 function Header() {
+
+  const navigate = useNavigate();
+
   const [isSolid, setIsSolid] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const LoggedIn = true;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,12 +29,33 @@ function Header() {
     };
   }, []);
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen((prevState) => !prevState);
+  };
+
+  const handleLogout = () => {
+    // Handle logout logic here
+    console.log("Logout clicked");
+    // For example, you can clear local storage or log out from the server
+  };
+
+  const handleLogin = () => {
+    console.log("Login Clicked");
+    navigate("/login")
+
+  };
+
+  const handleSignup = () => {
+    console.log("Signup clicked");
+    navigate("/signup")
+  };
+
   return (
     <>
       <div className={isSolid ? "header" : "transHeader"}>
         <div className="headerName">
-          <Link to='/'>
-          <h2>SHOOOZ</h2>
+          <Link to="/">
+            <h2>SHOOOZ</h2>
           </Link>
         </div>
         <div className="headerLinks">
@@ -59,18 +86,27 @@ function Header() {
           </Link>
         </div>
         <div className="headerButtons">
-          {/* <div className="headerSearchBox">
-            <input type="search" id="" placeholder="Search..." />
-          </div> */}
           <Link to="/wishlist">
             <WishlistIconTrue />
           </Link>
-          <Link to="#">
-            <CartIcon />
-          </Link>
-          <Link to="#">
+          <div className="headerProfileIcon" onClick={toggleDropdown}>
             <ProfileIcon />
-          </Link>
+          </div>
+          {isDropdownOpen && (
+            <div className="userDropdownContent">
+              {LoggedIn && (
+                <div>
+                  <button onClick={handleLogin}>Login</button>
+                  <button onClick={handleSignup}>SignUp</button>
+                </div>
+              )}
+              {!LoggedIn && (
+                <div>
+                  <button onClick={handleLogout}>Logout</button>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </>

@@ -6,6 +6,13 @@
     margin: 20px 0px;
 }
 
+.adminProducts h3{
+    margin: 10px 0px;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: end;
+}
+
 .proTable{
     width: 100%;
     border-collapse: collapse;

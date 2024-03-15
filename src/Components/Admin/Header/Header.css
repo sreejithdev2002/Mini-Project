@@ -7,7 +7,8 @@
   background-color: rgb(243, 243, 243);
   position: fixed;
   top: 0px;
-  width: 95%;
+  width: 100%;
+  z-index: 1;
 }
 
 .transHeader {
@@ -17,7 +18,8 @@
   padding: 20px 50px;
   position: fixed;
   top: 0px;
-  width: 95%;
+  width: 100%;
+  z-index: 1;
 }
 
 .headerName h2 {
@@ -37,6 +39,7 @@
 .headerLinksIndividual {
   padding: 10px 20px;
   border-radius: 5px;
+  height: 45px;
 }
 
 .headerLinksIndividual:hover {
@@ -89,6 +92,32 @@
 
 .dropdownContent button:hover {
   background-color: #f1f1f1;
+}
+
+.headerProfileIcon{
+  padding: 10px 13px;
+  margin: 0px 5px;
+  cursor: pointer;
+}
+
+.userDropdownContent {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 70px;
+  right: 20px;
+}
+
+.userDropdownContent button{
+  padding: 5px 15px;
+  margin: 0px 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.userDropdownContent button:hover{
+  background-color: rgb(187, 187, 187);
 }
 
 @media only screen and (max-width: 768px) {

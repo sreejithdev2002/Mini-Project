@@ -2,8 +2,20 @@
     margin: 100px 20px;
 }
 
-.adminHome h1, .adminHome h2{
+.adminHome h1{
     margin: 20px 0px;
+}
+
+.adminHome h3{
+    margin: 10px 0px;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: end;
+}
+
+.adminUserTable{
+    display: flex;
+    justify-content: center;
 }
 
 .userListTable{

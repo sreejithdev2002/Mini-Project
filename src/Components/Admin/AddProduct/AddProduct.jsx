@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 import "./AddProduct.css";
 
 function AddProduct() {
@@ -26,6 +28,9 @@ function AddProduct() {
     e.preventDefault();
 
     console.log("Product Data", product);
+
+        // Show toast message
+        toast.success(`${product.name} added successfully`);
 
     setProduct({
       id: "",
@@ -171,6 +176,7 @@ function AddProduct() {
             <button type="submit" id="AddProductBtn">
               Add Product
             </button>
+            <ToastContainer />
           </form>
         </div>
       </div>

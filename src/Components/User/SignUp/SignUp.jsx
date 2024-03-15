@@ -1,35 +1,52 @@
-import React from 'react';
-import './SignUp.css';
-import signupImage from '../../../Assets/Images/signup.jpg';
-import { useFormik } from 'formik';
-import { useNavigate } from 'react-router-dom';
-import * as Yup from 'yup';
+import React from "react";
+import "./SignUp.css";
+import signupImage from "../../../Assets/Images/signup.jpg";
+import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
+import * as Yup from "yup";
+
+import { Signup } from "../../../Services/UserApi";
 
 function SignUp() {
   const navigate = useNavigate();
 
+  const initialValues = {
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  };
+
+
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Username is required'),
-    email: Yup.string().email('Invalid email address').required('Email is required'),
-    password: Yup.string().min(6, 'Password must be at least 6 characters long').required('Password is required'),
-    confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match').required('Confirm Password is required'),
+    name: Yup.string().required("Username is required"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    password: Yup.string()
+      .min(6, "Password must be at least 6 characters long")
+      .required("Password is required"),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref("password"), null], "Passwords must match")
+      .required("Confirm Password is required"),
   });
 
+  const onSubmit = async (values) => {
+    console.log(values);
+
+    const {data} = await Signup(values);
+  }
+
   const formik = useFormik({
-    initialValues: {
-      name: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
-    },
-    validationSchema: validationSchema,
-    onSubmit: (values) => {
-      // Perform signup logic here
-      alert("Signup Successful");
-      // Redirect to homepage
-      navigate('/');
-    },
+    initialValues,
+    validationSchema,
+    onSubmit,
   });
+
+
+  const goToLogin = () => {
+    navigate("/login")
+  }
 
   return (
     <>
@@ -53,7 +70,14 @@ function SignUp() {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                   />
-                  {formik.touched.name && formik.errors.name && <p className="error-message" style={{ marginTop: "5px", color: "red"}}>{formik.errors.name}</p>}
+                  {formik.touched.name && formik.errors.name && (
+                    <p
+                      className="error-message"
+                      style={{ marginTop: "5px", color: "red" }}
+                    >
+                      {formik.errors.name}
+                    </p>
+                  )}
                 </div>
                 <br />
                 <div className="signupEmail">
@@ -68,7 +92,14 @@ function SignUp() {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                   />
-                  {formik.touched.email && formik.errors.email && <p className="error-message" style={{ marginTop: "5px", color: "red"}}>{formik.errors.email}</p>}
+                  {formik.touched.email && formik.errors.email && (
+                    <p
+                      className="error-message"
+                      style={{ marginTop: "5px", color: "red" }}
+                    >
+                      {formik.errors.email}
+                    </p>
+                  )}
                 </div>
                 <br />
                 <div className="signupPassword">
@@ -83,7 +114,14 @@ function SignUp() {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                   />
-                  {formik.touched.password && formik.errors.password && <p className="error-message" style={{ marginTop: "5px", color: "red"}}>{formik.errors.password}</p>}
+                  {formik.touched.password && formik.errors.password && (
+                    <p
+                      className="error-message"
+                      style={{ marginTop: "5px", color: "red" }}
+                    >
+                      {formik.errors.password}
+                    </p>
+                  )}
                 </div>
                 <br />
                 <div className="signupPassword">
@@ -98,7 +136,15 @@ function SignUp() {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                   />
-                  {formik.touched.confirmPassword && formik.errors.confirmPassword && <p className="error-message" style={{ marginTop: "5px", color: "red"}}>{formik.errors.confirmPassword}</p>}
+                  {formik.touched.confirmPassword &&
+                    formik.errors.confirmPassword && (
+                      <p
+                        className="error-message"
+                        style={{ marginTop: "5px", color: "red" }}
+                      >
+                        {formik.errors.confirmPassword}
+                      </p>
+                    )}
                 </div>
                 <br />
                 <div className="signupSubmit">
@@ -110,7 +156,7 @@ function SignUp() {
                 </div>
                 <br />
                 <div className="signupLoginAccount">
-                  <button type="button" >Go to Login</button>
+                  <button type="button" onClick={goToLogin}>Go to Login</button>
                 </div>
               </div>
             </form>
@@ -121,7 +167,7 @@ function SignUp() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
 export default SignUp;

@@ -7,7 +7,8 @@
   background-color: rgb(243, 243, 243);
   position: fixed;
   top: 0px;
-  width: 95%;
+  width: 100%;
+  z-index: 1;
 }
 
 .transHeader{
@@ -17,7 +18,8 @@
   padding: 20px 50px;
   position: fixed;
   top: 0px;
-  width: 95%;
+  width: 100%;
+  z-index: 1;
 }
 
 .headerName a {
@@ -42,6 +44,7 @@
 .headerLinksIndividual {
   padding: 10px 20px;
   border-radius: 5px;
+  height: 45px;
 }
 
 .headerLinksIndividual:hover {

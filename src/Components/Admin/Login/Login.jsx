@@ -1,12 +1,14 @@
 import React from "react";
 import "./Login.css";
 import loginImage from "../../../Assets/Images/login.jpg";
-import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
 
-  const navigate = useNavigate();
-  const handleClick = () => navigate("/signup");
+  const handleLogin = () => {
+    toast.success("Admin Login Successful")
+  }
 
   return (
     <>
@@ -16,14 +18,14 @@ function Login() {
           <div className="loginSection">
             <form action="">
               <h1>Account Login</h1>
-              <p>Please enter your email and password.</p>
+              <p>Please enter your username and password.</p>
               <div className="loginUserInput">
                 <div className="loginUsername">
                   <label htmlFor="email">Username</label>
                   <input
-                    type="email"
-                    name="email"
-                    id="loginEmail"
+                    type="name"
+                    name="name"
+                    id="loginName"
                     className="loginInput"
                     placeholder="Enter your name"
                     required
@@ -43,7 +45,7 @@ function Login() {
                 </div>
                 <br />
                 <div className="loginSubmit">
-                  <button type="submit" >
+                  <button type="submit" onClick={handleLogin}>
                     Login
                   </button>
                 </div>
@@ -55,6 +57,7 @@ function Login() {
           </div>
         </div>
       </div>
+      <ToastContainer/>
     </>
   );
 }

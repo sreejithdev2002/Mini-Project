@@ -32,7 +32,7 @@
 }
 
 .productDetails h3 {
-    color: #ff4444;
+    color: #019225;
     font-size: 25px;
     margin: 15px 0px;
 }
@@ -82,4 +82,29 @@
     background-color: #ff4444;
     border: 1px solid #ff4444;
     border: none
+}
+
+.productDetailsPriceCart{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.productDetailsPriceCart button {
+    margin: 6px 5px;
+    width: 40%;
+    padding: 10px 0px;
+    cursor: pointer;
+    background-color: #dadada;
+    border: none;
+    border-radius: 50px;
+    font-size: 15px;
+}
+
+.productWishlistIcon {
+    width: 23px;
+    position: relative;
+    top: 40px;
+    left: 310px;
+    cursor: pointer;
 }

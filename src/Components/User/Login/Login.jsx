@@ -5,11 +5,16 @@ import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function Login() {
   const navigate = useNavigate();
 
   const validationSchema = Yup.object().shape({
-    email: Yup.string().email("Invalid email address").required("Email is required"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
     password: Yup.string().required("Password is required"),
   });
 
@@ -22,6 +27,7 @@ function Login() {
     onSubmit: (values) => {
       // You can handle form submission logic here
       console.log("Form submitted:", values);
+      toast.success("Login Successful")
     },
   });
 
@@ -49,7 +55,14 @@ function Login() {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                   />
-                  {formik.touched.email && formik.errors.email && <p className="error-message" style={{ marginTop: "5px", color: "red"}}>{formik.errors.email}</p>}
+                  {formik.touched.email && formik.errors.email && (
+                    <p
+                      className="error-message"
+                      style={{ marginTop: "5px", color: "red" }}
+                    >
+                      {formik.errors.email}
+                    </p>
+                  )}
                 </div>
                 <br />
                 <div className="loginPassword">
@@ -64,7 +77,14 @@ function Login() {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                   />
-                  {formik.touched.password && formik.errors.password && <p className="error-message" style={{ marginTop: "5px", color: "red"}}>{formik.errors.password}</p>}
+                  {formik.touched.password && formik.errors.password && (
+                    <p
+                      className="error-message"
+                      style={{ marginTop: "5px", color: "red" }}
+                    >
+                      {formik.errors.password}
+                    </p>
+                  )}
                 </div>
                 <br />
                 <div className="loginSubmit">
@@ -76,7 +96,9 @@ function Login() {
                 </div>
                 <br />
                 <div className="loginCreateAccount">
-                  <button type="button" onClick={handleClick}>Create Account</button>
+                  <button type="button" onClick={handleClick}>
+                    Create Account
+                  </button>
                 </div>
               </div>
             </form>
@@ -86,6 +108,7 @@ function Login() {
           </div>
         </div>
       </div>
+      <ToastContainer/>
     </>
   );
 }

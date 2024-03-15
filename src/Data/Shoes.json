@@ -119,6 +119,54 @@
         "dateAdded": "2024-02-29",
         "category": "Casuals",
         "inWishlist": false
+      },
+      {
+        "id": 11,
+        "name": "Adidas Casuals",
+        "brand": "Adidas",
+        "description": "Trendy fashion boots for Men, featuring stylish details.",
+        "price": 1899.99,
+        "gender": "Men",
+        "isLuxury": true,
+        "dateAdded": "2024-03-13",
+        "category": "Casuals",
+        "inWishlist": false
+      },
+      {
+        "id": 12,
+        "name": "Adidas Formals",
+        "brand": "Adidas",
+        "description": "Trendy fashion boots for women, featuring stylish details.",
+        "price": 1099.99,
+        "gender": "Women",
+        "isLuxury": false,
+        "dateAdded": "2024-03-13",
+        "category": "Formals",
+        "inWishlist": false
+      },
+      {
+        "id": 13,
+        "name": "Puma Sandals",
+        "brand": "Puma",
+        "description": "Fashionable platform sandals for women, perfect for summer outings.",
+        "price": 799.99,
+        "gender": "Women",
+        "isLuxury": false,
+        "dateAdded": "2024-03-12",
+        "category": "Sandals",
+        "inWishlist": false
+      },
+      {
+        "id": 14,
+        "name": "Puma Sneakers",
+        "brand": "Puma",
+        "description": "Fashionable platform Sneakers for Men.",
+        "price": 1699.99,
+        "gender": "Men",
+        "isLuxury": true,
+        "dateAdded": "2024-03-12",
+        "category": "Sneakers",
+        "inWishlist": true
       }
     ]
   }

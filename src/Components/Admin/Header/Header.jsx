@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { CartIcon, ProfileIcon, WishlistIconTrue } from "../../../Assets/Icons";
+import { ProfileIcon } from "../../../Assets/Icons";
 import "./Header.css";
 import { Link } from 'react-router-dom';
 
@@ -53,11 +53,11 @@ function Header() {
               <p>Add Products</p>
             </div>
           </Link>
-          <Link to="/admin/edit/:productId">
+          {/* <Link to="/admin/edit/:productId">
             <div className="headerLinksIndividual" id="Womens">
               <p>Edit Product</p>
             </div>
-          </Link>
+          </Link> */}
           <Link to="#">
             <div className="headerLinksIndividual" id="categories">
               <p>Stats</p>
@@ -65,15 +65,9 @@ function Header() {
           </Link>
         </div>
         <div className="headerButtons">
-          <Link to="#">
-            <WishlistIconTrue />
-          </Link>
-          <Link to="#">
-            <CartIcon />
-          </Link>
-          <button style={{ border: 'none', backgroundColor: 'transparent', cursor: 'pointer' }} onClick={toggleDropdown}>
-            <ProfileIcon />
-          </button>
+          <div className="headerProfileIcon" onClick={toggleDropdown}>
+          <ProfileIcon />
+          </div>
           {isDropdownOpen && (
             <div className="dropdownContent">
               <button onClick={handleLogout}>Logout</button>

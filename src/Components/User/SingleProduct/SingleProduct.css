@@ -54,7 +54,8 @@
 }
 
 .sinPrdDetailsPrice {
-  color: rgb(255, 59, 59);
+  margin-top: 5px;
+  color: rgb(19, 149, 14);
   font-weight: bold;
 }
 
@@ -63,25 +64,24 @@
   flex-direction: row;
   justify-content: space-evenly;
   background-color: beige;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .sinPrdSizes {
   display: flex;
   height: 50px;
   width: 50px;
-  background-color: #ff5656;
+  background-color: #ffffff;
   margin: 10px 0px;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-radius: 50px;
+  border-radius: 5px;
   font-size: 18px;
-  color: white;
 }
 
 .sinPrdSizes:hover {
-  background-color: #ef3737;
+  background-color: #e2ffd1;
 }
 
 .sinPrdButtons {

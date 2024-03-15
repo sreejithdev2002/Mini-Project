@@ -13,7 +13,7 @@ function ProductsTable() {
   return (
     <div className="adminProducts">
       <h1>All Products</h1>
-      <h3 style={{margin: '10px 0px', fontFamily: 'sans-serif'}}>Total  Products: {totalProducts}</h3>
+      <h3>Total  Products: {totalProducts}</h3>
       <table className="proTable">
         <thead>
           <tr>
@@ -44,7 +44,7 @@ function ProductsTable() {
               </td>
               <td>
                 <Link to={`/admin/edit/${product.id}`}><button className="adminProTableBtn">Edit</button></Link>
-                <button className="adminProTableBtn">Delete</button>
+                <button className="adminProTableBtn">Disable</button>
               </td>
             </tr>
           ))}
