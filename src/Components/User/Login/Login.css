@@ -79,10 +79,9 @@
 }
 
 .loginInput {
-  padding: 10px 10px;
+  padding: 20px 10px;
   border: none;
-  width: 25vw;
-  height: 4vh;
+  width: 26vw;
   border-radius: 2px;
   border: solid 1px #eaeaea;
 }

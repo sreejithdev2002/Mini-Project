@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
-.header {
+.admHeader {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -11,7 +11,7 @@
   z-index: 1;
 }
 
-.transHeader {
+.admTransHeader {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -22,35 +22,35 @@
   z-index: 1;
 }
 
-.headerName h2 {
+.admHeaderName h2 {
   font-size: 2em;
   font-family: "Play", sans-serif;
 }
 
-.headerLinks {
+.admHeaderLinks {
   display: flex;
   flex-direction: row;
 }
 
-.headerLinks a {
+.admHeaderLinks a {
   text-decoration: none;
 }
 
-.headerLinksIndividual {
+.admHeaderLinksIndividual {
   padding: 10px 20px;
   border-radius: 5px;
   height: 45px;
 }
 
-.headerLinksIndividual:hover {
+.admHeaderLinksIndividual:hover {
   background-color: rgb(233, 233, 233);
 }
 
-.headerLinksIndividual p {
+.admHeaderLinksIndividual p {
   color: black;
 }
 
-.headerSearchBox input {
+.admHeaderSearchBox input {
   padding: 10px 20px;
   margin: 5px 10px;
   border: none;
@@ -58,19 +58,19 @@
   border-radius: 20px;
 }
 
-.headerButtons {
+.admHeaderButtons {
   display: flex;
   flex-direction: row;
 }
 
-.headerButtons a {
+.admHeaderButtons a {
   margin: 0px 5px;
   padding: 10px 13px;
   border-radius: 100%;
 }
 
 
-.dropdownContent {
+.admDropdownContent {
   display: block;
   position: absolute;
   top: 70px;
@@ -80,7 +80,7 @@
   z-index: 1;
 }
 
-.dropdownContent button {
+.admDropdownContent button {
   width: 100%;
   padding: 10px 20px;
   text-align: left;
@@ -90,17 +90,17 @@
   cursor: pointer;
 }
 
-.dropdownContent button:hover {
+.admDropdownContent button:hover {
   background-color: #f1f1f1;
 }
 
-.headerProfileIcon{
+.admHeaderProfileIcon{
   padding: 10px 13px;
   margin: 0px 5px;
   cursor: pointer;
 }
 
-.userDropdownContent {
+.admUserDropdownContent {
   display: flex;
   flex-direction: row;
   position: absolute;
@@ -108,7 +108,7 @@
   right: 20px;
 }
 
-.userDropdownContent button{
+.admUserDropdownContent button{
   padding: 5px 15px;
   margin: 0px 5px;
   border: none;
@@ -116,24 +116,31 @@
   cursor: pointer;
 }
 
-.userDropdownContent button:hover{
+.admUserDropdownContent button:hover{
   background-color: rgb(187, 187, 187);
 }
 
 @media only screen and (max-width: 768px) {
-  .header {
+  .admHeader {
     flex-direction: column;
     padding: 10px 10px;
     width: 120%;
     justify-content: space-between;
   }
 
-  .headerLinksIndividual {
+  .admTransHeader{
+    flex-direction: column;
+    padding: 10px 10px;
+    width: 120%;
+    justify-content: space-between;
+  }
+
+  .admHeaderLinksIndividual {
     padding: 5px 10px;
     margin: 10px 10px;
   }
 
-  .headerButtons {
+  .admHeaderButtons {
     margin: 0px 50px;
   }
 }

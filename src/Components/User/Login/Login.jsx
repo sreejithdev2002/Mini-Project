@@ -44,7 +44,7 @@ function Login() {
               <p>Please enter your email and password.</p>
               <div className="loginUserInput">
                 <div className="loginUsername">
-                  <label htmlFor="email">Username</label>
+                  <label htmlFor="email">Email</label>
                   <input
                     type="email"
                     name="email"

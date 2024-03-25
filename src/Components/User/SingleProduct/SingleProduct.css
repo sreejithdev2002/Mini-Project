@@ -118,3 +118,49 @@
 #sinPrdBtn1:hover{
     background-color: rgb(223, 223, 223);
 }
+
+@media only screen and (max-width: 768px) {
+  .singleProduct{
+    margin: 220px 0px;
+  }
+
+  .sinPrdTopSection {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 50px;
+  }
+
+  .sinPrdImg {
+    display: flex;
+    justify-content: center;
+  }
+
+  #sinPrdImg {
+    background-color: burlywood;
+    height: 400px;
+    width: 400px;
+  }
+
+  .sinPrdDetailSection {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.sinPrdDetailsPrice{
+  position: relative;
+  right: 130px;
+}
+
+.sinPrdBtn {
+  width: 33.5vw;
+  height: 50px;
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+}

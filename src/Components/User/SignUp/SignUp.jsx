@@ -19,7 +19,7 @@ function SignUp() {
 
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Username is required"),
+    name: Yup.string().required("Name is required"),
     email: Yup.string()
       .email("Invalid email address")
       .required("Email is required"),
@@ -59,7 +59,7 @@ function SignUp() {
               <p>Please enter your details.</p>
               <div className="signupUserInput">
                 <div className="signupUsername">
-                  <label htmlFor="name">Username</label>
+                  <label htmlFor="name">Name</label>
                   <input
                     type="text"
                     name="name"

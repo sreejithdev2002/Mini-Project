@@ -36,20 +36,20 @@ function Header() {
 
   return (
     <>
-      <div className={isSolid ? "header" : "transHeader"}>
-        <div className="headerName">
+      <div className={isSolid ? "admHeader" : "admTransHeader"}>
+        <div className="admHeaderName">
           <Link to="/admin">
             <h2>SHOOOZ <span style={{ fontFamily: 'sans-serif', fontSize: '20px' }}>Admin</span></h2>
           </Link>
         </div>
-        <div className="headerLinks">
+        <div className="admHeaderLinks">
           <Link to="/admin/view">
-            <div className="headerLinksIndividual" id="latestArrivals">
+            <div className="admHeaderLinksIndividual" id="latestArrivals">
               <p>View Products</p>
             </div>
           </Link>
           <Link to="/admin/add">
-            <div className="headerLinksIndividual" id="Mens">
+            <div className="admHeaderLinksIndividual" id="Mens">
               <p>Add Products</p>
             </div>
           </Link>
@@ -59,17 +59,17 @@ function Header() {
             </div>
           </Link> */}
           <Link to="#">
-            <div className="headerLinksIndividual" id="categories">
+            <div className="admHeaderLinksIndividual" id="categories">
               <p>Stats</p>
             </div>
           </Link>
         </div>
-        <div className="headerButtons">
-          <div className="headerProfileIcon" onClick={toggleDropdown}>
+        <div className="admHeaderButtons">
+          <div className="admHeaderProfileIcon" onClick={toggleDropdown}>
           <ProfileIcon />
           </div>
           {isDropdownOpen && (
-            <div className="dropdownContent">
+            <div className="admDropdownContent">
               <button onClick={handleLogout}>Logout</button>
             </div>
           )}
