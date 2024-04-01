@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import "./ProductCard.css";
 import { Link } from "react-router-dom";
 import { WishlistIconTrue, WishlistIconFalse } from "../../../Assets/Icons";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 function ProductCard({ product }) {
   const [inWishlist, setInWishlist] = useState(product.inWishlist);
@@ -35,7 +33,6 @@ function ProductCard({ product }) {
             <button id="prdCardBtnCart">Add to cart</button>
           </div>
         </div>
-        <ToastContainer/>
       </div>
     </>
   );

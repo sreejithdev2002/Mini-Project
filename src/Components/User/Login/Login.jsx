@@ -1,15 +1,18 @@
-import React from "react";
+import React from "react"; // Import useState
 import "./Login.css";
 import loginImage from "../../../Assets/Images/login.jpg";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+
+import { login } from "../../../Services/UserApi";
 
 function Login() {
   const navigate = useNavigate();
+
+  // const [userDetails, setUserDetails] = useState(null);
 
   const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -24,10 +27,22 @@ function Login() {
       password: "",
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-      // You can handle form submission logic here
-      console.log("Form submitted:", values);
-      toast.success("Login Successful")
+    onSubmit: async (values) => {
+      try {
+        console.log("On Submit !!!");
+        const { data } = await login(values);
+        console.log(data, "USER RETURN DATA !!!");
+        if (data.created) {
+          localStorage.setItem("jwt", data.token);
+          // dispatch(setUserDetails(data.user));
+          toast.success("Login Success", { position: "top-right" });
+          navigate("/");
+        } else {
+          toast.error(data.message, { position: "top-right" });
+        }
+      } catch (error) {
+        console.log(error);
+      }
     },
   });
 
@@ -108,7 +123,6 @@ function Login() {
           </div>
         </div>
       </div>
-      <ToastContainer/>
     </>
   );
 }
