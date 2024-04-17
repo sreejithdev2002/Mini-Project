@@ -39,7 +39,7 @@ function Login() {
         if(data.created){
           localStorage.setItem("jwt", data.token);
           toast.success("Login Success", {position: "top-right"});
-          navigate("/");
+          navigate("/admin");
         } else {
           toast.error(data.message, {position: "top-right"});
         }
@@ -57,10 +57,10 @@ function Login() {
           <div className="loginSection">
             <form onSubmit={formik.handleSubmit}>
               <h1>Account Login</h1>
-              <p>Please enter your username and password.</p>
+              <p>Please enter your email and password.</p>
               <div className="loginUserInput">
                 <div className="loginUsername">
-                  <label htmlFor="email">Username</label>
+                  <label htmlFor="email">Email</label>
                   <input
                     type="email"
                     name="email"

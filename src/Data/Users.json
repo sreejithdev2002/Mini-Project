@@ -2,16 +2,6 @@
     "users": [
       {
         "id": 1,
-        "username": "admin",
-        "email": "admin@gmail.com",
-        "name": " Admin",
-        "password": "admin123",
-        "role": "Admin",
-        "blockStatus": false,
-        "dateJoined": "2024-02-29"
-      },
-      {
-        "id": 2,
         "username": "anandhukb",
         "email": "anandhu@gmail.com",
         "name": "Anandhu KB",
@@ -21,7 +11,7 @@
         "dateJoined": "2024-03-01"
       },
       {
-        "id": 3,
+        "id": 2,
         "username": "nikhilk",
         "email": "nikhil@gmail.com",
         "name": "Nikhil K",
@@ -31,7 +21,7 @@
         "dateJoined": "2024-03-02"
       },
       {
-        "id": 4,
+        "id": 3,
         "username": "saneeshnt",
         "email": "saneesh@gmail.com",
         "name": "Saneesh NT",
@@ -41,7 +31,7 @@
         "dateJoined": "2024-03-03"
       },
       {
-        "id": 5,
+        "id": 4,
         "username": "sreejithu",
         "email": "sreejithdev2002@gmail.com",
         "name": "Sreejith U",
@@ -51,7 +41,7 @@
         "dateJoined": "2024-03-04"
       },
       {
-        "id": 6,
+        "id": 5,
         "username": "aasa",
         "email": "aasasasikumar@gmail.com",
         "name": "Aasa S",
@@ -61,7 +51,7 @@
         "dateJoined": "2024-03-05"
       },
       {
-        "id": 7,
+        "id": 6,
         "username": "nikhitha",
         "email": "nikhitha@gmail.com",
         "name": "Nikhitha",
@@ -71,7 +61,7 @@
         "dateJoined": "2024-03-06"
       },
       {
-        "id": 8,
+        "id": 7,
         "username": "vaishnima",
         "email": "vaishnima@gmail.com",
         "name": "Vaishnima",

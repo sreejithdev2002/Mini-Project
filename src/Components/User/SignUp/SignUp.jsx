@@ -35,7 +35,7 @@ function SignUp() {
     console.log(values);
 
     const {data} = await Signup(values);
-    navigate("/");
+    navigate("/login");
   }
 
   const formik = useFormik({

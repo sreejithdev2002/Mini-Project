@@ -88,15 +88,19 @@
   font-size: 16px;
 }
 
-.addProductInputDiv input[type="number"] {
+/* .addProductInputDiv input[type="number"] {
   -moz-appearance: textfield;
-}
+} */
 .addProductInputDiv input {
   width: 98.5%;
 }
 
 .addProductInputDiv textarea {
   resize: vertical;
+  width: 98.5%;
+}
+
+.addProductInputDiv select{
   width: 98.5%;
 }
 
