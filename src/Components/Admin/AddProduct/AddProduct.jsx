@@ -26,6 +26,8 @@ function AddProduct() {
   });
 
   const onSubmit = async (values) => {
+    values.dateAdded = new Date(values.dateAdded);
+    
     console.log(values);
     const response = await Products(values);
     console.log(response); // Log the entire response object

@@ -1,10 +1,24 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./LatestArrivals.css";
 import ProductPage from "../ProductPage/ProductPage";
-import ShoesData from '../../../Data/Shoes.json';
+import { latestArrivals } from "../../../Services/UserApi";
 
 function LatestArrivals() {
-  const latestArrivals = ShoesData.shoes.sort((a,b) => new Date(b.dateAdded) - new Date(a.dateAdded));
+
+  const [latestarrival, setLatestarrival] = useState([]);
+  
+  const fetchData = async () => {
+    const {data} = await latestArrivals();
+    if(data.status) {
+      setLatestarrival(data.LatestArrival);
+    } else {
+      console.log("error");
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -12,11 +26,10 @@ function LatestArrivals() {
         <div className="latestArrivalHeading">
           <h1>Latest Arrivals</h1>
         </div>
-        <ProductPage products={latestArrivals} />
+        <ProductPage products={latestarrival} />
       </div>
     </>
   );
 }
 
 export default LatestArrivals;
- 
