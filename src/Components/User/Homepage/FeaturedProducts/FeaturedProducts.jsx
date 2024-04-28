@@ -1,18 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./FeaturedProducts.css";
 import ProductPage from "../../ProductPage/ProductPage";
-import ShoesData from "../../../../Data/Shoes.json";
+import { featuredProducts } from "../../../../Services/UserApi";
 
 function FeaturedProducts() {
-  const shuffleArray = (array) => {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+
+  const [featuredData, setFeaturedData] = useState([]);
+
+  const fetchData = async() => {
+    const {data} = await featuredProducts();
+    if(data.status) {
+      setFeaturedData(data.FeaturedProducts);
+    } else {
+      console.log("error");
     }
-    return array;
   };
 
-  const featured = shuffleArray(ShoesData.shoes).slice(0, 4);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -20,7 +26,7 @@ function FeaturedProducts() {
         <h2 className="featuredHeading">Featured Products</h2>
         <hr id="hr" />
         <div className="featuredGrid">
-          <ProductPage products={featured} />
+          <ProductPage products={featuredData} />
         </div>
       </div>
     </>

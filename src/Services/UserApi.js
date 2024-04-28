@@ -15,6 +15,38 @@ export const login = (value) => {
 
 //GET METHODS
 
+export const featuredProducts = () => {
+  return userInstance.get("/");
+}
+
 export const latestArrivals = () => {
   return userInstance.get("/latestarrival");
+};
+
+export const mens = () => {
+  return userInstance.get("/mens");
+};
+
+export const womens = () => {
+  return userInstance.get("/womens");
+};
+
+export const casuals = () => {
+  return userInstance.get("/categories/casuals");
+};
+
+export const formals = () => {
+  return userInstance.get("/categories/formals");
+};
+
+export const sandals = () => {
+  return userInstance.get("/categories/sandals");
+};
+
+export const sneakers = () => {
+  return userInstance.get("/categories/sneakers");
+};
+
+export const luxury = () => {
+  return userInstance.get("/luxury");
 };

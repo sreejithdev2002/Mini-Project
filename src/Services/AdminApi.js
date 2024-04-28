@@ -12,6 +12,10 @@ export const Products = (value) => {
 
 //GET METHODS
 
-export const userList = (value) => {
+export const userList = () => {
     return adminInstance.get("/");
+};
+
+export const viewProducts = () => {
+    return adminInstance.get("/view");
 };

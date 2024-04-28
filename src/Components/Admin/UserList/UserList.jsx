@@ -39,7 +39,7 @@ function UserList() {
           </thead>
           <tbody>
             {users.map((user) => (
-              <tr key={user.id}>
+              <tr key={user.username}>
                 <td>{user.username}</td>
                 <td>{user.email}</td>
                 <td>

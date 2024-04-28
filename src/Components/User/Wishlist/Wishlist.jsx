@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Wishlist.css'
 import ProductPage from '../ProductPage/ProductPage';
-import ShoesData from '../../../Data/Shoes.json';
+// import ShoesData from '../../../Data/Shoes.json';
 
 function Wishlist() {
   const wishlist = ShoesData.shoes.filter(shoe => shoe.inWishlist === true);

@@ -1,7 +1,7 @@
 import React from "react";
 import "./SingleProduct.css";
 import { useParams } from "react-router-dom";
-import ShoesData from '../../../Data/Shoes.json';
+// import ShoesData from '../../../Data/Shoes.json';
 
 function SingleProduct() {
   const { productId } = useParams();

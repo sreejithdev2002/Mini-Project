@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import ShoesData from '../../../Data/Shoes.json';
+// import ShoesData from '../../../Data/Shoes.json';
 import './EditProduct.css'
 
 function EditProduct() {
