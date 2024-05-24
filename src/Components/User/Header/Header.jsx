@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { ProfileIcon, WishlistIconTrue } from "../../../Assets/Icons";
+import { ProfileIcon } from "../../../Assets/Icons";
 import "./Header.css";
 import { Link , useNavigate} from "react-router-dom";
+import { userStatus } from "../../../Services/UserApi";
 
 function Header() {
 
@@ -10,9 +11,22 @@ function Header() {
   const [isSolid, setIsSolid] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const LoggedIn = true;
+  const [LoggedIn, setLoggedIn] = useState(false);
+
+  const fetchData = async () => {
+    try{
+      const {isLoggedIn} = await userStatus();
+      if(!isLoggedIn){
+        setLoggedIn(false);
+      } 
+    } catch(error){
+      console.log("Error fetching status:",error);
+    }
+  };
 
   useEffect(() => {
+    fetchData();
+
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       if (scrollPosition > 50) {
@@ -36,6 +50,9 @@ function Header() {
   const handleLogout = () => {
     // Handle logout logic here
     console.log("Logout clicked");
+    localStorage.removeItem("jwt");
+
+    navigate("/login");
     // For example, you can clear local storage or log out from the server
   };
 
@@ -86,9 +103,6 @@ function Header() {
           </Link>
         </div>
         <div className="headerButtons">
-          <Link to="/wishlist">
-            <WishlistIconTrue />
-          </Link>
           <div className="headerProfileIcon" onClick={toggleDropdown}>
             <ProfileIcon />
           </div>

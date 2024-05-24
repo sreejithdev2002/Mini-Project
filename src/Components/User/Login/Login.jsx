@@ -34,7 +34,6 @@ function Login() {
         console.log(data, "USER RETURN DATA !!!");
         if (data.created) {
           localStorage.setItem("jwt", data.token);
-          // dispatch(setUserDetails(data.user));
           toast.success("Login Success", { position: "top-right" });
           navigate("/");
         } else {

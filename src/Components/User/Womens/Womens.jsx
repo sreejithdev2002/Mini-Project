@@ -2,18 +2,28 @@ import React, { useState, useEffect } from "react";
 import "./Womens.css";
 import ProductPage from "../ProductPage/ProductPage";
 import { womens } from "../../../Services/UserApi";
+import Loader from "../Loader/Loader";
 
 function Womens() {
   // const womens = ShoesData.shoes.filter(shoe => shoe.gender === 'Women');
 
   const [womensData, setWomensData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
-    const { data } = await womens();
-    if (data.status) {
-      setWomensData(data.Womens);
-    } else {
-      console.log("error");
+    try {
+      const { data } = await womens();
+      if (data.status) {
+        setWomensData(data.Womens);
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log("Error fetching data:", error);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
     }
   };
 
@@ -27,7 +37,7 @@ function Womens() {
         <div className="MensHeading">
           <h1>Womens Collections</h1>
         </div>
-        <ProductPage products={womensData} />
+        {loading ? <Loader /> : <ProductPage products={womensData} />}
       </div>
     </>
   );

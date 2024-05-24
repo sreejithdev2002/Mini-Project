@@ -1,31 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import "./ProductCard.css";
 import { Link } from "react-router-dom";
-import { WishlistIconTrue, WishlistIconFalse } from "../../../Assets/Icons";
 
-function ProductCard({ product }) {
-  const [inWishlist, setInWishlist] = useState(product.inWishlist);
-
-  const toggleWishlist = () => {
-    setInWishlist(!inWishlist);
-    if (!inWishlist) {
-      console.log(`${product.name} added to wishlist`);
-    } else {
-      console.log(`${product.name} removed from wishlist`);
-    }
-  };
+function ProductCard({ product, user }) {
   return (
     <>
       <div className="productCard">
-        <div className="productWishlistIcon" onClick={toggleWishlist}>
-          {inWishlist ? <WishlistIconTrue /> : <WishlistIconFalse />}
-        </div>
-        <Link to={`/product/${product.id}`}>
+        <Link to={`/product/${product._id}`}>
           <div className="productImg" />
         </Link>
         <div className="productDetails">
           <h2>{product.name}</h2>
-          <Link to={`/product/${product.id}`}>
+          <Link to={`/product/${product._id}`}>
             <p>{product.description}</p>
           </Link>
           <div className="productDetailsPriceCart">

@@ -13,7 +13,6 @@ import UserCasuals from '../Pages/User/UserCasuals';
 import UserFormals from '../Pages/User/UserFormals';
 import UserSandals from '../Pages/User/UserSandals';
 import UserSneakers from '../Pages/User/UserSneakers';
-import UserWishlist from '../Pages/User/UserWishlist';
 import UserLogin from '../Pages/User/UserLogin';
  
 function UserRouter() {
@@ -23,7 +22,7 @@ function UserRouter() {
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<UserLogin/>}/>
         <Route path='/signup' element={<SignUp/>}/>
-        <Route path='/product/:productId' element={<SingleProduct/>}/>
+        <Route path='/product/:id' element={<SingleProduct/>}/>
         <Route path='/latestarrival' element={<UserLatestArrivals/>}/>
         <Route path='/mens' element={<UserMens/>}/>
         <Route path='/womens' element={<UserWomens/>}/>
@@ -33,7 +32,6 @@ function UserRouter() {
         <Route path='/categories/formals' element={<UserFormals/>}/>
         <Route path='/categories/sandals' element={<UserSandals/>}/>
         <Route path='/categories/sneakers' element={<UserSneakers/>}/>
-        <Route path='/wishlist' element={<UserWishlist/>}/>
         <Route path='*' element={<ErrorPage/>}/>
       </Routes>
     </div>

@@ -1,6 +1,5 @@
 import { userInstance } from "../axios/axiosInstance";
 
-
 //POST METHODS
 
 export const Signup = (value) => {
@@ -8,16 +7,15 @@ export const Signup = (value) => {
 };
 
 export const login = (value) => {
-  return userInstance.post("/login", {...value});
+  return userInstance.post("/login", { ...value });
 };
-
 
 
 //GET METHODS
 
 export const featuredProducts = () => {
   return userInstance.get("/");
-}
+};
 
 export const latestArrivals = () => {
   return userInstance.get("/latestarrival");
@@ -50,3 +48,11 @@ export const sneakers = () => {
 export const luxury = () => {
   return userInstance.get("/luxury");
 };
+
+export const userStatus = () => {
+  return userInstance.get("/auth/status");
+};
+
+export const getProductDetails = () => {
+  return userInstance.get(`/product/${id}`);
+}

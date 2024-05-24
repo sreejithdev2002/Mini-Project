@@ -2,18 +2,28 @@ import React, { useState, useEffect } from "react";
 import "./Casuals.css";
 import ProductPage from "../../ProductPage/ProductPage";
 import { casuals } from "../../../../Services/UserApi";
+import Loader from "../../Loader/Loader";
 
 function Casuals() {
   // const casuals = ShoesData.shoes.filter(shoe => shoe.category === 'Casuals')
 
   const [casualsData, setCasualsData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
-    const { data } = await casuals();
-    if (data.status) {
-      setCasualsData(data.Casuals);
-    } else {
-      console.log("error");
+    try {
+      const { data } = await casuals();
+      if (data.status) {
+        setCasualsData(data.Casuals);
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
     }
   };
 
@@ -27,7 +37,7 @@ function Casuals() {
         <div className="casualsHeading">
           <h1>Casuals</h1>
         </div>
-        <ProductPage products={casualsData} />
+        {loading ? <Loader /> : <ProductPage products={casualsData} />}
       </div>
     </>
   );
