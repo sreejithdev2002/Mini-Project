@@ -5,16 +5,20 @@ import { getProductDetails } from "../../../Services/UserApi";
 
 function SingleProduct() {
   const { id } = useParams();
-  const [product, setProduct] = useState(null)
+  const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
-        const response = await getProductDetails(id);
-        setProduct(response.data);
-        setLoading(false);
+        const { data } = await getProductDetails(id);
+        if (data.status) {
+          setProduct(data.Product);
+          setLoading(false);
+        } else {
+          console.log("error");
+        }
       } catch (error) {
         setError(error.response.data.message);
         setLoading(false);
@@ -40,7 +44,6 @@ function SingleProduct() {
             <div className="sinPrdImg" id="sinPrdImg"></div>
           </div>
           <div className="sinPrdDetailSection">
-
             <div className="sinPrdDetailsName">
               <h1>{product.name}</h1>
               <h3>{product.brand}</h3>

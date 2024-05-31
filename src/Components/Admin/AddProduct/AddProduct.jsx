@@ -9,7 +9,7 @@ import { Products } from "../../../Services/AdminApi";
 function AddProduct() {
   const initialValues = {
     name: "",
-    brand: "Adidas",
+    brand: "",
     description: "",
     price: "",
     gender: "Male",
@@ -20,6 +20,7 @@ function AddProduct() {
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Name is required"),
+    brand: Yup.string().required("Brand name is required"),
     description: Yup.string().required("Description is required"),
     price: Yup.number().required("Price is required"),
     dateAdded: Yup.string().required("Date Added is required"),
@@ -74,7 +75,7 @@ function AddProduct() {
           <br />
           <div className="addProductInputDiv">
             <label>Brand</label>
-            <select
+            {/* <select
               name="brand"
               value={formik.values.brand}
               onChange={formik.handleChange}
@@ -84,7 +85,23 @@ function AddProduct() {
               <option value="Nike">Nike</option>
               <option value="Puma">Puma</option>
               <option value="Reebok">Reebok</option>
-            </select>
+            </select> */}
+            <input
+              type="text"
+              name="brand"
+              value={formik.values.brand}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              placeholder="ENTER BRAND HERE..."
+            />
+            {formik.touched.brand && formik.errors.brand && (
+              <p
+                className="error-message"
+                style={{ marginTop: "5px", color: "red" }}
+              >
+                {formik.errors.brand}
+              </p>
+            )}
           </div>
           <br />
           <div className="addProductInputDiv">

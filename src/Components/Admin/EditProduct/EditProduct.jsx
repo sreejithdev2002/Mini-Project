@@ -1,168 +1,210 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-// import ShoesData from '../../../Data/Shoes.json';
-import './EditProduct.css'
+import React, { useEffect } from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { toast } from "react-toastify";
+import "./EditProduct.css";
+import { getProductById, updateProduct } from "../../../Services/AdminApi"; // Assuming you have these API functions
+import { useParams } from "react-router-dom";
 
 function EditProduct() {
-    const [product, setProduct] = useState({ id: '', name: '', brand: '', description: ''  ,price: 0, gender: '', isLuxury: false, dateAdded: '',category: ''});
-    const { productId } = useParams();
-    const navigate = useNavigate();
+  const { productId } = useParams();
 
-    useEffect(() => {
-        // Find the product with the matching productId
-        const foundProduct = ShoesData.shoes.find(item => item.id === parseInt(productId));
-        if (foundProduct) {
-            setProduct(foundProduct);
-        }
-    }, [productId]);
+  const initialValues = {
+    name: "",
+    brand: "",
+    description: "",
+    price: "",
+    gender: "Male",
+    isLuxury: false,
+    dateAdded: "",
+    category: "Casuals",
+  };
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setProduct({ ...product, [name]: value });
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required("Name is required"),
+    brand: Yup.string().required("Brand name is required"),
+    description: Yup.string().required("Description is required"),
+    price: Yup.number().required("Price is required"),
+    dateAdded: Yup.string().required("Date Added is required"),
+  });
+
+  const onSubmit = async (values) => {
+    values.dateAdded = new Date(values.dateAdded);
+
+    const response = await updateProduct(productId, values); // Use updateProduct for editing
+    const { data } = response;
+    if (!data) return toast.error("Failed to update product");
+    if (data.name) {
+      toast.success(`${data.name} has been updated`);
+    } else {
+      toast.success("Product has been updated successfully");
     }
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Here you can handle the submission of the edited product details
-        console.log("Updated Product:", product);
-        // Redirect or perform any necessary actions after submission
-        navigate('/admin/view'); // For example, navigate to the products page
+  const formik = useFormik({
+    initialValues,
+    validationSchema,
+    onSubmit,
+  });
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const response = await getProductById(productId);
+      const product = response.data;
+      if (product) {
+        formik.setValues({
+          name: product.name || "",
+          brand: product.brand || "",
+          description: product.description || "",
+          price: product.price || "",
+          gender: product.gender || "Male",
+          isLuxury: product.isLuxury || false,
+          dateAdded: product.dateAdded ? product.dateAdded.split("T")[0] : "",
+          category: product.category || "Casuals",
+        });
+      }
     };
+    fetchProduct();
+  }, [productId]);
 
-    return (
-        <div className='adminEditProduct'>
-            <h1>Edit Product</h1>
-            <div className="editProductSection">
-            <form onSubmit={handleSubmit}>
-            <div className="editProductInputDiv">
-              <label>ID</label>
-              <input
-                type="number"
-                name="id"
-                value={product.id}
-                onChange={handleInputChange}
-                placeholder="ENTER PRODUCT ID..."
-                id="input"
-              />
-            </div>
-            <br />
-            <div className="editProductInputDiv">
-              <label>Name</label>
-              <input
-                type="text"
-                name="name"
-                value={product.name}
-                onChange={handleInputChange}
-                placeholder="ENTER NAME HERE..."
-                id="input"
-              />
-            </div>
-
-            <br />
-            <div className="editProductInputDiv">
-              <label>Brand</label>
-              <select
-                name="brand"
-                value={product.brand}
-                onChange={handleInputChange}
-                id="input"
-              >
-                <option value="Adidas">Adidas</option>
-                <option value="Nike">Nike</option>
-                <option value="Puma">Puma</option>
-                <option value="Reebok">Reebok</option>
-              </select>
-            </div>
-
-            <br />
-            <div className="editProductInputDiv">
-              <label>Description</label>
-              <textarea
-                name="description"
-                value={product.description}
-                onChange={handleInputChange}
-                placeholder="PRODUCT DESCRIPTION..."
-                id="input"
-              />
-            </div>
-
-            <br />
-            <div className="editProductInputDiv">
-              <label>Price</label>
-              <input
-                type="number"
-                name="price"
-                value={product.price}
-                onChange={handleInputChange}
-                placeholder="ENTER PRICE HERE ..."
-                id="input"
-              />
-            </div>
-
-            <br />
-            <div className="editProductInputDiv">
-              <label>Gender</label>
-              <select
-                name="gender"
-                value={product.gender}
-                onChange={handleInputChange}
-                id="input"
-              >
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-              </select>
-            </div>
-
-            <br />
-            <div className="editProductInputDiv">
-              <label>Luxury</label>
-              <select
-                name="isLuxury"
-                value={product.isLuxury}
-                onChange={handleInputChange}
-                id="input"
-              >
-                <option value={true}>yes</option>
-                <option value={false}>No</option>
-              </select>
-            </div>
-            <br />
-            <div className="editProductInputDiv">
-              <label>Date Added</label>
-              <input
-                type="text"
-                name="dateAdded"
-                value={product.dateAdded}
-                onChange={handleInputChange}
-                placeholder="YYYY - MM - DD"
-                id="input"
-              />
-            </div>
-
-            <br />
-            <div className="editProductInputDiv">
-              <label>Category</label>
-              <select
-                name="category"
-                value={product.category}
-                onChange={handleInputChange}
-                id="input"
-              >
-                <option value="Casuals">Casuals</option>
-                <option value="Formals">Formals</option>
-                <option value="Sandals">Sandals</option>
-                <option value="Sneakers">Sneakers</option>
-              </select>
-            </div>
-
-            <br />
-            <button type="submit" id="editProductBtn">
-              Save Changes
-            </button>
-          </form>
-            </div>
-        </div>
-    )
+  return (
+    <div className="addProduct">
+      <h1>Edit Product</h1>
+      <div className="addProductSection">
+        <form onSubmit={formik.handleSubmit}>
+          {/* Form fields */}
+          <div className="addProductInputDiv">
+            <label>Name</label>
+            <input
+              type="text"
+              name="name"
+              value={formik.values.name}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              placeholder="ENTER NAME HERE..."
+            />
+            {formik.touched.name && formik.errors.name && (
+              <p className="error-message" style={{ marginTop: "5px", color: "red" }}>
+                {formik.errors.name}
+              </p>
+            )}
+          </div>
+          <br />
+          <div className="addProductInputDiv">
+            <label>Brand</label>
+            <input
+              type="text"
+              name="brand"
+              value={formik.values.brand}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              placeholder="ENTER BRAND HERE..."
+            />
+            {formik.touched.brand && formik.errors.brand && (
+              <p className="error-message" style={{ marginTop: "5px", color: "red" }}>
+                {formik.errors.brand}
+              </p>
+            )}
+          </div>
+          <br />
+          <div className="addProductInputDiv">
+            <label>Description</label>
+            <textarea
+              name="description"
+              value={formik.values.description}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              placeholder="PRODUCT DESCRIPTION..."
+            />
+            {formik.touched.description && formik.errors.description && (
+              <p className="error-message" style={{ marginTop: "5px", color: "red" }}>
+                {formik.errors.description}
+              </p>
+            )}
+          </div>
+          <br />
+          <div className="addProductInputDiv">
+            <label>Price</label>
+            <input
+              type="number"
+              name="price"
+              value={formik.values.price}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              placeholder="ENTER PRICE HERE ..."
+            />
+            {formik.touched.price && formik.errors.price && (
+              <p className="error-message" style={{ marginTop: "5px", color: "red" }}>
+                {formik.errors.price}
+              </p>
+            )}
+          </div>
+          <br />
+          <div className="addProductInputDiv">
+            <label>Gender</label>
+            <select
+              name="gender"
+              value={formik.values.gender}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            >
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+          <br />
+          <div className="addProductInputDiv">
+            <label>Luxury</label>
+            <select
+              name="isLuxury"
+              value={formik.values.isLuxury}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            >
+              <option value={true}>Yes</option>
+              <option value={false}>No</option>
+            </select>
+          </div>
+          <br />
+          <div className="addProductInputDiv">
+            <label>Date Added</label>
+            <input
+              type="text"
+              name="dateAdded"
+              value={formik.values.dateAdded}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              placeholder="YYYY - MM - DD"
+            />
+            {formik.touched.dateAdded && formik.errors.dateAdded && (
+              <p className="error-message" style={{ marginTop: "5px", color: "red" }}>
+                {formik.errors.dateAdded}
+              </p>
+            )}
+          </div>
+          <br />
+          <div className="addProductInputDiv">
+            <label>Category</label>
+            <select
+              name="category"
+              value={formik.values.category}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            >
+              <option value="Casuals">Casuals</option>
+              <option value="Formals">Formals</option>
+              <option value="Sandals">Sandals</option>
+              <option value="Sneakers">Sneakers</option>
+            </select>
+          </div>
+          <br />
+          <button type="submit" id="AddProductBtn">
+            Update Product
+          </button>
+        </form>
+      </div>
+    </div>
+  );
 }
 
 export default EditProduct;

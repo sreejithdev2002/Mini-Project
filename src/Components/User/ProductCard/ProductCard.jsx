@@ -16,7 +16,7 @@ function ProductCard({ product, user }) {
           </Link>
           <div className="productDetailsPriceCart">
             <h3>₹{product.price}</h3>
-            <button id="prdCardBtnCart">Add to cart</button>
+            <button id="prdCardBtnCart">Add to Wishlist</button>
           </div>
         </div>
       </div>

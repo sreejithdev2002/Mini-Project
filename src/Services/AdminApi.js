@@ -19,3 +19,17 @@ export const userList = () => {
 export const viewProducts = () => {
     return adminInstance.get("/view");
 };
+
+export const getProductById = (productId) => {
+    return adminInstance.get(`/products/${productId}`);
+}
+
+//PUT
+
+export const updateProduct = (productId, value) => {
+    return adminInstance.put(`/products/${productId}`, {...value});
+}
+
+export const disableProduct = (productId) => {
+    return adminInstance.put(`/products/${productId}/disable`);
+}

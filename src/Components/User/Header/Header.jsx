@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { ProfileIcon } from "../../../Assets/Icons";
 import "./Header.css";
-import { Link , useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { userStatus } from "../../../Services/UserApi";
 
 function Header() {
-
   const navigate = useNavigate();
 
   const [isSolid, setIsSolid] = useState(false);
@@ -14,13 +13,13 @@ function Header() {
   const [LoggedIn, setLoggedIn] = useState(false);
 
   const fetchData = async () => {
-    try{
-      const {isLoggedIn} = await userStatus();
-      if(!isLoggedIn){
-        setLoggedIn(false);
-      } 
-    } catch(error){
-      console.log("Error fetching status:",error);
+    try {
+      const { isLoggedIn } = await userStatus();
+      if (isLoggedIn) {
+        setLoggedIn(true);
+      }
+    } catch (error) {
+      console.log("Error fetching status:", error);
     }
   };
 
@@ -58,13 +57,12 @@ function Header() {
 
   const handleLogin = () => {
     console.log("Login Clicked");
-    navigate("/login")
-
+    navigate("/login");
   };
 
   const handleSignup = () => {
     console.log("Signup clicked");
-    navigate("/signup")
+    navigate("/signup");
   };
 
   return (
@@ -108,13 +106,13 @@ function Header() {
           </div>
           {isDropdownOpen && (
             <div className="userDropdownContent">
-              {LoggedIn && (
+              {!LoggedIn && (
                 <div>
                   <button onClick={handleLogin}>Login</button>
                   <button onClick={handleSignup}>SignUp</button>
                 </div>
               )}
-              {!LoggedIn && (
+              {LoggedIn && (
                 <div>
                   <button onClick={handleLogout}>Logout</button>
                 </div>
