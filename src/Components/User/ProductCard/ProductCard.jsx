@@ -3,11 +3,15 @@ import "./ProductCard.css";
 import { Link } from "react-router-dom";
 
 function ProductCard({ product, user }) {
+
+  const baseURL = "http://localhost:8000";
+  const imageURL = `${baseURL}/public/images/products/${product.image}`;
+  console.log(imageURL);
   return (
     <>
       <div className="productCard">
         <Link to={`/product/${product._id}`}>
-          <div className="productImg" />
+          <img  className="productImg" src={imageURL}/>
         </Link>
         <div className="productDetails">
           <h2>{product.name}</h2>
@@ -16,7 +20,7 @@ function ProductCard({ product, user }) {
           </Link>
           <div className="productDetailsPriceCart">
             <h3>₹{product.price}</h3>
-            <button id="prdCardBtnCart">Add to Wishlist</button>
+            <button id="prdCardBtnWishlist">Add to Wishlist</button>
           </div>
         </div>
       </div>

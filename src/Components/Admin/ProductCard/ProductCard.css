@@ -9,14 +9,14 @@
     border-radius: 5px;
 }
 
-.productImg{
-    /* background-color: burlywood; */
+/* .productImg{
+    background-color: burlywood;
     background: url('../../../Assets/Images/example.webp');
     height: 350px;
     width: 350px;
     background-position: center;
     background-size: contain;
-}
+} */
 
 .productDetails{
     margin: 20px 0px;

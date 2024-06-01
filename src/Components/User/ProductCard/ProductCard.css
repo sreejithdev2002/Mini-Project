@@ -3,19 +3,15 @@
 }
 
 .productCard {
-    width: 350px;
-    height: 575px;
+    width: 300px;
+    height: 550px;
     padding: 15px 10px;
     border-radius: 5px;
 }
 
 .productImg{
-    /* background-color: burlywood; */
-    background: url('../../../Assets/Images/example.webp');
-    height: 350px;
-    width: 350px;
-    background-position: center;
-    background-size: contain;
+    height: auto;
+    width: 100%;
 }
 
 .productDetails{
@@ -51,37 +47,14 @@
     margin: 10px 0px;
 }
 
-.productBtn {
-    display: flex;
-    margin: 20px 0px;
-    justify-content: center;
-    flex-direction: row;
-}
-
-.productBtn button {
-    margin: 0px 5px;
-    width: 90%;
-    padding: 10px 0px;
-    cursor: pointer;
-    background-color: #dadada;
-    border: none;
-    border-radius: 50px;
-    font-size: 15px;
-}
-
-#prdCardBtnCart{
+#prdCardBtnWishlist{
     background-color: #ff4444;
     color: white;
+    font-size: 0.8rem;
 }
 
-#prdCardBtnCart:hover{
+#prdCardBtnWishlist:hover{
     background-color: #ff2525;
-}
-
-#prdCardBtnWishlist {
-    background-color: #ff4444;
-    border: 1px solid #ff4444;
-    border: none
 }
 
 .productDetailsPriceCart{
@@ -99,12 +72,4 @@
     border: none;
     border-radius: 50px;
     font-size: 15px;
-}
-
-.productWishlistIcon {
-    width: 23px;
-    position: relative;
-    top: 40px;
-    left: 310px;
-    cursor: pointer;
 }
