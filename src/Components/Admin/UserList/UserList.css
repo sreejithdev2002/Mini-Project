@@ -45,14 +45,10 @@
     width: 50%;
     height: 30px;
     border: none;
-    background-color: #ff5a5a;
+    background-color: rgb(47, 166, 47);
     border-radius: 10px;
     color: white;
     font-size: 15px;
     font-family: sans-serif;
     cursor: pointer;
-}
-
-.adminUserListBlock:hover{
-    background-color: #ff3e3e;
 }

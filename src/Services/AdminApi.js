@@ -37,3 +37,7 @@ export const updateProduct = (productId, value) => {
 export const disableProduct = (productId) => {
   return adminInstance.put(`/products/${productId}/disable`);
 };
+
+export const blockUser = (userId) => {
+  return adminInstance.put(`/users/${userId}/block`);
+}

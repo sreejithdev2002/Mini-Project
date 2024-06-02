@@ -12,7 +12,9 @@ const Footer = () => {
             <Link to="/">
               <h2>SHOOOZ</h2>
               <h6>YOUR FOOTWEAR DESTINATION</h6>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae commodi velit sed delectus, nulla doloremque perspiciatis quasi, eos enim aperiam saepe corrupti cupiditate quo illum voluptatum, ipsa dignissimos animi deserunt?</p>
+              <p>Welcome to Shoooz, your ultimate destination for the latest and greatest in footwear. We are passionate about shoes and dedicated to bringing you an extensive collection of styles to suit every taste and occasion. From classic sneakers to trendy boots, and everything in between, Shoooz offers a curated selection of top brands and unique finds.
+
+</p>
             </Link>
           </div>
           <div className="footerSupportLinks">
