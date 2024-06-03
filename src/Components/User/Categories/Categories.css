@@ -7,7 +7,7 @@
 }
 
 .categoriesHeading {
-    margin-left: 90px;
+  margin-left: 90px;
 }
 
 .categoriesGrids {
@@ -19,7 +19,7 @@
   margin: 50px 0px;
 }
 
-.categoriesGrids a{
+.categoriesGrids a {
   text-decoration: none;
   color: black;
 }
@@ -27,14 +27,40 @@
 .categoriesName {
   display: flex;
   justify-content: center;
-  height: 300px;
-  width: 300px;
-  background-color: burlywood;
+  height: 250px;
+  width: 250px;
   align-items: center;
+  background-position: center;
+  background-size: cover;
+  transition: 0.2s transform ease;
 }
 
-.categoriesName:hover{
-  background-color: rgb(183, 146, 96);
+#sneaker {
+  background: url("../../../../public/images/Sneakers.png");
+  background-position: center;
+  background-size: cover;
+}
+
+#casuals {
+  background: url("../../../../public/images/Casuals.png");
+  background-position: center;
+  background-size: cover;
+}
+
+#formals {
+  background: url("../../../../public/images/Formals.png");
+  background-position: center;
+  background-size: cover;
+}
+
+#sandals {
+  background: url("../../../../public/images/Sandals.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.categoriesName:hover {
+  transform: scale(1.05);
 }
 
 @media only screen and (max-width: 768px) {

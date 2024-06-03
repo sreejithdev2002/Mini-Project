@@ -22,7 +22,7 @@ function UserRouter() {
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<UserLogin/>}/>
         <Route path='/signup' element={<SignUp/>}/>
-        <Route path='/product/:id' element={<SingleProduct/>}/>
+        <Route path='/product/:productId' element={<SingleProduct/>}/>
         <Route path='/latestarrival' element={<UserLatestArrivals/>}/>
         <Route path='/mens' element={<UserMens/>}/>
         <Route path='/womens' element={<UserWomens/>}/>

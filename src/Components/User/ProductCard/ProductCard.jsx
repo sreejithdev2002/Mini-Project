@@ -6,7 +6,6 @@ function ProductCard({ product, user }) {
 
   const baseURL = "http://localhost:8000";
   const imageURL = `${baseURL}/public/images/products/${product.image}`;
-  console.log(imageURL);
   return (
     <>
       <div className="productCard">

@@ -11,24 +11,16 @@ function Categories() {
         </div>
         <div className="categoriesGrids">
           <Link to="/categories/casuals">
-            <div className="categoriesName">
-              <h1>Casuals</h1>
-            </div>
+            <img className="categoriesName" id="casuals"/>
           </Link>
           <Link to="/categories/formals">
-            <div className="categoriesName">
-              <h1>Formals</h1>
-            </div>
+            <img className="categoriesName" id="formals"/>
           </Link>
           <Link to="/categories/sandals">
-            <div className="categoriesName">
-              <h1>Sandals</h1>
-            </div>
+            <img className="categoriesName" id="sandals"/>
           </Link>
           <Link to="/categories/sneakers">
-            <div className="categoriesName">
-              <h1>Sneakers</h1>
-            </div>
+            <img className="categoriesName" id="sneaker"/>
           </Link>
         </div>
       </div>

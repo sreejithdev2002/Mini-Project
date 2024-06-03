@@ -53,6 +53,6 @@ export const userStatus = () => {
   return userInstance.get("/auth/status");
 };
 
-export const getProductDetails = () => {
-  return userInstance.get(`/product/${id}`);
+export const getProductDetails = (productId) => {
+  return userInstance.get(`/product/${productId}`);
 }
