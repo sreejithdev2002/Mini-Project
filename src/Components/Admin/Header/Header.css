@@ -23,7 +23,7 @@
 }
 
 .admHeaderName h2 {
-  font-size: 2em;
+  font-size: 2rem;
   font-family: "Play", sans-serif;
 }
 
@@ -52,6 +52,7 @@
 }
 
 .admHeaderLinksIndividual p {
+  font-size: 15px;
   color: black;
 }
 
@@ -127,25 +128,53 @@
 
 @media only screen and (max-width: 768px) {
   .admHeader {
-    flex-direction: column;
     padding: 10px 10px;
-    width: 120%;
     justify-content: space-between;
   }
 
   .admTransHeader{
-    flex-direction: column;
     padding: 10px 10px;
-    width: 120%;
     justify-content: space-between;
   }
 
+  .admHeaderName h2{
+    font-size: 1.6rem;
+    margin: 0px 2px;
+  }
+
   .admHeaderLinksIndividual {
-    padding: 5px 10px;
-    margin: 10px 10px;
+    padding: 10px 10px;
+    margin: 10px 0px;
+  }
+
+  .admHeaderLinksIndividual p {
+    font-size: 13px;
+    color: black;
   }
 
   .admHeaderButtons {
-    margin: 0px 50px;
+    margin: 0px 20px;
   }
+}
+
+@media only screen and (max-width: 500px){
+  .admHeader {
+    padding: 10px 10px;
+    justify-content: space-between;
+  }
+
+  .admTransHeader{
+    padding: 10px 10px;
+    justify-content: space-between;
+  }
+
+  .admHeaderName h2{
+    font-size: 1rem;
+  }
+
+  .admHeaderLinksIndividual{
+    padding: 10px 5px;
+    margin: 10px 5px;
+  }
+
 }

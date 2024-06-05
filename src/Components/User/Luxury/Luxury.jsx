@@ -2,18 +2,26 @@ import React, { useEffect, useState } from "react";
 import "./Luxury.css";
 import ProductPage from "../ProductPage/ProductPage";
 import { luxury } from "../../../Services/UserApi";
+import Loader from "../Loader/Loader";
 
 function Luxury() {
-  // const luxury = ShoesData.shoes.filter(shoe => shoe.isLuxury === true);
-
   const [luxuryData, setLuxuryData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
-    const { data } = await luxury();
-    if (data.status) {
-      setLuxuryData(data.Luxury);
-    } else {
-      console.log("error");
+    try {
+      const { data } = await luxury();
+      if (data.status) {
+        setLuxuryData(data.Luxury);
+      } else {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log("Error fetching data :", error);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
     }
   };
 
@@ -27,7 +35,7 @@ function Luxury() {
         <div className="luxuryHeading">
           <h1>Luxury Collection</h1>
         </div>
-        <ProductPage products={luxuryData} />
+        {loading ? <Loader /> : <ProductPage products={luxuryData} />}
       </div>
     </>
   );

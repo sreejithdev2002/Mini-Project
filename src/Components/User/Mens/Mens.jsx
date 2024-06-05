@@ -35,11 +35,7 @@ function Mens() {
         <div className="MensHeading">
           <h1>Mens Collections</h1>
         </div>
-        {loading ? ( // Render spinner if loading is true
-          <Loader />
-        ) : (
-          <ProductPage products={mensData} />
-        )}
+        {loading ? <Loader /> : <ProductPage products={mensData} />}
       </div>
     </>
   );

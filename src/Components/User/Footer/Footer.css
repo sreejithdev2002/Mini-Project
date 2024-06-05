@@ -138,7 +138,7 @@
     grid-template-columns: auto auto auto;
   }
 
-  .footerContent1 div{
-    padding: 10px 20px;
-  }
+  .footerContent1 div {
+    padding: 10px 10px;
+}
 }

@@ -28,6 +28,10 @@ export const getProductById = (productId) => {
   return adminInstance.get(`/products/${productId}`);
 };
 
+export const getAllOrders = () => {
+  return adminInstance.get("/orders");
+}
+
 //PUT
 
 export const updateProduct = (productId, value) => {

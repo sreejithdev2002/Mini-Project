@@ -44,22 +44,22 @@ function Header() {
         </div>
         <div className="admHeaderLinks">
           <Link to="/admin/view">
-            <div className="admHeaderLinksIndividual" id="latestArrivals">
+            <div className="admHeaderLinksIndividual">
               <p>View Products</p>
             </div>
           </Link>
           <Link to="/admin/add">
-            <div className="admHeaderLinksIndividual" id="Mens">
+            <div className="admHeaderLinksIndividual">
               <p>Add Products</p>
             </div>
           </Link>
-          {/* <Link to="/admin/edit/:productId">
-            <div className="headerLinksIndividual" id="Womens">
-              <p>Edit Product</p>
+          <Link to="/admin/orderlist">
+            <div className="admHeaderLinksIndividual" >
+              <p>Order List</p>
             </div>
-          </Link> */}
+          </Link>
           <Link to="#">
-            <div className="admHeaderLinksIndividual" id="categories">
+            <div className="admHeaderLinksIndividual" >
               <p>Stats</p>
             </div>
           </Link>

@@ -10,6 +10,9 @@ export const login = (value) => {
   return userInstance.post("/login", { ...value });
 };
 
+export const createOrder = (orderData) => {
+  return userInstance.post("/createorder", { ...orderData });
+};
 
 //GET METHODS
 
@@ -55,4 +58,8 @@ export const userStatus = () => {
 
 export const getProductDetails = (productId) => {
   return userInstance.get(`/product/${productId}`);
-}
+};
+
+export const getUser = () => {
+  return userInstance.get("/user");
+};
