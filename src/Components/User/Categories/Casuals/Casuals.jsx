@@ -3,6 +3,7 @@ import "./Casuals.css";
 import ProductPage from "../../ProductPage/ProductPage";
 import { casuals } from "../../../../Services/UserApi";
 import Loader from "../../Loader/Loader";
+import Empty from "../../Empty/Empty";
 
 function Casuals() {
   // const casuals = ShoesData.shoes.filter(shoe => shoe.category === 'Casuals')
@@ -30,6 +31,10 @@ function Casuals() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  if(casualsData.length === 0){
+    return <Empty message="No Product Available"/>
+  }
 
   return (
     <>

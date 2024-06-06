@@ -1,16 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
-.admHeader {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 20px 50px;
-  background-color: rgb(243, 243, 243);
-  position: fixed;
-  top: 0px;
-  width: 100%;
-  z-index: 1;
-}
-
+.admHeader,
 .admTransHeader {
   display: flex;
   flex-direction: row;
@@ -22,14 +11,18 @@
   z-index: 1;
 }
 
+.admHeader {
+  background-color: rgb(243, 243, 243);
+}
+
 .admHeaderName h2 {
-  font-size: 2rem;
+  font-size: 2em;
   font-family: "Play", sans-serif;
 }
 
-.admHeaderName a{
-  color: rgb(0, 0, 0);
+.admHeaderName a {
   text-decoration: none;
+  color: black;
 }
 
 .admHeaderLinks {
@@ -42,9 +35,8 @@
 }
 
 .admHeaderLinksIndividual {
-  padding: 10px 20px;
+  padding: 10px 20px 0px 20px;
   border-radius: 5px;
-  height: 45px;
 }
 
 .admHeaderLinksIndividual:hover {
@@ -52,7 +44,6 @@
 }
 
 .admHeaderLinksIndividual p {
-  font-size: 15px;
   color: black;
 }
 
@@ -75,32 +66,30 @@
   border-radius: 100%;
 }
 
-
 .admDropdownContent {
-  display: block;
-  position: absolute;
-  top: 70px;
-  right: 30px;
-  border-radius: 10px;
-  box-shadow: 0px 2px 7px 1px rgb(0 0 0 / 14%);
-  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: 5px;
+  left: 10px;
 }
 
 .admDropdownContent button {
-  width: 100%;
-  padding: 10px 20px;
-  text-align: left;
+  padding: 5px 15px;
+  margin: 0px 5px;
   border: none;
-  background-color: #cfcfcf;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
+  color: white;
+  background-color: #ea2121;
+
 }
 
 .admDropdownContent button:hover {
-  background-color: #f1f1f1;
+  background-color: #f31717;
 }
 
-.admHeaderProfileIcon{
+.admHeaderProfileIcon {
   padding: 10px 13px;
   margin: 0px 5px;
   cursor: pointer;
@@ -114,67 +103,130 @@
   right: 20px;
 }
 
-.admUserDropdownContent button{
-  padding: 5px 15px;
-  margin: 0px 5px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.admUserDropdownContent button:hover{
-  background-color: rgb(187, 187, 187);
-}
-
 @media only screen and (max-width: 768px) {
-  .admHeader {
-    padding: 10px 10px;
-    justify-content: space-between;
+  .admHeader,
+  .admTransHeader {
+    padding: 15px 30px;
   }
 
-  .admTransHeader{
-    padding: 10px 10px;
-    justify-content: space-between;
-  }
-
-  .admHeaderName h2{
-    font-size: 1.6rem;
-    margin: 0px 2px;
+  .admHeaderName h2 {
+    font-size: 1.8em;
   }
 
   .admHeaderLinksIndividual {
+    padding: 10px 15px 0px 15px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .admHeader,
+  .admTransHeader {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .admHeaderName h2 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+  }
+
+  .admHeaderLinks {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .admHeaderLinksIndividual {
+    padding: 8px 10px;
+    margin: 5px 0;
+  }
+
+  .admHeaderButtons {
+    margin-top: 10px;
+  }
+
+  .admDropdownContent {
+    top: 5px;
+    right: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .admDropdownContent button {
+    width: auto;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .admHeader,
+  .admTransHeader {
     padding: 10px 10px;
-    margin: 10px 0px;
+  }
+
+  .admHeaderName h2 {
+    font-size: 1.6rem;
+    margin: 0px 15px;
+  }
+
+  .admHeaderLinksIndividual {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px 0px 15px;
+    margin: 10px 4px;
   }
 
   .admHeaderLinksIndividual p {
     font-size: 13px;
-    color: black;
   }
 
   .admHeaderButtons {
     margin: 0px 20px;
   }
+
+  .admDropdownContent {
+    top: 5px;
+    right: 0;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .admDropdownContent button {
+    padding: 5px 10px;
+    margin: 0px 5px;
+    font-size: 14px;
+    width: auto; /* Adjusted width to auto */
+  }
 }
 
-@media only screen and (max-width: 500px){
-  .admHeader {
-    padding: 10px 10px;
-    justify-content: space-between;
+@media only screen and (max-width: 576px) {
+  .admHeader,
+  .admTransHeader {
+    padding: 5px 10px;
   }
 
-  .admTransHeader{
-    padding: 10px 10px;
-    justify-content: space-between;
+  .admHeaderName h2 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
   }
 
-  .admHeaderName h2{
-    font-size: 1rem;
+  .admHeaderLinksIndividual {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 0px 10px;
+    margin: 3px 5px;
   }
 
-  .admHeaderLinksIndividual{
-    padding: 10px 5px;
-    margin: 10px 5px;
+  .admHeaderButtons {
+    margin-top: 5px;
   }
 
+  .admDropdownContent button {
+    font-size: 12px;
+    padding: 5px 10px;
+    width: auto;
+  }
 }

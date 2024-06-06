@@ -3,6 +3,7 @@ import "./Womens.css";
 import ProductPage from "../ProductPage/ProductPage";
 import { womens } from "../../../Services/UserApi";
 import Loader from "../Loader/Loader";
+import Empty from "../Empty/Empty";
 
 function Womens() {
   // const womens = ShoesData.shoes.filter(shoe => shoe.gender === 'Women');
@@ -30,6 +31,10 @@ function Womens() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  if(womensData.length === 0){
+    return <Empty message="No Product Available"/>
+  }
 
   return (
     <>

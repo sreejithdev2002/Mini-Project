@@ -171,26 +171,6 @@ function AddProduct() {
               <option value={false}>No</option>
             </select>
           </div>
-          {/* <br />
-          <div className="addProductInputDiv">
-            <label>Date Added</label>
-            <input
-              type="text"
-              name="dateAdded"
-              value={formik.values.dateAdded}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              placeholder="YYYY - MM - DD"
-            />
-            {formik.touched.dateAdded && formik.errors.dateAdded && (
-              <p
-                className="error-message"
-                style={{ marginTop: "5px", color: "red" }}
-              >
-                {formik.errors.dateAdded}
-              </p>
-            )}
-          </div> */}
           <br />
           <div className="addProductInputDiv">
             <label>Category</label>

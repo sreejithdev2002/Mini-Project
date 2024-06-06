@@ -39,6 +39,7 @@ import "./LatestArrivals.css";
 import ProductPage from "../ProductPage/ProductPage";
 import { latestArrivals } from "../../../Services/UserApi";
 import Loader from "../Loader/Loader";
+import Empty from '../Empty/Empty';
 
 function LatestArrivals() {
   const [latestarrival, setLatestarrival] = useState([]);
@@ -65,6 +66,10 @@ function LatestArrivals() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  if(latestarrival.length === 0){
+    return <Empty message="No Products Available" />
+  }
 
   return (
     <>

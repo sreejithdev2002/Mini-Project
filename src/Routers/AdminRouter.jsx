@@ -5,7 +5,7 @@ import ErrorPage from "../Pages/Admin/ErrorPage";
 import AdminAddProducts from "../Pages/Admin/AdminAddProducts";
 import AdminViewProducts from "../Pages/Admin/AdminViewProducts";
 import AdminLogin from "../Pages/Admin/AdminLogin";
-import AdminEditPRoducts from "../Pages/Admin/AdminEditProducts";
+import AdminEditProducts from "../Pages/Admin/AdminEditProducts";
 import AdminOrderList from "../Pages/Admin/AdminOrderList";
 
 function AdminRouter() {
@@ -16,7 +16,7 @@ function AdminRouter() {
         <Route path="/login" element={<AdminLogin />} />
         <Route path="/view" element={<AdminViewProducts />} />
         <Route path="/add" element={<AdminAddProducts />} />
-        <Route path="/products/:productId" component={<AdminEditPRoducts />} />
+        <Route path="/editproducts/:id" element={<AdminEditProducts />} />
         <Route path="/orderlist" element={<AdminOrderList/>}/>
         <Route path="*" element={<ErrorPage />} />
       </Routes>

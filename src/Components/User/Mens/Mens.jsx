@@ -3,6 +3,7 @@ import "./Mens.css";
 import ProductPage from "../ProductPage/ProductPage";
 import { mens } from "../../../Services/UserApi";
 import Loader from "../Loader/Loader";
+import Empty from "../Empty/Empty";
 
 function Mens() {
   const [mensData, setMensData] = useState([]);
@@ -28,6 +29,10 @@ function Mens() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  if(mensData.length === 0){
+    return <Empty message="No Product Available"/>
+  }
 
   return (
     <>

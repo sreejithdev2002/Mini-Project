@@ -1,161 +1,3 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
-.header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 20px 50px;
-  background-color: rgb(243, 243, 243);
-  position: fixed;
-  top: 0px;
-  width: 100%;
-  z-index: 1;
-}
-
-.transHeader{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 20px 50px;
-  position: fixed;
-  top: 0px;
-  width: 100%;
-  z-index: 1;
-}
-
-.headerName a {
-  text-decoration: none;
-  color: black;
-}
-
-.headerName h2 {
-  font-size: 2em;
-  font-family: "Play", sans-serif;
-}
-
-.headerLinks {
-  display: flex;
-  flex-direction: row;
-}
-
-.headerLinks a {
-  text-decoration: none;
-}
-
-.headerLinksIndividual {
-  padding: 10px 20px 0px 20px;
-  border-radius: 5px;
-}
-
-.headerLinksIndividual:hover {
-  background-color: rgb(233, 233, 233);
-}
-
-.headerLinksIndividual p {
-  color: black;
-}
-
-.headerSearchBox input {
-  padding: 10px 20px;
-  margin: 5px 10px;
-  border: none;
-  background-color: rgb(233, 233, 233);
-  border-radius: 20px;
-}
-
-.headerButtons {
-  display: flex;
-  flex-direction: row;
-}
-
-.headerButtons a {
-  margin: 0px 5px;
-  padding: 10px 13px;
-  border-radius: 100%;
-}
-
-.userDropdownContent {
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-  top: 70px;
-  right: 20px;
-}
-
-.userDropdownContent button{
-  padding: 5px 15px;
-  margin: 0px 5px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.userDropdownContent button:hover{
-  background-color: rgb(187, 187, 187);
-}
-
-.headerProfileIcon{
-  padding: 10px 13px;
-  margin: 0px 5px;
-  cursor: pointer;
-}
-
-@media only screen and (max-width: 768px) {
-  .header {
-    display: flex;
-    flex-direction: column;
-    padding: 10px 10px;
-  }
-
-  .transHeader{
-    display: flex;
-    flex-direction: column;
-    padding: 10px 10px;
-  }
-
-  .headerName h2{
-    font-size: 1.6rem;
-    margin: 0px 15px;
-  }
-
-  .headerLinksIndividual {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 15px 0px 15px;
-    margin: 10px 4px;
-  }
-
-  .headerLinksIndividual p {
-    font-size: 13px;
-    color: black;
-  }
-
-  .headerButtons {
-    margin: 0px 20px;
-  }
-
-  .userDropdownContent {
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    top: 5px;
-    right: 0px;
-  }
-
-  .userDropdownContent button{
-    padding: 5px 10px;
-    margin: 0px 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    width: 15vw;
-  }
-} */
-
-
-@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
-
 .header, .transHeader {
   display: flex;
   flex-direction: row;
@@ -167,7 +9,7 @@
   z-index: 1;
 }
 
-.header{
+.header {
   background-color: rgb(243, 243, 243);
 }
 
@@ -236,20 +78,20 @@
   left: 10px;
 }
 
-#headerLogin{
-background-color: #22cb00;
+#headerLogin {
+  background-color: #22cb00;
 }
 
-#headerLogin:hover{
+#headerLogin:hover {
   background-color: #27d803;
 }
 
-#headerSignupLogout{
+#headerSignupLogout {
   background-color: #ea2121;
 }
 
-#headerSignupLogout:hover{
-  background-color:#f31717;
+#headerSignupLogout:hover {
+  background-color: #f31717;
 }
 
 .userDropdownContent button {
@@ -259,13 +101,23 @@ background-color: #22cb00;
   border-radius: 5px;
   cursor: pointer;
   color: white;
-  background-color: #ea2121;
 }
 
 .userDropdownContent button:hover {
   background-color: rgb(187, 187, 187);
 }
 
+.headerProUserName {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.headerProUserName p {
+  margin-right: 15px;
+}
+
+/* Responsive Styles */
 @media only screen and (max-width: 1200px) {
   .header, .transHeader {
     padding: 15px 30px;
@@ -362,7 +214,7 @@ background-color: #22cb00;
     padding: 5px 10px;
     margin: 0px 5px;
     font-size: 14px;
-    width: 15vw;
+    width: auto; /* Adjusted width to auto */
   }
 }
 

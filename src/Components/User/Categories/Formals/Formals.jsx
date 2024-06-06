@@ -3,6 +3,7 @@ import "./Formals.css";
 import ProductPage from "../../ProductPage/ProductPage";
 import { formals } from "../../../../Services/UserApi";
 import Loader from "../../Loader/Loader";
+import Empty from "../../Empty/Empty";
 
 function Formals() {
   // const formals = ShoesData.shoes.filter(shoe => shoe.category === 'Formals');
@@ -30,6 +31,10 @@ function Formals() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  if(formalsData.length === 0){
+    return <Empty message="No Product Available"/>
+  }
 
   return (
     <>

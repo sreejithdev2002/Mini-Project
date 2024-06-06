@@ -2,7 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./ProductsTable.css";
 import { useNavigate } from "react-router-dom";
 import SampleImg from "../../../Assets/Images/example1.webp";
-import { disableProduct, viewProducts } from "../../../Services/AdminApi";
+import {
+  deleteProduct,
+  disableProduct,
+  viewProducts,
+} from "../../../Services/AdminApi";
+import Empty from "../../User/Empty/Empty";
 
 function ProductsTable() {
   const [productsData, setProductsData] = useState([]);
@@ -11,7 +16,7 @@ function ProductsTable() {
   const navigate = useNavigate();
 
   const handleEdit = (productId) => {
-    navigate(`/products/${productId}`);
+    navigate(`/admin/editproducts/${productId}`);
   };
 
   const handleDisable = async (productId) => {
@@ -26,6 +31,17 @@ function ProductsTable() {
       );
     } catch (error) {
       console.error("Error toggling product status:", error);
+    }
+  };
+
+  const handleDelete = async (productId) => {
+    try {
+      await deleteProduct(productId);
+      setProductsData((prevProducts) =>
+        prevProducts.filter((product) => product._id !== productId)
+      );
+    } catch (error) {
+      console.error("Error deleting product : ", error);
     }
   };
 
@@ -49,6 +65,11 @@ function ProductsTable() {
   useEffect(() => {
     fetchData();
   }, [productsData]);
+
+
+  if(productsData.length === 0){
+    return <Empty message="No Products Available"/>
+  }
 
   return (
     <div className="adminProducts">
@@ -105,6 +126,12 @@ function ProductsTable() {
                     }
                   >
                     {product.disableProduct ? "Enable" : "Disable"}
+                  </button>
+                  <button
+                    onClick={() => handleDelete(product._id)}
+                    className="adminProTableBtnRed"
+                  >
+                    Delete
                   </button>
                 </td>
               </tr>

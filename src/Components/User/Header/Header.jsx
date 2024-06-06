@@ -133,8 +133,6 @@
 
 // export default Header;
 
-
-
 import React, { useState, useEffect } from "react";
 import { ProfileIcon } from "../../../Assets/Icons";
 import "./Header.css";
@@ -147,13 +145,24 @@ function Header() {
   const [isSolid, setIsSolid] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [userName, setUserName] = useState("");
 
   const fetchData = async () => {
     try {
-      const { isLoggedIn } = await userStatus();
-      setLoggedIn(isLoggedIn);
+      const { user } = await userStatus();
+      if (user) {
+        console.log(user.username + "Username")
+        setLoggedIn(true);
+        setUserName(user.username);
+      } else {
+        setLoggedIn(false);
+        setUserName("");
+      }
+      console.log(user + " : User status fetched");
     } catch (error) {
       console.log("Error fetching status:", error);
+      setLoggedIn(false);
+      setUserName("");
     }
   };
 
@@ -173,6 +182,8 @@ function Header() {
 
   const handleLogout = () => {
     localStorage.removeItem("jwt");
+    setLoggedIn(false);
+    setUserName("");
     navigate("/login");
   };
 
@@ -215,15 +226,22 @@ function Header() {
         </Link>
       </div>
       <div className="headerButtons">
-        <div className="headerProfileIcon" onClick={toggleDropdown}>
+        <div
+          className="headerProfileIcon"
+          onClick={toggleDropdown}
+          title={loggedIn ? userName : "Profile"}
+        >
           <ProfileIcon />
         </div>
         {isDropdownOpen && (
           <div className="userDropdownContent">
-            {!loggedIn ? (
+            {loggedIn ? (
+              <div className="headerProUserName">
+              <p>{userName}</p>
               <button onClick={handleLogout} id="headerSignupLogout">
                 Logout
               </button>
+            </div>
             ) : (
               <>
                 <button onClick={handleLogin} id="headerLogin">

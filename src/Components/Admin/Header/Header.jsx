@@ -70,7 +70,7 @@ function Header() {
           </div>
           {isDropdownOpen && (
             <div className="admDropdownContent">
-              <button onClick={handleLogout}>Logout</button>
+              <button onClick={handleLogout} >Logout</button>
             </div>
           )}
         </div>

@@ -1,4 +1,4 @@
-.a a{
+/* .a a{
     text-decoration: none;
 }
 
@@ -39,7 +39,6 @@
 }
 
 .productDetails p{
-    /* white-space: nowrap; */
     overflow: hidden;
     text-overflow: ellipsis;
     color: rgb(16, 15, 15);
@@ -77,4 +76,145 @@
     border: none;
     border-radius: 50px;
     font-size: 15px;
+}  */
+
+
+
+
+
+
+.a a {
+    text-decoration: none;
+}
+
+.productCard {
+    width: 100%;
+    max-width: 300px;
+    height: 550px;
+    padding: 15px 10px;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.productImg {
+    height: 350px;
+    width: 100%;
+    transition: transform .3s, box-shadow 0.3s; 
+}
+
+.productImg:hover {
+    transform: scale(1.05);
+}
+
+.productDetails {
+    margin: 20px 0px;
+}
+
+.productDetails a {
+    text-decoration: none;
+}
+
+.productDetails h2 {
+    margin-bottom: 10px;
+    color: black;
+}
+
+.productDetails h3 {
+    color: #019225;
+    font-size: 25px;
+    margin: 15px 0px;
+}
+
+.productDetails p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgb(16, 15, 15);
+}
+
+#prdCardHr {
+    background-color: rgb(0 0 0 / 12%);
+    height: 1px;
+    border: none;
+    margin: 10px 0px;
+}
+
+#prdCardBtnWishlist {
+    background-color: #ff4444;
+    color: white;
+    font-size: 0.8rem;
+}
+
+#prdCardBtnWishlist:hover {
+    background-color: #ff2525;
+}
+
+.productDetailsPriceCart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.productDetailsPriceCart button {
+    margin: 6px 5px;
+    width: 40%;
+    padding: 10px 0px;
+    cursor: pointer;
+    background-color: #dadada;
+    border: none;
+    border-radius: 50px;
+    font-size: 15px;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 1200px) {
+    .productCard {
+        max-width: 90%;
+        height: auto;
+    }
+
+    .productDetails h3 {
+        font-size: 22px;
+    }
+
+    .productDetailsPriceCart button {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .productCard {
+        max-width: 80%;
+        height: auto;
+    }
+
+    .productDetails h3 {
+        font-size: 20px;
+    }
+
+    .productDetailsPriceCart button {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .productCard {
+        max-width: 80%;
+        height: auto;
+        padding: 10px 5px;
+    }
+
+    .productDetails h3 {
+        font-size: 18px;
+    }
+
+    .productDetailsPriceCart {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .productDetailsPriceCart button {
+        width: 80%;
+        margin: 5px 0;
+        font-size: 12px;
+    }
 }

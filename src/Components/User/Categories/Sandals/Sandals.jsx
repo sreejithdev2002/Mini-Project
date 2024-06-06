@@ -3,6 +3,7 @@ import "./Sandals.css";
 import ProductPage from "../../ProductPage/ProductPage";
 import { sandals } from "../../../../Services/UserApi";
 import Loader from "../../Loader/Loader";
+import Empty from "../../Empty/Empty";
 
 function Sandals() {
   // const sandals = ShoesData.shoes.filter(shoe => shoe.category === 'Sandals');
@@ -30,6 +31,10 @@ function Sandals() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  if(sandalsData.length === 0){
+    return <Empty message="No Product Available"/>
+  }
 
   return (
     <>

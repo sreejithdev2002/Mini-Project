@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./UserList.css";
 import { blockUser, userList } from "../../../Services/AdminApi";
+import Empty from "../../User/Empty/Empty";
 
 function UserList() {
   const [users, setUsers] = useState([]);
@@ -39,7 +40,12 @@ function UserList() {
 
   useEffect(() => {
     fetchData();
-  }, [users]);
+  }, []);
+
+
+  if(users.length === 0){
+    return <Empty message="No Users Available"/>
+  }
 
   return (
     <>

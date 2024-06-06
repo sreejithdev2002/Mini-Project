@@ -3,6 +3,7 @@ import "./Luxury.css";
 import ProductPage from "../ProductPage/ProductPage";
 import { luxury } from "../../../Services/UserApi";
 import Loader from "../Loader/Loader";
+import Empty from "../Empty/Empty";
 
 function Luxury() {
   const [luxuryData, setLuxuryData] = useState([]);
@@ -28,6 +29,10 @@ function Luxury() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  if(luxuryData.length === 0){
+    return <Empty message="No Product Available"/>
+  }
 
   return (
     <>

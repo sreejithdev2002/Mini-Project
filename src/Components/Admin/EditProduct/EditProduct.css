@@ -1,116 +1,64 @@
-/* .addProduct{
-    display: flex;
-    flex-direction: column;
-    margin: 100px 50px;
+.editProduct {
+  margin: 100px 50px;
 }
 
-.addProductSection{
-    display: flex;
-    margin: 20px 50px;
+.editProduct h1 {
+  font-size: 30 px;
+  margin-bottom: 20px;
 }
 
-.addProductSection form{
-    display: flex;
-    flex-direction: column;
+.editProductSection {
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  padding: 20px;
 }
 
-.addProductSection form label {
-    margin: 5px 0px;
-    display: flex;
-    align-items: center;
-    font-size: 20px;
-    font-weight: bold;
+.editProductInputDiv {
+  margin-bottom: 15px;
 }
 
-.addProductSection form #input {
-    width: 40vw;
-    height: 40px;
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: 1px solid rgba(119, 119, 119, 0.533);
+.editProductInputDiv label {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
 }
 
-.addProductInputDiv{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+.editProductInputDiv input,
+.editProductInputDiv textarea,
+.editProductInputDiv select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
 }
 
-#AddProductBtn{
-    width: 40vw;
-    height: 40px;
-    margin: 10px 0px;
-    background-color: rgb(253, 62, 62);
-    border: none;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#AddProductBtn:hover{
-    background-color: rgb(214, 50, 50);
+/* .addProductInputDiv input[type="number"] {
+  -moz-appearance: textfield;
 } */
+.editProductInputDiv input {
+  width: 98.5%;
+}
 
-/* AddProduct.css */
+.editProductInputDiv textarea {
+  resize: vertical;
+  width: 98.5%;
+}
 
-.adminEditProduct {
-    margin: 100px 50px;
-  }
-  
-  .adminEditProduct h1 {
-    font-size: 30 px;
-    margin-bottom: 20px;
-  }
-  
-  .editProductSection {
-    background-color: #f8f8f8;
-    border-radius: 8px;
-    padding: 20px;
-  }
-  
-  .editProductInputDiv {
-    margin-bottom: 15px;
-  }
-  
-  .editProductInputDiv label {
-    display: block;
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
-  .editProductInputDiv input,
-  .editProductInputDiv textarea,
-  .editProductInputDiv select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-  }
-  
-  .editProductInputDiv input[type="number"] {
-    -moz-appearance: textfield;
-  }
-  .editProductInputDiv input {
-    width: 98.5%;
-  }
-  
-  .editProductInputDiv textarea {
-    resize: vertical;
-    width: 98.5%;
-  }
-  
-  #editProductBtn {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  #editProductBtn:hover {
-    background-color: #0056b3;
-  }
-  
+.editProductInputDiv select {
+  width: 98.5%;
+}
+
+#editProductBtn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#editProductBtn:hover {
+  background-color: #0056b3;
+}

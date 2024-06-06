@@ -24,19 +24,17 @@ export const viewProducts = () => {
   return adminInstance.get("/view");
 };
 
-export const getProductById = (productId) => {
-  return adminInstance.get(`/products/${productId}`);
+export const getProductById = (id) => {
+  return adminInstance.get(`/products/${id}`);
 };
 
 export const getAllOrders = () => {
   return adminInstance.get("/orders");
-}
+};
 
 //PUT
 
-export const updateProduct = (productId, value) => {
-  return adminInstance.put(`/products/${productId}`, { ...value });
-};
+
 
 export const disableProduct = (productId) => {
   return adminInstance.put(`/products/${productId}/disable`);
@@ -44,4 +42,18 @@ export const disableProduct = (productId) => {
 
 export const blockUser = (userId) => {
   return adminInstance.put(`/users/${userId}/block`);
+};
+
+export const updateProduct = (id, productData) => {
+  return adminInstance.put(`/products/${id}`, productData);
+};
+
+//DELETE
+
+export const deleteProduct = (productId) => {
+  return adminInstance.delete(`/products/${productId}/delete`);
+};
+
+export const deleteOrder = (orderId) => {
+  return adminInstance.delete(`/orders/${orderId}/delete`);
 }
