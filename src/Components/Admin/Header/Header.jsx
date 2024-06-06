@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { ProfileIcon } from "../../../Assets/Icons";
 import "./Header.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Header() {
   const [isSolid, setIsSolid] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,8 +31,9 @@ function Header() {
   };
 
   const handleLogout = () => {
-    // Handle logout logic here
-    console.log("Logout clicked");
+localStorage.removeItem("adminjwt");
+navigate("/admin/login");    
+console.log("Logout clicked");
     // For example, you can clear local storage or log out from the server
   };
 
@@ -58,9 +61,9 @@ function Header() {
               <p>Order List</p>
             </div>
           </Link>
-          <Link to="#">
+          <Link to="/admin/dashboard">
             <div className="admHeaderLinksIndividual" >
-              <p>Stats</p>
+              <p>Dashboard</p>
             </div>
           </Link>
         </div>

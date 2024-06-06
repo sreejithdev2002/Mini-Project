@@ -34,8 +34,6 @@ export const getAllOrders = () => {
 
 //PUT
 
-
-
 export const disableProduct = (productId) => {
   return adminInstance.put(`/products/${productId}/disable`);
 };
@@ -56,4 +54,15 @@ export const deleteProduct = (productId) => {
 
 export const deleteOrder = (orderId) => {
   return adminInstance.delete(`/orders/${orderId}/delete`);
-}
+};
+
+//CHARTS
+
+export const getProductGenderDistribution = () =>
+  adminInstance.get("/product-gender-distribution");
+export const getProductLuxuryDistribution = () =>
+  adminInstance.get("/product-luxury-distribution");
+export const getProductBlockStatusDistribution = () =>
+  adminInstance.get("/product-blockstatus-distribution");
+export const getProductCategoryDistribution = () =>
+  adminInstance.get("/product-category-distribution");

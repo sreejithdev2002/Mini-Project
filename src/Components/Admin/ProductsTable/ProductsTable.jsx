@@ -73,20 +73,20 @@ function ProductsTable() {
 
   return (
     <div className="adminProducts">
-      <h1>All Products</h1>
-      <h3>Total Products: {productsLength}</h3>
-      <h3>Total Disabled Products: {disabledProducts}</h3>
+      <h1 className="productsHeading">All Products</h1>
+      <h3 className="totalProducts">Total Products: {productsLength}</h3>
+      <h3 className="disabledProducts">Total Disabled Products: {disabledProducts}</h3>
 
       <table className="proTable">
         <thead>
           <tr>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Category</th>
-            <th>Gender</th>
-            <th>Price</th>
-            <th>Actions</th>
+            <th className="image">Image</th>
+            <th className="name">Name</th>
+            <th className="description">Description</th>
+            <th className="category">Category</th>
+            <th className="gender">Gender</th>
+            <th className="price">Price</th>
+            <th className="actions">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -96,40 +96,34 @@ function ProductsTable() {
               : SampleImg;
             return (
               <tr key={product._id}>
-                <td>
+                <td className="image">
                   <img
                     src={imageURL}
                     alt="Product"
-                    style={{ height: "200px", maxWidth: "160px" }}
+                    className="productImg"
                   />
                 </td>
-                <td>{product.name}</td>
-                <td>{product.description}</td>
-                <td>{product.category}</td>
-                <td>{product.gender}</td>
-                <td style={{ fontWeight: "bold", color: "green" }}>
-                  ₹{product.price}
-                </td>
-                <td>
+                <td className="name">{product.name}</td>
+                <td className="description">{product.description}</td>
+                <td className="category">{product.category}</td>
+                <td className="gender">{product.gender}</td>
+                <td className="price">₹{product.price}</td>
+                <td className="actions">
                   <button
                     onClick={() => handleEdit(product._id)}
-                    className="adminProTableBtnRed"
+                    className="editBtn"
                   >
                     Edit
                   </button>
                   <button
                     onClick={() => handleDisable(product._id)}
-                    className={
-                      product.disableProduct
-                        ? "adminProTableBtnGreen"
-                        : "adminProTableBtnRed"
-                    }
+                    className={product.disableProduct ? "disableBtn" : "enableBtn"}
                   >
                     {product.disableProduct ? "Enable" : "Disable"}
                   </button>
                   <button
                     onClick={() => handleDelete(product._id)}
-                    className="adminProTableBtnRed"
+                    className="deleteBtn"
                   >
                     Delete
                   </button>

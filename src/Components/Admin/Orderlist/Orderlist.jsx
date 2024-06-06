@@ -57,43 +57,43 @@ function Orderlist() {
 
   return (
     <div className="adminOrders">
-      <h1>All Orders</h1>
-      <h3>Total Orders: {orders.length}</h3>
+      <h1 className="orderHeading">All Orders</h1>
+      <h3 className="totalOrders">Total Orders: {orders.length}</h3>
       <table className="orderTable">
         <thead>
           <tr>
-            <th>Order ID</th>
-            <th>User</th>
-            <th>Image</th>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Date</th>
-            <th>Action</th>
+            <th className="orderID">Order ID</th>
+            <th className="userName">User</th>
+            <th className="productImage">Image</th>
+            <th className="productName">Product</th>
+            <th className="quantity">Quantity</th>
+            <th className="price">Price</th>
+            <th className="date">Date</th>
+            <th className="action">Action</th>
           </tr>
         </thead>
         <tbody>
           {orders.map((order) => (
             <tr key={order._id}>
-              <td>{order._id}</td>
-              <td>{order.user ? order.user.username : "Unknown user"}</td>
-              <td>
+              <td className="orderID">{order._id}</td>
+              <td className="userName">{order.user ? order.user.username : "Unknown user"}</td>
+              <td className="productImage">
                 {order.product.image ? (
                   <img
                     src={`${baseURL}/public/images/products/${order.product.image}`}
                     alt="Product"
-                    style={{ height: "200px", maxWidth: "160px" }}
+                    className="productImg"
                   />
                 ) : (
                   "No image"
                 )}
               </td>
-              <td>{order.product.name}</td>
-              <td>{order.quantity}</td>
-              <td>{order.quantity * order.product.price}</td>
-              <td>{new Date(order.createdAt).toLocaleDateString()}</td>
-              <td>
-                <button onClick={() => handleDelete(order._id)}>Delete</button>
+              <td className="productName">{order.product.name}</td>
+              <td className="quantity">{order.quantity}</td>
+              <td className="price">{order.quantity * order.product.price}</td>
+              <td className="date">{new Date(order.createdAt).toLocaleDateString()}</td>
+              <td className="action">
+                <button onClick={() => handleDelete(order._id)} id="orderDelete">Delete</button>
               </td>
             </tr>
           ))}

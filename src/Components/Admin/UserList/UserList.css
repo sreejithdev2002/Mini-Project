@@ -52,3 +52,10 @@
     font-family: sans-serif;
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+    .adminHome{
+        position: relative;
+        top: 80px;
+    }
+}

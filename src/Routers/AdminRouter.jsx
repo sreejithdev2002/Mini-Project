@@ -7,6 +7,7 @@ import AdminViewProducts from "../Pages/Admin/AdminViewProducts";
 import AdminLogin from "../Pages/Admin/AdminLogin";
 import AdminEditProducts from "../Pages/Admin/AdminEditProducts";
 import AdminOrderList from "../Pages/Admin/AdminOrderList";
+import AdminAdminDashboard from "../Pages/Admin/AdminAdminDashboard";
 
 function AdminRouter() {
   return (
@@ -18,6 +19,7 @@ function AdminRouter() {
         <Route path="/add" element={<AdminAddProducts />} />
         <Route path="/editproducts/:id" element={<AdminEditProducts />} />
         <Route path="/orderlist" element={<AdminOrderList/>}/>
+        <Route path="/dashboard" element={<AdminAdminDashboard/>}/>
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
