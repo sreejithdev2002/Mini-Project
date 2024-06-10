@@ -32,7 +32,7 @@
   transition: 0.3s transform ease;
 }
 
-#sinPrdImg:hover{
+#sinPrdImg:hover {
   transform: scale(1.05);
 }
 
@@ -60,6 +60,8 @@
 
 .sinPrdDetailsPrice {
   margin-top: 5px;
+  position: relative;
+  left: 10vw;
   color: rgb(19, 149, 14);
   font-weight: bold;
 }
@@ -112,32 +114,31 @@
   color: white;
 }
 
-#sinPrdBtn2:hover{
-    background-color: rgb(235, 33, 33)
+#sinPrdBtn2:hover {
+  background-color: rgb(235, 33, 33);
 }
 
-#sinPrdBtn1{
-    color: rgb(255, 59, 59);
+#sinPrdBtn1 {
+  color: rgb(255, 59, 59);
 }
 
-#sinPrdBtn1:hover{
-    background-color: rgb(223, 223, 223);
+#sinPrdBtn1:hover {
+  background-color: rgb(223, 223, 223);
 }
 
-
-.sinPrdQuantity button{
+.sinPrdQuantity button {
   padding: 7px 15px;
   margin: 10px;
   border: none;
   border-radius: 10vw;
 }
 
-.sinPrdQuantity button:hover{
+.sinPrdQuantity button:hover {
   background-color: rgb(196, 196, 196);
 }
 
 @media only screen and (max-width: 768px) {
-  .singleProduct{
+  .singleProduct {
     margin: 220px 0px;
   }
 
@@ -161,23 +162,23 @@
   .sinPrdDetailSection {
     margin-left: 20px;
     margin-top: 10px;
-}
+  }
 
-.sinPrdDetailsPrice{
-  position: relative;
-  right: 130px;
-}
+  .sinPrdDetailsPrice {
+    position: relative;
+    right: 130px;
+  }
 
-.sinPrdBtn {
-  width: 33.5vw;
-  height: 50px;
-  padding: 10px;
-  margin-right: 10px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  font-size: 15px;
-  font-weight: bold;
-  margin-top: 20px;
-}
+  .sinPrdBtn {
+    width: 33.5vw;
+    height: 50px;
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
 }

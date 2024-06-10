@@ -163,9 +163,9 @@ function SingleProduct() {
               <button onClick={() => handleQuantityChange(1)}>+</button>
             </div>
             <div className="sinPrdButtons">
-              <button className="sinPrdBtn" id="sinPrdBtn1">
+              {/* <button className="sinPrdBtn" id="sinPrdBtn1">
                 Add to Cart
-              </button>
+              </button> */}
               <button
                 className="sinPrdBtn"
                 id="sinPrdBtn2"
