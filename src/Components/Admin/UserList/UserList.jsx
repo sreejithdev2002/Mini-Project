@@ -71,16 +71,16 @@ function UserList() {
                     {user.blockStatus ? (
                       <button
                         className="adminUserListBlock"
+                        id="admUserListUnblock"
                         onClick={() => handleBlock(user._id)}
-                        style={{ backgroundColor: "rgb(47, 166, 47)" }}
                       >
                         Unblock
                       </button>
                     ) : (
                       <button
                         className="adminUserListBlock"
+                        id="admUserListBlock"
                         onClick={() => handleBlock(user._id)}
-                        style={{ backgroundColor: "#ff5a5a" }}
                       >
                         Block
                       </button>

@@ -14,6 +14,10 @@ export const createOrder = (orderData) => {
   return userInstance.post("/createorder", { ...orderData });
 };
 
+export const postReview = (reviewData) => {
+  return userInstance.post("/reviews/create", { ...reviewData });
+};
+
 //GET METHODS
 
 export const featuredProducts = () => {
@@ -68,4 +72,8 @@ export const getProductDetails = (productId) => {
 
 export const getUser = () => {
   return userInstance.get("/user");
+};
+
+export const getReviews = (productId) => {
+  return userInstance.get(`/reviews/${productId}`);
 };

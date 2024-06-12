@@ -32,6 +32,10 @@ export const getAllOrders = () => {
   return adminInstance.get("/orders");
 };
 
+export const getAllReviews = () => {
+  return adminInstance.get("/reviews/all");
+}
+
 //PUT
 
 export const disableProduct = (productId) => {

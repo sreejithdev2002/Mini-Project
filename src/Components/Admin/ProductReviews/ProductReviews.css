@@ -1,0 +1,166 @@
+.adminProductsReviews {
+    margin: 50px 20px;
+    position: relative;
+    top: 80px;
+  }
+  
+  .prdReviewsHeading {
+    margin: 40px 0;
+  }
+  
+  .prdReviewsTbl {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 100px;
+  }
+  
+  .prdReviewsTbl th,
+  .prdReviewsTbl td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .prdReviewsTbl th {
+    background-color: #f2f2f2;
+    text-align: left;
+    font-weight: 600;
+  }
+  
+  .prdReviewsTbl tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .prdReviewsTbl tbody tr:hover {
+    background-color: #ddd;
+  }
+
+
+  .prdReviewsTbl td:nth-child(1),
+  .prdReviewsTbl td:nth-child(2),
+  .prdReviewsTbl td:nth-child(3),
+  .prdReviewsTbl td:nth-child(4),
+  .prdReviewsTbl td:nth-child(5),
+  .prdReviewsTbl td:nth-child(6) {
+    text-align: center;
+  }
+
+  .prdReviewsTbl td:nth-child(1) {
+    width: 130px;
+  }
+
+  .prdReviewsTbl td:nth-child(2) {
+    width: 130px;
+  }
+  
+  .prdReviewsTbl td:nth-child(3) {
+    width: 120px;
+  }
+  
+  .prdReviewsTbl td:nth-child(4) {
+    width: 500px;
+  }
+  
+  .prdReviewsTbl td:nth-child(5) {
+    width: 200px;
+  }
+  
+  .prdReviewsTbl td:nth-child(6) {
+    width: 100px;
+  }
+
+  .reviewImage{
+    height: 100px;
+    max-width: 100px;
+    background-size: cover;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .adminProductsReviews {
+      margin: 30px 10px;
+      position: relative;
+      top: 120px;
+    }
+  
+    .prdReviewsHeading {
+      margin: 10px 0;
+      font-size: 24px;
+    }
+  
+    .prdReviewsTbl th, .prdReviewsTbl td {
+      padding: 6px;
+    }
+  
+    .prdReviewsTbl img {
+      height: 40px;
+      max-width: 40px;
+    }
+  
+    .prdReviewsTbl td:nth-child(3),
+    .prdReviewsTbl td:nth-child(4),
+    .prdReviewsTbl td:nth-child(5),
+    .prdReviewsTbl td:nth-child(6) {
+      text-align: center;
+    }
+  
+    .prdReviewsTbl td:nth-child(3) {
+      width: 100px;
+    }
+  
+    .prdReviewsTbl td:nth-child(4) {
+      width: 180px;
+    }
+  
+    .prdReviewsTbl td:nth-child(5) {
+      width: 70px;
+    }
+  
+    .prdReviewsTbl td:nth-child(6) {
+      width: 90px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .adminProductsReviews {
+      margin: 20px 5px;
+      position: relative;
+      top: 150px;
+    }
+  
+    .prdReviewsHeading {
+      font-size: 20px;
+    }
+  
+    .prdReviewsTbl th, .prdReviewsTbl td {
+      padding: 4px;
+    }
+  
+    .prdReviewsTbl img {
+      height: 30px;
+      max-width: 30px;
+    }
+  
+    .prdReviewsTbl td:nth-child(3),
+    .prdReviewsTbl td:nth-child(4),
+    .prdReviewsTbl td:nth-child(5),
+    .prdReviewsTbl td:nth-child(6) {
+      text-align: center;
+    }
+  
+    .prdReviewsTbl td:nth-child(3) {
+      width: 80px;
+    }
+  
+    .prdReviewsTbl td:nth-child(4) {
+      width: 160px;
+    }
+  
+    .prdReviewsTbl td:nth-child(5) {
+      width: 60px;
+    }
+  
+    .prdReviewsTbl td:nth-child(6) {
+      width: 80px;
+    }
+  }
+  

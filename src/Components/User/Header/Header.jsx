@@ -18,14 +18,12 @@ function Header() {
     try {
       const { user } = await userStatus();
       if (user) {
-        console.log(user.username + "Username")
         setLoggedIn(true);
         setUserName(user.username);
       } else {
         setLoggedIn(false);
         setUserName("");
       }
-      console.log(user + " : User status fetched");
     } catch (error) {
       console.log("Error fetching status:", error);
       setLoggedIn(false);

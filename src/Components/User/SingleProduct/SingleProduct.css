@@ -5,7 +5,7 @@
 .sinPrdTopSection {
   display: flex;
   flex-direction: row;
-  margin: 0px 50px;
+  margin: 100px 50px;
   justify-content: space-evenly;
 }
 
@@ -136,6 +136,81 @@
 .sinPrdQuantity button:hover {
   background-color: rgb(196, 196, 196);
 }
+
+
+.sinPrdBtmSection{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  margin: 0px 100px;
+
+}
+
+.reviewsSection {
+  width: 100%;
+  background-color: #f7f7f782;
+  border-radius: 0.4em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  position: relative;
+}
+
+.reviewDetails {
+  margin: 10px 0px;
+  width: 100%;
+  border: 1.5px solid #efefef;
+  border-radius: 5px;
+  padding: 10px 5px;
+}
+
+.reviewHeader{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reviewHeader h4{
+  font-size: 1.2rem;
+}
+
+.reviewHeader h4, .reviewHeader p{
+  padding: 0px 10px;
+}
+
+.reviewDetails p{
+  margin: 0px 10px;
+  max-width: 50vw;
+}
+
+#reviewComment{
+  color: gray;
+  font-size: 0.9rem;
+}
+
+.reviewExpandBtn{
+  background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.reviewExpandBtn:hover{
+  background-color: #0056b3;
+}
+
+
+
+
+
+
+
 
 @media only screen and (max-width: 768px) {
   .singleProduct {

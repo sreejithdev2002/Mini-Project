@@ -45,12 +45,24 @@
     width: 50%;
     height: 30px;
     border: none;
-    background-color: rgb(47, 166, 47);
     border-radius: 10px;
     color: white;
     font-size: 15px;
     font-family: sans-serif;
     cursor: pointer;
+}
+#admUserListUnblock{
+    background-color: #3dbb3d;
+}
+#admUserListUnblock:hover{
+    background-color: #227d18;
+}
+
+#admUserListBlock{
+    background-color: #ff5a5a;
+}
+#admUserListBlock:hover{
+    background-color: #981313;
 }
 
 @media (max-width: 768px) {

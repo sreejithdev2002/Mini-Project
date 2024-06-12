@@ -1,78 +1,3 @@
-/* .adminProducts{
-    margin: 100px 20px;
-}
-
-.adminProducts h1{
-    margin: 20px 0px;
-}
-
-.adminProducts h3{
-    margin: 10px 0px;
-    font-family: sans-serif;
-    display: flex;
-    justify-content: end;
-}
-
-.proTable{
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.proTable th, .proTable td {
-    border : 1px solid #ddd;
-    padding: 8px;
-}
-
-.proTable th{
-    background-color: #f2f2f2;
-    text-align: left;
-}
-
-.proTable tbody tr:nth-child(even){
-    background-color: #f2f2f2;
-}
-
-.proTable tbody tr:hover{
-    background-color: #ddd;
-}
-
-.adminProTableBtnRed {
-    width: 100%;
-    height: 50px;
-    margin: 5px 0px;
-    border: none;
-    background-color: #ff5a5a;
-    border-radius: 10px;
-    color: white;
-    font-size: 15px;
-    font-weight: bolder;
-    font-family: sans-serif;
-    cursor: pointer;
-}
-
-.adminProTableBtnRed:hover{
-    background-color: #ff3e3e;
-}
-
-.adminProTableBtnGreen {
-    width: 100%;
-    height: 50px;
-    margin: 5px 0px;
-    border: none;
-    background-color: #249118;
-    border-radius: 10px;
-    color: white;
-    font-size: 15px;
-    font-weight: bolder;
-    font-family: sans-serif;
-    cursor: pointer;
-}
-
-.adminProTableBtnGreen:hover{
-    background-color: #15a40e;
-} */
-
-/* ProductsTable.css */
 
 .adminProducts {
     margin: 50px 20px;
@@ -81,7 +6,7 @@
 }
 
 .productsHeading {
-    margin: 20px 0;
+    margin: 20px 0px ;
 }
 
 .totalProducts, .disabledProducts {
@@ -94,6 +19,7 @@
 .proTable {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 100px;
 }
 
 .proTable th, .proTable td {
@@ -115,8 +41,8 @@
 }
 
 .productImg {
-    height: 200px;
-    max-width: 160px;
+    height: 100px;
+    max-width: 100px;
 }
 
 .name, .description, .category, .gender, .price, .actions {
@@ -135,7 +61,7 @@
 }
 
 .editBtn {
-    background-color: #fe1616;
+    background-color: #ff5a5a;
     color: white;
 }
 
@@ -145,12 +71,12 @@
 }
 
 .enableBtn {
-    background-color: #fe1616;
+    background-color: #ff5a5a;
     color: white;
 }
 
 .deleteBtn {
-    background-color: #fe1616;
+    background-color: #ff5a5a;
     color: white;
 }
 

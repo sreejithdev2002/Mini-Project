@@ -66,6 +66,11 @@ console.log("Logout clicked");
               <p>Dashboard</p>
             </div>
           </Link>
+          <Link to="/admin/reviews">
+            <div className="admHeaderLinksIndividual" >
+              <p>Reviews</p>
+            </div>
+          </Link>
         </div>
         <div className="admHeaderButtons">
           <div className="admHeaderProfileIcon" onClick={toggleDropdown}>

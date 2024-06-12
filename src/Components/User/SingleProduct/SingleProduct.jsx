@@ -1,17 +1,24 @@
 // import React, { useEffect, useState } from "react";
 // import "./SingleProduct.css";
 // import { useParams } from "react-router-dom";
-// import { getProductDetails } from "../../../Services/UserApi";
+// import {
+//   getProductDetails,
+//   createOrder,
+//   getReviews,
+//   postReview,
+// } from "../../../Services/UserApi";
+// import ReviewForm from "../ReviewForm/ReviewForm";
 
 // function SingleProduct() {
 //   const { productId } = useParams();
 //   const [product, setProduct] = useState(null);
+//   const [reviews, setReviews] = useState([]);
+//   const [quantity, setQuantity] = useState(1);
 //   const [loading, setLoading] = useState(true);
 //   const [error, setError] = useState(null);
 
 //   const fetchProductDetails = async (productId) => {
 //     try {
-//       console.log("Fetching product details for:", productId);
 //       const response = await getProductDetails(productId);
 //       const { status, product, message } = response.data;
 //       if (status) {
@@ -26,11 +33,57 @@
 //     }
 //   };
 
+//   const fetchReviews = async () => {
+//     try {
+//       const reviewsResponse = await getReviews(productId);
+
+//       setReviews(reviewsResponse.data);
+//     } catch (error) {
+//       console.log("Error fetching reviews : ", error);
+//     }
+//   };
+
+//   const handleQuantityChange = (amount) => {
+//     setQuantity((prevQuantity) => {
+//       const newQuantity = prevQuantity + amount;
+//       return newQuantity > 0 ? newQuantity : 1;
+//     });
+//   };
+
+//   const handleBuyNow = async () => {
+//     try {
+//       const orderData = {
+//         productId,
+//         quantity,
+//       };
+//       const response = await createOrder(orderData);
+//       const { status, message } = response.data;
+//       if (status) {
+//         alert("Order placed successfully!");
+//       } else {
+//         alert(message || "Failed to place order.");
+//       }
+//     } catch (error) {
+//       alert("An error occurred while placing the order.");
+//     }
+//   };
+
 //   useEffect(() => {
 //     if (productId) {
 //       fetchProductDetails(productId);
+//       fetchReviews();
 //     }
 //   }, [productId]);
+
+//   const handlePostReview = async(reviewData) => {
+//     try{
+//       await postReview({ productId, ...reviewData});
+//       const reviewsResponse = await getReviews(productId);
+//       setReviews(reviewsResponse.data);
+//     } catch(error){
+//       console.log("Error posting reviews : ", error);
+//     }
+//   }
 
 //   if (loading) {
 //     return <div>Loading...</div>;
@@ -41,25 +94,34 @@
 //     return <div>Error: {error}</div>;
 //   }
 
-//   const baseURL = "http://localhost:8000"; // Replace with your actual base URL
+//   const baseURL = "http://localhost:8000";
 //   const imageURL = `${baseURL}/public/images/products/${product.image}`;
 
 //   return (
 //     <div className="singleProduct">
 //       <div className="sinPrdTopSection">
 //         <div className="sinPrdImgSection">
-//           <img id="sinPrdImg" src={imageURL} />
+//           <img id="sinPrdImg" src={imageURL} alt={product.name} />
 //         </div>
 //         <div className="sinPrdDetailSection">
 //           <div className="sinPrdDetailsName">
 //             <h1>{product.name}</h1>
 //             <h3>{product.brand}</h3>
 //             <p>{product.description}</p>
+//             <div className="sinPrdQuantity">
+//               <button onClick={() => handleQuantityChange(-1)}>-</button>
+//               <span>{quantity}</span>
+//               <button onClick={() => handleQuantityChange(1)}>+</button>
+//             </div>
 //             <div className="sinPrdButtons">
-//               <button className="sinPrdBtn" id="sinPrdBtn1">
+//               {/* <button className="sinPrdBtn" id="sinPrdBtn1">
 //                 Add to Cart
-//               </button>
-//               <button className="sinPrdBtn" id="sinPrdBtn2">
+//               </button> */}
+//               <button
+//                 className="sinPrdBtn"
+//                 id="sinPrdBtn2"
+//                 onClick={handleBuyNow}
+//               >
 //                 Buy Now
 //               </button>
 //             </div>
@@ -69,23 +131,52 @@
 //           </div>
 //         </div>
 //       </div>
+//       <div className="sinPrdBtmSection">
+//       <div className="reviewsSection">
+//               <h2>Reviews</h2>
+//               {reviews.length > 0 ? (
+//                 reviews.map((review) => (
+//                   <div key={review._id} className="reviewDetails">
+//                     <div className="reviewHeader">
+//                     <h4>{review.userId.username}</h4>
+//                     <p>Rating: {review.rating}</p>
+//                     </div>
+//                     <p id="reviewComment">{review.comment}</p>
+//                   </div>
+//                 ))
+//               ) : (
+//                 <p>No reviews yet.</p>
+//               )}
+//             </div>
+//             <ReviewForm onSubmit={handlePostReview} />
+//       </div>
 //     </div>
 //   );
 // }
 
 // export default SingleProduct;
 
+
 import React, { useEffect, useState } from "react";
 import "./SingleProduct.css";
 import { useParams } from "react-router-dom";
-import { getProductDetails, getUser, createOrder } from "../../../Services/UserApi";
+import {
+  getProductDetails,
+  createOrder,
+  getReviews,
+  postReview,
+} from "../../../Services/UserApi";
+import ReviewForm from "../ReviewForm/ReviewForm";
+import StarRating from "../StarRating/StarRating";
 
 function SingleProduct() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
+  const [reviews, setReviews] = useState([]);
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [expanded, setExpanded] = useState(false);
 
   const fetchProductDetails = async (productId) => {
     try {
@@ -100,6 +191,15 @@ function SingleProduct() {
       setError("An error occurred while fetching the product details.");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchReviews = async () => {
+    try {
+      const reviewsResponse = await getReviews(productId);
+      setReviews(reviewsResponse.data);
+    } catch (error) {
+      console.log("Error fetching reviews : ", error);
     }
   };
 
@@ -131,8 +231,23 @@ function SingleProduct() {
   useEffect(() => {
     if (productId) {
       fetchProductDetails(productId);
+      fetchReviews();
     }
   }, [productId]);
+
+  const handlePostReview = async (reviewData) => {
+    try {
+      await postReview({ productId, ...reviewData });
+      const reviewsResponse = await getReviews(productId);
+      setReviews(reviewsResponse.data);
+    } catch (error) {
+      console.log("Error posting reviews : ", error);
+    }
+  };
+
+  const toggleExpanded = () => {
+    setExpanded(!expanded);
+  };
 
   if (loading) {
     return <div>Loading...</div>;
@@ -143,7 +258,7 @@ function SingleProduct() {
     return <div>Error: {error}</div>;
   }
 
-  const baseURL = "http://localhost:8000"; // Replace with your actual base URL
+  const baseURL = "http://localhost:8000";
   const imageURL = `${baseURL}/public/images/products/${product.image}`;
 
   return (
@@ -163,9 +278,6 @@ function SingleProduct() {
               <button onClick={() => handleQuantityChange(1)}>+</button>
             </div>
             <div className="sinPrdButtons">
-              {/* <button className="sinPrdBtn" id="sinPrdBtn1">
-                Add to Cart
-              </button> */}
               <button
                 className="sinPrdBtn"
                 id="sinPrdBtn2"
@@ -179,6 +291,31 @@ function SingleProduct() {
             <h2>₹{product.price}</h2>
           </div>
         </div>
+      </div>
+      <div className="sinPrdBtmSection">
+        <div className="reviewsSection">
+          <h2>Reviews</h2>
+          {reviews.length > 0 ? (
+            (expanded ? reviews : reviews.slice(0, 3)).map((review) => (
+              <div key={review._id} className="reviewDetails">
+                <div className="reviewHeader">
+                  <h4>{review.userId.username}</h4>
+                  {/* <p>Rating: {review.rating}</p> */}
+                  <StarRating rating={review.rating}/>
+                </div>
+                <p id="reviewComment">{review.comment}</p>
+              </div>
+            ))
+          ) : (
+            <p>No reviews yet.</p>
+          )}
+          {reviews.length > 5 && (
+            <button className="reviewExpandBtn" onClick={toggleExpanded}>
+              {expanded ? "Show Less" : "Show More"}
+            </button>
+          )}
+        </div>
+        <ReviewForm onSubmit={handlePostReview} />
       </div>
     </div>
   );
