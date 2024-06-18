@@ -18,6 +18,10 @@ export const postReview = (reviewData) => {
   return userInstance.post("/reviews/create", { ...reviewData });
 };
 
+export const AddToWishlist = (productId) => {
+  return userInstance.post("/wishlist", { productId });
+};
+
 //GET METHODS
 
 export const featuredProducts = () => {
@@ -77,3 +81,7 @@ export const getUser = () => {
 export const getReviews = (productId) => {
   return userInstance.get(`/reviews/${productId}`);
 };
+
+export const checkProductInWishlist = (productId) => {
+  return userInstance.get(`/wishlist/check/${productId}`);
+}
