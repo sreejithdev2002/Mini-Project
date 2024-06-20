@@ -184,6 +184,7 @@ import {
 import ReviewForm from "../ReviewForm/ReviewForm";
 import StarRating from "../StarRating/StarRating";
 import Loader from "../Loader/Loader";
+import { toast } from "react-toastify";
 
 function SingleProduct() {
   const { productId } = useParams();
@@ -251,12 +252,12 @@ function SingleProduct() {
       const response = await addToCart(productId, quantity);
       const { status, message } = response.data;
       if (status) {
-        alert("Product added to cart successfully!");
+        toast.success("Product added to cart successfully!");
       } else {
-        alert(message || "Failed to add product to cart.");
+        toast.error("Failed to add product to cart.");
       }
     } catch (error) {
-      alert("An error occurred while adding the product to the cart.");
+      toast.error("An error occurred while adding the product to the cart.");
     }
   };
 

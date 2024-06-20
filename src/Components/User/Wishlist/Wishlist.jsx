@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { addToCart, getWishlist, removeFromWishlist } from "../../../Services/UserApi";
+import {
+  addToCart,
+  getWishlist,
+  removeFromWishlist,
+} from "../../../Services/UserApi";
 import "./Wishlist.css";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import Empty from "../../User/Empty/Empty";
+import Loader from "../Loader/Loader";
 
 function Wishlist() {
   const [wishlistData, setWishlistData] = useState([]);
@@ -14,14 +20,14 @@ function Wishlist() {
     try {
       const response = await getWishlist();
       setWishlistData(response.data);
-      console.log(response.data);
-      setLoading(false);
     } catch (error) {
       setError("Failed to fetch wishlist");
-      setLoading(true);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
     }
   };
-
   useEffect(() => {
     fetchWishlist();
   }, []);
@@ -36,18 +42,24 @@ function Wishlist() {
     }
   };
 
-  const handleRemoveFromWishlist = async(productId) => {
-    try{
-        await removeFromWishlist(productId);
-        toast.success("Product removed from wishlist");
-        setWishlistData(wishlistData.filter(item => item._id !== productId));
-    } catch(error){
-        console.error("Failed to remove product from wishlist", error);
-        toast.error("Failed to remove product from wishlist");
+  const handleRemoveFromWishlist = async (productId) => {
+    try {
+      await removeFromWishlist(productId);
+      setWishlistData(wishlistData.filter((item) => item._id !== productId));
+      toast.success("Product removed from wishlist");
+    } catch (error) {
+      console.error("Failed to remove product from wishlist", error);
+      toast.error("Failed to remove product from wishlist");
     }
-  }
+  };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <div style={{ margin: "300px" }}>
+        <Loader />
+      </div>
+    );
+
   if (error) return <div>{error}</div>;
   return (
     <div className="wishlist">
@@ -55,7 +67,7 @@ function Wishlist() {
         <h1>My Wishlist</h1>
       </div>
       {wishlistData.length === 0 ? (
-        <p>Your wishlist is empty.</p>
+        <Empty message="No Product in Wishlist" />
       ) : (
         <table className="wishTable">
           <thead>
@@ -73,14 +85,18 @@ function Wishlist() {
                   <img
                     src={`http://localhost:8000/public/images/products/${item.image}`}
                     alt={item.name}
-                    style={{ width: "150px", height: "150px", cursor: "pointer" }}
+                    style={{
+                      width: "300px",
+                      height: "300px",
+                      cursor: "pointer",
+                    }}
                     onClick={() => {
-                        navigate(`/product/${item._id}`)
+                      navigate(`/product/${item._id}`);
                     }}
                   />
                 </td>
                 <td>{item.name}</td>
-                <td>${item.price.toFixed(2)}</td>
+                <td>{item.price.toFixed(2)}</td>
                 <td>
                   <button
                     onClick={() => handleAddToCart(item._id)}
@@ -90,7 +106,7 @@ function Wishlist() {
                   </button>
                   <button
                     onClick={() => handleRemoveFromWishlist(item._id)}
-                    className="wishlistAddToCartBtn"
+                    className="wishlistRemoveFromWishlistBtn"
                   >
                     Remove From Wishlist
                   </button>

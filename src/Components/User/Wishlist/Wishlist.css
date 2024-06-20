@@ -17,6 +17,7 @@
     margin-bottom: 100px;
     margin-left: 50px;
     margin-right: 50px;
+    text-align: center;
 }
 
 .wishTable th, .wishTable td {
@@ -26,7 +27,6 @@
 
 .wishTable th {
     background-color: #f2f2f2;
-    text-align: left;
 }
 
 .wishTable tbody tr:nth-child(even) {
@@ -38,16 +38,32 @@
 }
 
 .wishlistAddToCartBtn{
-    padding: 5px 10px;
+    padding: 10px;
     border: none;
     background-color: #0aab0a;
     color: white;
     border-radius: 5px;
     font-size: 16px;
+    margin: 0px 5px;
+}
+
+.wishlistRemoveFromWishlistBtn{
+    padding: 10px;
+    border: none;
+    background-color: #cd0e0e;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 0px 5px;
+
 }
 
 .wishlistAddToCartBtn:hover{
     background-color: #0b920b;
+}
+
+.wishlistRemoveFromWishlistBtn:hover{
+    background-color: #b40c0c;
 }
 
 @media only screen and (max-width: 768px){

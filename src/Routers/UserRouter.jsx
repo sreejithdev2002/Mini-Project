@@ -15,6 +15,7 @@ import UserSandals from '../Pages/User/UserSandals';
 import UserSneakers from '../Pages/User/UserSneakers';
 import UserLogin from '../Pages/User/UserLogin';
 import UserWishlist from '../Pages/User/UserWishlist';
+import UserCart from '../Pages/User/UserCart';
  
 function UserRouter() {
   return (
@@ -34,6 +35,7 @@ function UserRouter() {
         <Route path='/categories/sandals' element={<UserSandals/>}/>
         <Route path='/categories/sneakers' element={<UserSneakers/>}/>
         <Route path='/wishlist' element={<UserWishlist/>}/>
+        <Route path='/cart' element={<UserCart/>}/>
         <Route path='*' element={<ErrorPage/>}/>
       </Routes>
     </div>

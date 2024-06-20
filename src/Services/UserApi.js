@@ -98,9 +98,13 @@ export const getWishlist = () => {
   return userInstance.get("/wishlist");
 };
 
+export const getCart = () => {
+  return userInstance.get("/cart");
+}
+
 
 //DELETE METHODS
 
 export const removeFromWishlist = (productId) => {
-  return adminInstance.delete(`/wishlist/remove/${productId}`);
+  return userInstance.delete(`/wishlist/remove/${productId}`);
 };
