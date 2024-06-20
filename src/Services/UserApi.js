@@ -22,6 +22,14 @@ export const AddToWishlist = (productId) => {
   return userInstance.post("/wishlist", { productId });
 };
 
+export const removeWishlist = (productId) => {
+  return userInstance.post("/wishlist/remove", {productId});
+}
+
+export const addToCart = (productId, quantity) => {
+  return userInstance.post("/cart/add", { productId, quantity });
+};
+
 //GET METHODS
 
 export const featuredProducts = () => {
@@ -84,4 +92,15 @@ export const getReviews = (productId) => {
 
 export const checkProductInWishlist = (productId) => {
   return userInstance.get(`/wishlist/check/${productId}`);
-}
+};
+
+export const getWishlist = () => {
+  return userInstance.get("/wishlist");
+};
+
+
+//DELETE METHODS
+
+export const removeFromWishlist = (productId) => {
+  return adminInstance.delete(`/wishlist/remove/${productId}`);
+};

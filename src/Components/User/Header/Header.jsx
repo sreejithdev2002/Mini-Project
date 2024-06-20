@@ -1,7 +1,9 @@
-
-
 import React, { useState, useEffect } from "react";
-import { ProfileIcon } from "../../../Assets/Icons";
+import {
+  CartIcon,
+  ProfileIcon,
+  WishlistIconTrue,
+} from "../../../Assets/Icons";
 import "./Header.css";
 import { Link, useNavigate } from "react-router-dom";
 import { userStatus } from "../../../Services/UserApi";
@@ -91,6 +93,14 @@ function Header() {
         </Link>
       </div>
       <div className="headerButtons">
+        <Link to="/wishlist">
+        <div className="headerProfileIcon">
+          <WishlistIconTrue />
+        </div></Link>
+        <Link to="/cart">
+        <div className="headerProfileIcon">
+          <CartIcon />
+        </div></Link>
         <div
           className="headerProfileIcon"
           onClick={toggleDropdown}
@@ -102,11 +112,11 @@ function Header() {
           <div className="userDropdownContent">
             {loggedIn ? (
               <div className="headerProUserName">
-              <p>{userName}</p>
-              <button onClick={handleLogout} id="headerSignupLogout">
-                Logout
-              </button>
-            </div>
+                <p>{userName}</p>
+                <button onClick={handleLogout} id="headerSignupLogout">
+                  Logout
+                </button>
+              </div>
             ) : (
               <>
                 <button onClick={handleLogin} id="headerLogin">

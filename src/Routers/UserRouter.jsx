@@ -14,6 +14,7 @@ import UserFormals from '../Pages/User/UserFormals';
 import UserSandals from '../Pages/User/UserSandals';
 import UserSneakers from '../Pages/User/UserSneakers';
 import UserLogin from '../Pages/User/UserLogin';
+import UserWishlist from '../Pages/User/UserWishlist';
  
 function UserRouter() {
   return (
@@ -32,6 +33,7 @@ function UserRouter() {
         <Route path='/categories/formals' element={<UserFormals/>}/>
         <Route path='/categories/sandals' element={<UserSandals/>}/>
         <Route path='/categories/sneakers' element={<UserSneakers/>}/>
+        <Route path='/wishlist' element={<UserWishlist/>}/>
         <Route path='*' element={<ErrorPage/>}/>
       </Routes>
     </div>
