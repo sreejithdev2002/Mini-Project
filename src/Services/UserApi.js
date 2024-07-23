@@ -32,9 +32,9 @@ export const addToCart = (productId, quantity) => {
 
 //GET METHODS
 
-// export const featuredProducts = () => {
-//   return userInstance.get("/");
-// };
+export const featuredProducts = () => {
+  return userInstance.get("/");
+};
 
 export const latestArrivals = () => {
   return userInstance.get("/latestarrival");
