@@ -1,12 +1,20 @@
 import axios from "axios"
 
 
+// const userInstance = axios.create({
+//     baseURL: "http://localhost:8000/"
+// });
+
+// const adminInstance = axios.create({
+//     baseURL: "http://localhost:8000/admin/"
+// });
+
 const userInstance = axios.create({
-    baseURL: "http://localhost:8000/"
+    baseURL: "https://mini-project-backend-nv1x.onrender.com/"
 });
 
 const adminInstance = axios.create({
-    baseURL: "http://localhost:8000/admin/"
+    baseURL: "https://mini-project-backend-nv1x.onrender.com/admin/"
 });
 
 userInstance.interceptors.request.use((request) => {

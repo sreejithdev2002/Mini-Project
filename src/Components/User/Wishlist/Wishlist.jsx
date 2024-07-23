@@ -60,7 +60,7 @@ function Wishlist() {
       </div>
     );
 
-  if (error) return <div>{error}</div>;
+  if (error) return <div style={{ height: "71.2vh", display: "flex", justifyContent: "center", alignItems: "center", fontSize:"2rem"}}>{error}</div>;
   return (
     <div className="wishlist">
       <div className="wishlistHeading">

@@ -17,7 +17,7 @@ function Cart() {
       const response = await getCart();
       setCartData(response.data);
     } catch (err) {
-      setError(err.message);
+      setError("Failed to fetch Cart");
     } finally {
       setTimeout(() => {
         setLoading(false);
@@ -38,7 +38,7 @@ function Cart() {
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    if (error) return <div style={{ height: "71.2vh", display: "flex", justifyContent: "center", alignItems: "center", fontSize:"2rem"}}>{error}</div>;
   }
 
   return (
