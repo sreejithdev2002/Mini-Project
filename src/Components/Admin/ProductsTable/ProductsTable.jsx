@@ -92,7 +92,7 @@ function ProductsTable() {
         <tbody>
           {productsData.map((product) => {
             const imageURL = product.image
-              ? `http://localhost:8000/public/images/products/${product.image}`
+              ? `https://mini-project-backend-nv1x.onrender.com/public/images/products/${product.image}`
               : SampleImg;
             return (
               <tr key={product._id}>

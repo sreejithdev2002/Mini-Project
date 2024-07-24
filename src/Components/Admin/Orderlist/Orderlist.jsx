@@ -53,7 +53,7 @@ function Orderlist() {
     return <Empty message="No Orders Available" />;
   }
 
-  const baseURL = "http://localhost:8000";
+  const baseURL = "https://mini-project-backend-nv1x.onrender.com";
 
   return (
     <div className="adminOrders">
