@@ -36,25 +36,25 @@
 }
 
 #sneaker {
-  background: url("../../../../public/images/Sneakers.png");
+  background: url("../../../../public/images/Sneakers-min.png");
   background-position: center;
   background-size: cover;
 }
 
 #casuals {
-  background: url("../../../../public/images/Casuals.png");
+  background: url("../../../../public/images/Casuals-min.png");
   background-position: center;
   background-size: cover;
 }
 
 #formals {
-  background: url("../../../../public/images/Formals.png");
+  background: url("../../../../public/images/Formals-min.png");
   background-position: center;
   background-size: cover;
 }
 
 #sandals {
-  background: url("../../../../public/images/Sandals.png");
+  background: url("../../../../public/images/Sandals-min.png");
   background-position: center;
   background-size: cover;
 }
