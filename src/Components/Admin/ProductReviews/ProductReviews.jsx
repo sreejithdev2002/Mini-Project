@@ -42,7 +42,7 @@ function ProductReviews() {
         <tbody>
           {reviewsData.map((review) => {
             const imageURL = review.productId.image
-              ? `http://localhost:8000/public/images/products/${review.productId.image}`
+              ? `https://mini-project-backend-nv1x.onrender.com/public/images/products/${review.productId.image}`
               : SampleImg;
             return (
               <tr key={review._id}>

@@ -65,7 +65,7 @@ function Cart() {
               <tr key={item.product._id}>
                 <td>
                   <img
-                    src={`http://localhost:8000/public/images/products/${item.product.image}`}
+                    src={`https://mini-project-backend-nv1x.onrender.com/public/images/products/${item.product.image}`}
                     alt={item.product.name}
                     style={{
                       width: "250px",

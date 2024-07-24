@@ -83,7 +83,7 @@ function Wishlist() {
               <tr key={item._id}>
                 <td>
                   <img
-                    src={`http://localhost:8000/public/images/products/${item.image}`}
+                    src={`https://mini-project-backend-nv1x.onrender.com/public/images/products/${item.image}`}
                     alt={item.name}
                     style={{
                       width: "300px",
