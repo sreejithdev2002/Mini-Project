@@ -127,7 +127,7 @@ function Header() {
               <div className="flex">
                 <p className="mr-4 text-xl text-green-700">{userName}</p>
                 <button
-                  className="px-[8px] h-8 mx-2 border-none rounded cursor-pointer text-white bg-red-500 hover:bg-red-600 text-sm transition duration-300"
+                  className="px-2 h-8 mx-2 border-none rounded cursor-pointer text-white bg-red-500 hover:bg-red-600 text-sm transition duration-300"
                   onClick={handleLogout}
                   id="headerSignupLogout"
                 >
@@ -137,14 +137,14 @@ function Header() {
             ) : (
               <div className="flex">
                 <button
-                  className="py-2 px-4 mx-2 border-none rounded cursor-pointer text-white"
+                  className="px-2 h-8 mx-2 border-none rounded cursor-pointer bg-green-500 hover:bg-green-600 transition-colors duration-300 text-white"
                   onClick={handleLogin}
                   id="headerLogin"
                 >
                   Login
                 </button>
                 <button
-                  className="py-2 px-4 mx-2 border-none rounded cursor-pointer text-white"
+                  className="px-2 h-8 mx-2 border-none rounded cursor-pointer text-white bg-red-500 hover:bg-red-600 transition-colors duration-300"
                   onClick={handleSignup}
                   id="headerSignupLogout"
                 >
