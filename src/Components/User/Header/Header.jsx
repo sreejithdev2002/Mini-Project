@@ -135,7 +135,7 @@ function Header() {
                 </button>
               </div>
             ) : (
-              <>
+              <div className="flex">
                 <button
                   className="py-2 px-4 mx-2 border-none rounded cursor-pointer text-white"
                   onClick={handleLogin}
@@ -150,7 +150,7 @@ function Header() {
                 >
                   SignUp
                 </button>
-              </>
+              </div>
             )}
           </div>
         )}
