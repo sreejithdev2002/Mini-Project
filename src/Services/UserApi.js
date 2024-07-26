@@ -71,11 +71,11 @@ export const luxury = () => {
 export const userStatus = () => {
   return userInstance
     .get("/auth/status")
-    // .then((response) => response.data)
-    // .catch((error) => {
-    //   console.error("Error fetching user status:", error);
-    //   return { user: null };
-    // });
+    .then((response) => response.data)
+    .catch((error) => {
+      console.error("Error fetching user status:", error);
+      return { user: null };
+    });
 };
 
 export const getProductDetails = (productId) => {

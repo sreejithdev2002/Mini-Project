@@ -6,16 +6,16 @@ const Footer = () => {
   return (
 
     <>
-      <div className="footer">
-        <div className="footerContent1">
-          <div className="footerBrand">
+      <div className="flex flex-col bg-[#202633] relative h-auto text-center">
+        <div className="grid lg:grid-cols-3 justify-between pt-[20px] px-[50px] pb-[10px]">
+          <div className="text-white my-2">
             <Link to="/">
-              <h2>SHOOOZ</h2>
-              <h6>YOUR FOOTWEAR DESTINATION</h6>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae commodi velit sed delectus, nulla doloremque perspiciatis quasi, eos enim aperiam saepe corrupti cupiditate quo illum voluptatum, ipsa dignissimos animi deserunt?</p>
+              <h2 className="text-3xl lg:text-start" id="footerBrand">SHOOOZ</h2>
+              <h3 className="text-xs lg:text-start">YOUR FOOTWEAR DESTINATION</h3>
+              <p className="text-sm font-thin text-gray-300 mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae commodi velit sed delectus, nulla doloremque perspiciatis quasi, eos enim aperiam saepe corrupti cupiditate quo illum voluptatum, ipsa dignissimos animi deserunt?</p>
             </Link>
           </div>
-          <div className="footerSupportLinks">
+          <div className="text-white my-4">
             <ul>
               <Link to="#">
                 <li>About Us</li>
@@ -31,7 +31,7 @@ const Footer = () => {
               </Link>
             </ul>
           </div>
-          <div className="footerMainLinks">
+          <div className="text-white my-4">
             <ul>
               <Link to="/latestarrival">
                 <li>Latest Arrivals</li>
@@ -51,15 +51,6 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        {/* <div className="footerContent2">
-          <div className="footerSearch">
-            <h3>Search</h3>
-            <input type="search" placeholder="Type here to search..." />
-          </div>
-        </div>
-        <div className="footerContent3">
-          <p>This Website is created by <a href="#">SreejithDev2002</a></p>
-        </div> */}
       </div>
     </>
   );

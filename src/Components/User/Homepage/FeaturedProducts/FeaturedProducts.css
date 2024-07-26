@@ -1,38 +1,12 @@
-.featuredProducts {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    padding: 20px 0px;
-    background-color: #fafafae6;
+#hr {
+  height: 1.5px;
+  width: 150px;
+  border-radius: 5px;
+  border: none;
+  background-color: #a1a1a1;
+  margin-top: 10px;
 }
 
-.featuredHeading {
-    font-size: 30px;
-}
-
-#hr{
-    height: 1.5px;
-    width: 150px;
-    border-radius: 5px;
-    border: none;
-    background-color: #a1a1a1;
-    margin-top: 10px;
-}
-
-.featuredGrid{
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    row-gap: 10px;
-    padding: 20px 0px;
-}
-
-
-
-
-@media only screen and (max-width: 768px){
-    .featuredGrid{
-        grid-template-columns: auto;
-    }
+.custom-grid {
+  grid-template-columns: auto auto auto auto;
 }

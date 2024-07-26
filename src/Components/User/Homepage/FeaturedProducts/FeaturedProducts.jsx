@@ -31,10 +31,10 @@ function FeaturedProducts() {
 
   return (
     <>
-      <div className="featuredProducts">
-        <h2 className="featuredHeading">Featured Products</h2>
+      <div className="flex flex-col justify-center items-center mt-5 bg-[#fafafae6]">
+        <h2 className="text-3xl">Featured Products</h2>
         <hr id="hr" />
-        <div className="featuredGrid">
+        <div className="grid grid-cols-1 gap-y-2.5 py-5 lg:custom-grid">
           {loading ? <Loader /> : <ProductPage products={featuredData} />}
         </div>
       </div>

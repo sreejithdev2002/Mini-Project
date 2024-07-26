@@ -12,7 +12,7 @@ const StarRating = ({ rating }) => {
     );
   }
 
-  return <div className="starRating">{stars}</div>;
+  return <div className="inline-flex">{stars}</div>;
 };
 
 export default StarRating;

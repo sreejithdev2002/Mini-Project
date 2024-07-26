@@ -36,9 +36,9 @@ function Luxury() {
 
   return (
     <>
-      <div className="luxury">
-        <div className="luxuryHeading">
-          <h1>Luxury Collection</h1>
+      <div className="flex flex-col pb-[50px] pt-[200px] bg-[#f0f0f045] lg:pt-[150px]">
+        <div className="ml-[90px] lg:ml-[50px]">
+          <h1 className="text-2xl">Luxury Collection</h1>
         </div>
         {loading ? <Loader /> : <ProductPage products={luxuryData} />}
       </div>

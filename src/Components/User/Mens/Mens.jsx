@@ -36,9 +36,9 @@ function Mens() {
 
   return (
     <>
-      <div className="Mens">
-        <div className="MensHeading">
-          <h1>Mens Collections</h1>
+      <div className="flex flex-col pb-[50px] pt-[200px] bg-[#f0f0f045] lg:pt-[150px]">
+        <div className="ml-[90px] lg:ml-[50px]">
+          <h1 className="text-2xl">Mens Collections</h1>
         </div>
         {loading ? <Loader /> : <ProductPage products={mensData} />}
       </div>

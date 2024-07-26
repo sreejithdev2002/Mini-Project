@@ -6,7 +6,6 @@ import Loader from "../../Loader/Loader";
 import Empty from "../../Empty/Empty";
 
 function Sandals() {
-  // const sandals = ShoesData.shoes.filter(shoe => shoe.category === 'Sandals');
 
   const [sandalsData, setSandalsData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -38,9 +37,9 @@ function Sandals() {
 
   return (
     <>
-      <div className="sandals">
-        <div className="sandalsHeading">
-          <h1>Sandals</h1>
+      <div className="flex flex-col pb-[50px] pt-[200px] bg-[#f0f0f045] lg:pt-[150px]">
+        <div className="ml-[90px] lg:ml-[50px]">
+          <h1 className="text-2xl">Sandals</h1>
         </div>
         {loading ? <Loader /> : <ProductPage products={sandalsData} />}
       </div>

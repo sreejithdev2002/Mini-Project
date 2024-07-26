@@ -90,24 +90,24 @@ const AdminDashboard = () => {
   }
 
   return (
-    <div className='container'>
-      <h2>Product Distributions</h2>
+    <div className='max-w-[1200px] mx-auto p-5 relative top-28 lg:top-20'>
+      <h2 className='text-center text-3xl my-[50px] underline underline-offset-8 decoration-wavy decoration-from-font decoration-gray-500'>Product Distributions</h2>
       <div className='charts'>
-        <div className="chart-container">
-          <h3>Gender Distribution</h3>
-          {genderData.labels ? <Pie data={genderData} className="pie-chart" style={{boxSizing: "border-box" , display: "block"}}/> : <p>Loading...</p>}
+        <div className="mb-10">
+          <h3 className='text-center mb-[10px] text-lg'>Gender Distribution</h3>
+          {genderData.labels ? <Pie data={genderData} className="w-[100%] max-w-[600px] mx-auto" /> : <p>Loading...</p>}
         </div>
-        <div className="chart-container">
-          <h3>Luxury Distribution</h3>
-          {luxuryData.labels ? <Pie data={luxuryData} className="pie-chart" /> : <p>Loading...</p>}
+        <div className="mb-10">
+          <h3 className='text-center mb-[10px] text-lg'>Luxury Distribution</h3>
+          {luxuryData.labels ? <Pie data={luxuryData} className="w-[100%] max-w-[600px] mx-auto" /> : <p>Loading...</p>}
         </div>
-        <div className="chart-container">
-          <h3>Block Status Distribution</h3>
-          {blockStatusData.labels ? <Pie data={blockStatusData} className="pie-chart" /> : <p>Loading...</p>}
+        <div className="mb-10">
+          <h3 className='text-center mb-[10px] text-lg'>Block Status Distribution</h3>
+          {blockStatusData.labels ? <Pie data={blockStatusData} className="w-[100%] max-w-[600px] mx-auto" /> : <p>Loading...</p>}
         </div>
-        <div className="chart-container">
-          <h3>Category Distribution</h3>
-          {categoryData.labels ? <Pie data={categoryData} className="pie-chart" /> : <p>Loading...</p>}
+        <div className="mb-10">
+          <h3 className='text-center mb-[10px] text-lg'>Category Distribution</h3>
+          {categoryData.labels ? <Pie data={categoryData} className="w-[100%] max-w-[600px] mx-auto" /> : <p>Loading...</p>}
         </div>
       </div>
     </div>

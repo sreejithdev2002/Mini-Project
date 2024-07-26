@@ -10,17 +10,12 @@ import { toast } from "react-toastify";
 import { login } from "../../../Services/AdminApi";
 
 function Login() {
-
   const navigate = useNavigate();
-
-  // const handleLogin = () => {
-  //   toast.success("Admin Login Successful")
-  // }
 
   const validationSchema = Yup.object().shape({
     email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
+      .email("Invalid email address")
+      .required("Email is required"),
     password: Yup.string().required("Password is required"),
   });
 
@@ -32,40 +27,47 @@ function Login() {
 
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-      try{
+      try {
         console.log("On Submit !!!");
-        const {data} = await login(values);
+        const { data } = await login(values);
         console.log(data, "Admin Return Data !!!");
-        if(data.status){
+        if (data.status) {
           localStorage.setItem("adminjwt", data.token);
-          toast.success("Login Success", {position: "top-right"});
+          toast.success("Login Success", { position: "top-right" });
           navigate("/admin");
         } else {
-          toast.error(data.message, {position: "top-right"});
+          toast.error(data.message, { position: "top-right" });
         }
-      } catch(error){
-        console.log(error)
+      } catch (error) {
+        console.log(error);
       }
-    }
-  })
+    },
+  });
 
   return (
     <>
-      <div className="loginUser">
-        <h1 className="loginUsrh1">SHOOOZ</h1>
-        <div className="loginUsr">
-          <div className="loginSection">
-            <form onSubmit={formik.handleSubmit}>
-              <h1>Account Login</h1>
+      <div className="flex flex-col my-5 mx-[50px]">
+        <h1 className="text-3xl" id="loginBrand">
+          SHOOOZ
+        </h1>
+        <div className="flex my-[100px] items-center justify-evenly rounded-sm">
+          <div className="flex justify-center items-center h-[57vh]">
+            <form onSubmit={formik.handleSubmit} className="px-[50px]">
+              <h1 className="text-4xl mb-2">Account Login</h1>
               <p>Please enter your email and password.</p>
-              <div className="loginUserInput">
-                <div className="loginUsername">
-                  <label htmlFor="email">Email</label>
+              <div>
+                <div className="flex flex-col mt-2">
+                  <label
+                    htmlFor="email"
+                    className="my-[10px] font-sans font-bold"
+                  >
+                    Email
+                  </label>
                   <input
                     type="email"
                     name="email"
                     id="loginEmail"
-                    className="loginInput"
+                    className="p-2"
                     placeholder="Enter your email"
                     value={formik.values.email}
                     onChange={formik.handleChange}
@@ -81,13 +83,18 @@ function Login() {
                   )}
                 </div>
                 <br />
-                <div className="loginPassword">
-                  <label htmlFor="password">Password</label>
+                <div className="flex flex-col">
+                  <label
+                    htmlFor="password"
+                    className="my-[10px] font-sans font-bold"
+                  >
+                    Password
+                  </label>
                   <input
                     type="password"
                     name="password"
                     id="loginPassword"
-                    className="loginInput"
+                    className="p-2"
                     placeholder="Enter your password"
                     value={formik.values.password}
                     onChange={formik.handleChange}
@@ -103,16 +110,19 @@ function Login() {
                   )}
                 </div>
                 <br />
-                <div className="loginSubmit">
-                  <button type="submit">
+                <div className="flex items-center justify-center">
+                  <button
+                    type="submit"
+                    className="h-12 bg-red-500 hover:bg-red-600 transition-colors duration-300 w-[100%] text-white rounded-sm"
+                  >
                     Login
                   </button>
                 </div>
               </div>
             </form>
           </div>
-          <div className="loginImageSection">
-            <img src={loginImage} alt="" className="loginImage" />
+          <div>
+            <img src={loginImage} alt="" className="hidden lg:block lg:h-[400px] lg:w-[400px] lg:ml-[50px]" />
           </div>
         </div>
       </div>

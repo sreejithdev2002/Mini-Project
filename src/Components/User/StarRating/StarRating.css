@@ -1,14 +1,8 @@
-/* StarRating.css */
-.starRating {
-    display: inline-flex;
-  }
-  
-  .star {
-    font-size: 25px; /* Adjust size as needed */
-    color: #ccc; /* Default color for empty stars */
-  }
-  
-  .star.filled {
-    color: #ffcc00; /* Color for filled stars */
-  }
-  
+.star {
+  font-size: 25px; /* Adjust size as needed */
+  color: #ccc; /* Default color for empty stars */
+}
+
+.star.filled {
+  color: #ffcc00; /* Color for filled stars */
+}

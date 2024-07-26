@@ -38,57 +38,79 @@ function Cart() {
   }
 
   if (error) {
-    if (error) return <div style={{ height: "71.2vh", display: "flex", justifyContent: "center", alignItems: "center", fontSize:"2rem"}}>{error}</div>;
+    if (error)
+      return (
+        <div className="h-[71.2vh] flex justify-center items-center text-[2rem]">
+          {error}
+        </div>
+      );
   }
 
   return (
-    <div className="cart">
-      <div className="cartHeading">
-        <h1>Shopping Cart</h1>
+    <div className="flex flex-col pb-[50px] pt-[200px] bg-[#f0f0f045] lg:pt-[150px]">
+      <div className="ml-[50px] mb-[20px]">
+        <h1 className="text-2xl">Shopping Cart</h1>
       </div>
       {cartData.length === 0 ? (
         <Empty message="No Products in Cart" />
       ) : (
-        <table className="cartTable">
+        <table className="w-auto border-collapse mb-[100px] mx-[40px] lg:mx-[50px] text-center text-[12px] lg:text-lg">
           <thead>
-            <tr>
-              <th>Product Image</th>
-              <th>Product Name</th>
-              <th>Quantity</th>
-              <th>Price</th>
-              <th>Total Price</th>
-              <th>Action</th>
+            <tr className="even:bg-gray-200">
+              <th className="border-[1px] border-[#ddd] p-2 bg-[#f2f2f2]">
+                Product Image
+              </th>
+              <th className="border-[1px] border-[#ddd] p-2 bg-[#f2f2f2]">
+                Product Name
+              </th>
+              <th className="border-[1px] border-[#ddd] p-2 bg-[#f2f2f2]">
+                Quantity
+              </th>
+              <th className="border-[1px] border-[#ddd] p-2 bg-[#f2f2f2]">
+                Price
+              </th>
+              <th className="border-[1px] border-[#ddd] p-2 bg-[#f2f2f2]">
+                Total Price
+              </th>
+              <th className="border-[1px] border-[#ddd] p-2 bg-[#f2f2f2]">
+                Action
+              </th>
             </tr>
           </thead>
           <tbody>
             {cartData.map((item) => (
-              <tr key={item.product._id}>
-                <td>
+              <tr
+                key={item.product._id}
+                className="even:bg-gray-200 hover:bg-[#ddd]"
+              >
+                <td className="border-[1px] border-[#ddd] p-1 bg-[#f9f9f9]">
                   <img
                     src={`https://mini-project-backend-nv1x.onrender.com/public/images/products/${item.product.image}`}
                     alt={item.product.name}
-                    style={{
-                      width: "250px",
-                      height: "250px",
-                      cursor: "pointer",
-                    }}
+                    className="h-[80px] lg:h-[200px] w-auto cursor-pointer"
                     onClick={() => {
                       navigate(`/product/${item.product._id}`);
                     }}
                   />
                 </td>
-                <td>{item.product.name}</td>
-                <td>{item.quantity}</td>
-                <td>{item.product.price.toFixed(2)}</td>
-                <td>{(item.quantity * item.product.price).toFixed(2)}</td>
-                <td>
-                  <button
-                  className="cartBuyNowBtn">
+                <td className="border-[1px] border-[#ddd] p-1 bg-[#f9f9f9]">
+                  {item.product.name}
+                </td>
+                <td className="border-[1px] border-[#ddd] p-1 bg-[#f9f9f9]">
+                  {item.quantity}
+                </td>
+                <td className="border-[1px] border-[#ddd] p-1 bg-[#f9f9f9]">
+                  {item.product.price.toFixed(2)}
+                </td>
+                <td className="border-[1px] border-[#ddd] p-1 bg-[#f9f9f9]">
+                  {(item.quantity * item.product.price).toFixed(2)}
+                </td>
+                <td className="border-[1px] border-[#ddd] p-1 bg-[#f9f9f9]">
+                  <button className="p-2 min-w-24 lg:min-w-[100px] lg:min-h-[50px] text-sm lg:p-[10px] border-none bg-green-600 hover:bg-green-700 transition duration-200 text-white rounded mx-[5px] my-1">
                     Buy Now
                   </button>
-                  <button
-                  className="cartRemoveBtn">
-                    Remove from Cart
+                  <button className="p-2 min-w-24 lg:min-w-[100px] lg:min-h-[50px] text-sm lg:p-[10px] border-none bg-red-600 hover:bg-red-700 transition duration-200 text-white rounded mx-[5px] my-1">
+                    Remove
                   </button>
                 </td>
               </tr>

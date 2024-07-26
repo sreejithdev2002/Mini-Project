@@ -60,55 +60,70 @@ function Wishlist() {
       </div>
     );
 
-  if (error) return <div style={{ height: "71.2vh", display: "flex", justifyContent: "center", alignItems: "center", fontSize:"2rem"}}>{error}</div>;
+  if (error)
+    return (
+      <div
+      className="h-[71.2vh] flex justify-center items-center text-[2rem]"
+      >
+        {error}
+      </div>
+    );
   return (
-    <div className="wishlist">
-      <div className="wishlistHeading">
-        <h1>My Wishlist</h1>
+    <div className="flex flex-col pb-[50px] pt-[200px] bg-[#f0f0f045] lg:pt-[150px]">
+      <div className="ml-[50px] mb-[20px]">
+        <h1 className="text-2xl">My Wishlist</h1>
       </div>
       {wishlistData.length === 0 ? (
         <Empty message="No Product in Wishlist" />
       ) : (
-        <table className="wishTable">
+        <table className="w-auto border-collapse mb-[100px] mx-[50px] text-center">
           <thead>
-            <tr>
-              <th>Image</th>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Action</th>
+            <tr className="even:bg-gray-200">
+              <th className="border-[1px] border-[#ddd] p-2 bg-[#f2f2f2]">
+                Image
+              </th>
+              <th className="border-[1px] border-[#ddd] p-2 bg-[#f2f2f2]">
+                Name
+              </th>
+              <th className="border-[1px] border-[#ddd] p-2 bg-[#f2f2f2]">
+                Price
+              </th>
+              <th className="border-[1px] border-[#ddd] p-2 bg-[#f2f2f2]">
+                Action
+              </th>
             </tr>
           </thead>
           <tbody>
             {wishlistData.map((item) => (
-              <tr key={item._id}>
-                <td>
+              <tr key={item._id} className="even:bg-gray-200 hover:bg-[#ddd]">
+                <td className="border-[1px] border-[#ddd] p-1 bg-[#f9f9f9]">
                   <img
                     src={`https://mini-project-backend-nv1x.onrender.com/public/images/products/${item.image}`}
                     alt={item.name}
-                    style={{
-                      width: "300px",
-                      height: "300px",
-                      cursor: "pointer",
-                    }}
+                    className="h-[80px] lg:h-[200px] w-auto cursor-pointer"
                     onClick={() => {
                       navigate(`/product/${item._id}`);
                     }}
                   />
                 </td>
-                <td>{item.name}</td>
-                <td>{item.price.toFixed(2)}</td>
-                <td>
+                <td className="border-[1px] border-[#ddd] p-1 bg-[#f9f9f9]">
+                  {item.name}
+                </td>
+                <td className="border-[1px] border-[#ddd] p-1 bg-[#f9f9f9]">
+                  {item.price.toFixed(2)}
+                </td>
+                <td className="border-[1px] border-[#ddd] p-1 bg-[#f9f9f9]">
                   <button
                     onClick={() => handleAddToCart(item._id)}
-                    className="wishlistAddToCartBtn"
+                    className="p-2 min-w-24 lg:min-w-[100px] lg:min-h-[50px] text-sm lg:p-[10px] border-none bg-green-600 hover:bg-green-700 transition duration-200 text-white rounded mx-[5px] my-1"
                   >
                     Add to Cart
                   </button>
                   <button
                     onClick={() => handleRemoveFromWishlist(item._id)}
-                    className="wishlistRemoveFromWishlistBtn"
+                    className="p-2 min-w-24 lg:min-w-[100px] lg:min-h-[50px] text-sm lg:p-[10px] border-none bg-red-600 hover:bg-red-700 transition duration-200 text-white rounded mx-[5px] my-1"
                   >
-                    Remove From Wishlist
+                    Remove
                   </button>
                 </td>
               </tr>

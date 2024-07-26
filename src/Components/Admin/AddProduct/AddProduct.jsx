@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import { toast } from "react-toastify";
 import "./AddProduct.css";
 
-import { Products } from "../../../Services/AdminApi"; // Correct import path
+import { Products } from "../../../Services/AdminApi";
 
 function AddProduct() {
   const initialValues = {
@@ -14,9 +14,8 @@ function AddProduct() {
     price: "",
     gender: "Male",
     isLuxury: false,
-    // dateAdded: "",
     category: "Casuals",
-    image: null, // Add image field to initial values
+    image: null,
   };
 
   const validationSchema = Yup.object().shape({
@@ -24,7 +23,6 @@ function AddProduct() {
     brand: Yup.string().required("Brand name is required"),
     description: Yup.string().required("Description is required"),
     price: Yup.number().required("Price is required"),
-    // dateAdded: Yup.string().required("Date Added is required"),
   });
 
   const onSubmit = async (values) => {
@@ -35,9 +33,8 @@ function AddProduct() {
     formData.append("price", values.price);
     formData.append("gender", values.gender);
     formData.append("isLuxury", values.isLuxury);
-    // formData.append("dateAdded", new Date(values.dateAdded).toISOString());
     formData.append("category", values.category);
-    formData.append("image", values.image); // Append image to form data
+    formData.append("image", values.image);
 
     const response = await Products(formData);
     console.log(response);
@@ -63,13 +60,14 @@ function AddProduct() {
   };
 
   return (
-    <div className="addProduct">
-      <h1>Add Product</h1>
-      <div className="addProductSection">
+    <div className="mt-[200px] lg:mt-[140px] mb-10 mx-[50px]">
+      <h1 className="text-3xl mb-3 text-start">Add Product</h1>
+      <div className="bg-[#f8f8f8] rounded-lg p-5">
         <form onSubmit={formik.handleSubmit} encType="multipart/form-data">
-          <div className="addProductInputDiv">
-            <label>Name</label>
+          <div className="mb-[15px]">
+            <label className="block font-semibold">Name</label>
             <input
+              className="w-[100%] p-[10px] border border-[#ccc] rounded"
               type="text"
               name="name"
               value={formik.values.name}
@@ -87,9 +85,10 @@ function AddProduct() {
             )}
           </div>
           <br />
-          <div className="addProductInputDiv">
-            <label>Brand</label>
+          <div className="mb-[15px]">
+            <label className="block font-semibold">Brand</label>
             <input
+              className="w-[100%] p-[10px] border border-[#ccc] rounded"
               type="text"
               name="brand"
               value={formik.values.brand}
@@ -107,9 +106,10 @@ function AddProduct() {
             )}
           </div>
           <br />
-          <div className="addProductInputDiv">
-            <label>Description</label>
+          <div className="mb-[15px]">
+            <label className="block font-semibold">Description</label>
             <textarea
+              className="w-[100%] p-[10px] border border-[#ccc] rounded"
               name="description"
               value={formik.values.description}
               onChange={formik.handleChange}
@@ -126,9 +126,10 @@ function AddProduct() {
             )}
           </div>
           <br />
-          <div className="addProductInputDiv">
-            <label>Price</label>
+          <div className="mb-[15px]">
+            <label className="block font-semibold">Price</label>
             <input
+              className="w-[100%] p-[10px] border border-[#ccc] rounded"
               type="number"
               name="price"
               value={formik.values.price}
@@ -146,9 +147,10 @@ function AddProduct() {
             )}
           </div>
           <br />
-          <div className="addProductInputDiv">
-            <label>Gender</label>
+          <div className="mb-[15px]">
+            <label className="block font-semibold">Gender</label>
             <select
+              className="w-[100%] p-[10px] border border-[#ccc] rounded"
               name="gender"
               value={formik.values.gender}
               onChange={formik.handleChange}
@@ -159,9 +161,10 @@ function AddProduct() {
             </select>
           </div>
           <br />
-          <div className="addProductInputDiv">
-            <label>Luxury</label>
+          <div className="mb-[15px]">
+            <label className="block font-semibold">Luxury</label>
             <select
+              className="w-[100%] p-[10px] border border-[#ccc] rounded"
               name="isLuxury"
               value={formik.values.isLuxury}
               onChange={formik.handleChange}
@@ -172,9 +175,10 @@ function AddProduct() {
             </select>
           </div>
           <br />
-          <div className="addProductInputDiv">
-            <label>Category</label>
+          <div className="mb-[15px]">
+            <label className="block font-semibold">Category</label>
             <select
+              className="w-[100%] p-[10px] border border-[#ccc] rounded"
               name="category"
               value={formik.values.category}
               onChange={formik.handleChange}
@@ -187,12 +191,20 @@ function AddProduct() {
             </select>
           </div>
           <br />
-          <div className="addProductInputDiv">
-            <label>Image</label>
-            <input type="file" name="image" onChange={handleFileChange} />
+          <div className="mb-[15px]">
+            <label className="block font-semibold">Image</label>
+            <input
+              className="w-[100%] p-[10px] border border-[#ccc] rounded"
+              type="file"
+              name="image"
+              onChange={handleFileChange}
+            />
           </div>
           <br />
-          <button type="submit" id="AddProductBtn">
+          <button
+            type="submit"
+            className="bg-blue-500 text-white border-none rounded py-[10px] px-5 cursor-pointer hover:bg-blue-600 transition-colors duration-300 w-[100%] lg:w-[20%]"
+          >
             Add Product
           </button>
         </form>
