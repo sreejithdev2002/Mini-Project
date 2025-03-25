@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Luxury.css";
 import ProductPage from "../ProductPage/ProductPage";
 import { luxury } from "../../../Services/UserApi";
