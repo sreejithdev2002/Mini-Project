@@ -109,7 +109,7 @@ function ProductsTable() {
         <tbody>
           {productsData.map((product) => {
             const imageURL = product.image
-              ? `https://mini-project-backend-nv1x.onrender.com/public/images/products/${product.image}`
+              ? `https://mini-project-backend-production.up.railway.app/public/images/products/${product.image}`
               : SampleImg;
             return (
               <tr

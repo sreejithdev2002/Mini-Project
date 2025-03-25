@@ -98,7 +98,7 @@ function Wishlist() {
               <tr key={item._id} className="even:bg-gray-200 hover:bg-[#ddd]">
                 <td className="border-[1px] border-[#ddd] p-1 bg-[#f9f9f9]">
                   <img
-                    src={`https://mini-project-backend-nv1x.onrender.com/public/images/products/${item.image}`}
+                    src={`https://mini-project-backend-production.up.railway.app/public/images/products/${item.image}`}
                     alt={item.name}
                     className="h-[80px] lg:h-[200px] w-auto cursor-pointer"
                     onClick={() => {

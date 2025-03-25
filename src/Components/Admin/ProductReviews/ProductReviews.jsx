@@ -54,7 +54,7 @@ function ProductReviews() {
         <tbody>
           {reviewsData.map((review) => {
             const imageURL = review.productId.image
-              ? `https://mini-project-backend-nv1x.onrender.com/public/images/products/${review.productId.image}`
+              ? `https://mini-project-backend-production.up.railway.app/public/images/products/${review.productId.image}`
               : SampleImg;
             return (
               <tr key={review._id} className="even:bg-[#f2f2f2] hover:bg-[#ddd] text-[12px] lg:text-base">

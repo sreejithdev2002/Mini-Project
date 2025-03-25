@@ -51,7 +51,7 @@ function Orderlist() {
     return <Empty message="No Orders Available" />;
   }
 
-  const baseURL = "https://mini-project-backend-nv1x.onrender.com";
+  const baseURL = "https://mini-project-backend-production.up.railway.app";
 
   return (
     <div className="my-[140px] lg:my-[50px] mx-2 lg:mx-5 relative top-20">

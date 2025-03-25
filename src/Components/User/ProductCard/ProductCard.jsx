@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 import { WishlistIconFalse, WishlistIconTrue } from "../../../Assets/Icons";
 
 function ProductCard({ product }) {
-  const baseURL = "https://mini-project-backend-nv1x.onrender.com";
+  const baseURL = "https://mini-project-backend-production.up.railway.app";
   const imageURL = `${baseURL}/public/images/products/${product.image}`;
   const navigate = useNavigate();
 
