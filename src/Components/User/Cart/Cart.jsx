@@ -78,7 +78,7 @@ function Cart() {
         <table className="w-auto border-collapse mb-[100px] mx-[40px] lg:mx-[50px] text-center text-[12px] lg:text-lg">
           <thead>
             <tr className="even:bg-gray-200">
-              <th className="border-[1px] border-[#ddd] p-2 bg-[#f2f2f2]">
+              {/* <th className="border-[1px] border-[#ddd] p-2 bg-[#f2f2f2]">
                 Product Image
               </th>
               <th className="border-[1px] border-[#ddd] p-2 bg-[#f2f2f2]">
@@ -95,7 +95,7 @@ function Cart() {
               </th>
               <th className="border-[1px] border-[#ddd] p-2 bg-[#f2f2f2]">
                 Action
-              </th>
+              </th> */}
               {tableHead.map((data) => (
                 <th className="border-[1px] border-[#ddd] p-2 bg-[#f2f2f2]">
                   {data.title}
