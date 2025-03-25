@@ -72,7 +72,7 @@ function Cart() {
       <div className="ml-[50px] mb-[20px]">
         <h1 className="text-2xl">Shopping Cart</h1>
       </div>
-      {cartData.length !== 0 ? (
+      {cartData.length === 0 ? (
         <Empty message="No Products in Cart" />
       ) : (
         <table className="w-auto border-collapse mb-[100px] mx-[40px] lg:mx-[50px] text-center text-[12px] lg:text-lg">
