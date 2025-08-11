@@ -61,7 +61,7 @@ function ProductCard({ product }) {
       />
       <div className="flex flex-col items-center text-center p-[16px] w-[100%] relative">
         <h2 className="text-xl my-2 text-nowrap">{product.name}</h2>
-        <p className="text-base text-[#666] my-2">{product.description}</p>
+        <p className="text-sm text-start text-[#666] my-2">{product.description}</p>
         <div className="flex justify-between items-center w-[100%] mt-4">
           <h3 className="text-xl text-[#128c0c]">₹{product.price}</h3>
           <button
