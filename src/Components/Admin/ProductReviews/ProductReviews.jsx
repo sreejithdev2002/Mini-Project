@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getAllReviews } from "../../../Services/AdminApi";
-import SampleImg from "../../../assets/Images/example1.webp";
+import SampleImg from "../../../Assets/Images/example1.webp";
 import StarRating from "../../User/StarRating/StarRating";
 import "./ProductReviews.css";
 
