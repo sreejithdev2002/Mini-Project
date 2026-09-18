@@ -11,9 +11,8 @@ import { FaRegHeart } from "react-icons/fa6";
 
 
 function ProductCard({ product }) {
-  // const baseURL = "https://mini-project-backend-production.up.railway.app";
-  // const baseURL = "https://mini-project-backend-nv1x.onrender.com";
-  const baseURL = "http://localhost:8000"
+  const baseURL = "https://mini-project-backend-nv1x.onrender.com";
+  // const baseURL = "http://localhost:8000"
   const imageURL = `${baseURL}/public/images/products/${product.image}`;
   const navigate = useNavigate();
 

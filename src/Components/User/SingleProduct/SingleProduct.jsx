@@ -122,9 +122,8 @@ function SingleProduct() {
     return <div>Error: {error}</div>;
   }
 
-  // const baseURL = "https://mini-project-backend-production.up.railway.app";
-  // const baseURL = "https://mini-project-backend-nv1x.onrender.com";
-  const baseURL = "http://localhost:8000"
+  const baseURL = "https://mini-project-backend-nv1x.onrender.com";
+  // const baseURL = "http://localhost:8000"
   const imageURL = `${baseURL}/public/images/products/${product.image}`;
 
   return (
