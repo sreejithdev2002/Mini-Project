@@ -1,4 +1,4 @@
-import React from "react";
+ ;
 import ProductCard from "../ProductCard/ProductCard";
 import "./ProductPage.css";
 

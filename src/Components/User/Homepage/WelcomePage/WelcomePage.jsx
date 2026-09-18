@@ -1,10 +1,10 @@
-import React from "react";
+ ;
 import "./WelcomePage.css";
 
 function WelcomePage() {
   return (
     <>
-      <div className="flex flex-col justify-center items-center mt-[20vh] mb-[50px] py-[20px]">
+      <div className="flex flex-col justify-center mt-50 lg:mt-20 items-center">
         <h1 className="text-2xl tracking-wide lg:text-4xl">
           Welcome to <span id="shoooz">SHOOOZ</span>
         </h1>

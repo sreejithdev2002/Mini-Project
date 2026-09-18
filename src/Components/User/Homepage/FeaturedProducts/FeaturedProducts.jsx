@@ -31,7 +31,7 @@ function FeaturedProducts() {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center mt-5 bg-[#fafafae6]">
+      <div className="flex flex-col justify-center items-center mt-5 py-5 bg-[#fafafae6]">
         <h2 className="text-3xl">Featured Products</h2>
         <hr id="hr" />
         <div className="grid grid-cols-1 gap-y-2.5 py-5 lg:custom-grid">

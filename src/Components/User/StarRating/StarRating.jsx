@@ -1,4 +1,4 @@
-import React from "react";
+ ;
 import "./StarRating.css";
 
 const StarRating = ({ rating }) => {

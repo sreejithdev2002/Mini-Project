@@ -1,7 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+@import "tailwindcss";
 
-*{
-    font-family: sans-serif;
+
+#signupBrand {
+  font-family: "Play", sans-serif;
+}
+
+a{
+    text-decoration: none;
 }

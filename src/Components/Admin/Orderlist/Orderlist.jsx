@@ -52,7 +52,8 @@ function Orderlist() {
   }
 
   // const baseURL = "https://mini-project-backend-production.up.railway.app";
-  const baseURL = "https://mini-project-backend-nv1x.onrender.com";
+  // const baseURL = "https://mini-project-backend-nv1x.onrender.com";
+  const baseURL = "http://localhost:8000"
 
   return (
     <div className="my-[140px] lg:my-[50px] mx-2 lg:mx-5 relative top-20">

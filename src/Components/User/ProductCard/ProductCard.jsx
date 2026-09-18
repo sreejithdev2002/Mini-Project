@@ -6,11 +6,14 @@ import {
   checkProductInWishlist,
 } from "../../../Services/UserApi";
 import { toast } from "react-toastify";
-import { WishlistIconFalse, WishlistIconTrue } from "../../../Assets/Icons";
+import { WishlistIconFalse, WishlistIconTrue } from "../../../assets/Icons";
+import { FaRegHeart } from "react-icons/fa6";
+
 
 function ProductCard({ product }) {
   // const baseURL = "https://mini-project-backend-production.up.railway.app";
-  const baseURL = "https://mini-project-backend-nv1x.onrender.com";
+  // const baseURL = "https://mini-project-backend-nv1x.onrender.com";
+  const baseURL = "http://localhost:8000"
   const imageURL = `${baseURL}/public/images/products/${product.image}`;
   const navigate = useNavigate();
 
@@ -53,24 +56,24 @@ function ProductCard({ product }) {
   };
 
   return (
-    <div className="flex flex-col items-center border-[1px] border-[#cccccc45] rounded p-4 m-4 w-[60vw] hover:-translate-y-2 transition duration-200 h-[60vh] lg:w-[250px] lg:h-[60vh]">
+    <div className="flex flex-col items-center border-[1px] border-[#cccccc45] rounded p-4 m-4 w-[80vw] shadow-sm hover:shadow-lg hover:-translate-y-2 transition duration-200 h-[80vh] lg:w-[250px] lg:h-[50vh]">
       <img
-        className="w-[100%] h-[60%] lg:w-[100%] lg:h-[50%] object-cover border-b-2 border-[#ccc]"
+        className="w-[80%] h-[80%] lg:w-[100%] lg:h-[50%] object-fit lg:object-cover border-b-2 border-[#ccc]"
         src={imageURL}
         alt={product.name}
       />
-      <div className="flex flex-col items-center text-center p-[16px] w-[100%] relative">
-        <h2 className="text-xl my-2 text-nowrap">{product.name}</h2>
-        <p className="text-sm text-start text-[#666] my-2">{product.description}</p>
+      <div className="flex flex-col p-[16px] w-[100%] relative">
+        <h2 className="text-xl my-2 text-nowrap text-start font-medium">{product.name}</h2>
+        <p className="text-sm text-start text-[#666] my-2 h-5">{product.description}</p>
         <div className="flex justify-between items-center w-[100%] mt-4">
           <h3 className="text-xl text-[#128c0c]">₹{product.price}</h3>
           <button
             onClick={handleAddToWishlist}
-            className="bg-transparent border-none"
+            className="absolute -top-90 lg:-top-44 cursor-pointer right-0 bg-transparent border-none"
           >
-            {inWishlist ? <WishlistIconTrue /> : <WishlistIconFalse />}
+            {inWishlist ? <WishlistIconTrue /> : <FaRegHeart size={25} color="red" />}
           </button>
-          <button
+        <button
             className="py-2 text-[#fff] bg-[#202633] hover:bg-[#2b3c5e] border-none rounded-md cursor-pointer transition-colors duration-200 w-[60px] h-[35px] text-xs text-nowrap"
             onClick={viewProduct}
           >
