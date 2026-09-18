@@ -1,5 +1,5 @@
 // import React, { useState, useEffect } from "react";
-// import { CartIcon, ProfileIcon, WishlistIconTrue } from "../../../Assets/Icons";
+// import { CartIcon, ProfileIcon, WishlistIconTrue } from "../../../assets/Icons";
 // import "./Header.css";
 // import { Link, useNavigate } from "react-router-dom";
 // import { userStatus } from "../../../Services/UserApi";
@@ -162,7 +162,7 @@
 // export default Header;
 
 import React, { useState, useEffect, useRef } from "react";
-import { CartIcon, ProfileIcon, WishlistIconTrue } from "../../../Assets/Icons";
+import { CartIcon, ProfileIcon, WishlistIconTrue } from "../../../assets/Icons";
 import "./Header.css";
 import { Link, useNavigate } from "react-router-dom";
 import { userStatus } from "../../../Services/UserApi";
