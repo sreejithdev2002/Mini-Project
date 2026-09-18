@@ -111,7 +111,7 @@ function Cart() {
               >
                 <td className="border-[1px] border-[#ddd] p-1 bg-[#f9f9f9]">
                   <img
-                    src={`https://mini-project-backend-production.up.railway.app/public/images/products/${item.product.image}`}
+                    src={`https://mini-project-backend-nv1x.onrender.com/public/images/products/${item.product.image}`}
                     alt={item.product.name}
                     className="h-[80px] lg:h-[200px] w-auto cursor-pointer"
                     onClick={() => {

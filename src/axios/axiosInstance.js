@@ -3,13 +3,11 @@ import axios from "axios";
 const userInstance = axios.create({
   // baseURL: "http://localhost:8000/"
   baseURL: "https://mini-project-backend-nv1x.onrender.com",
-  // baseURL: "https://mini-project-backend-production.up.railway.app/",
 });
 
 const adminInstance = axios.create({
     // baseURL: "http://localhost:8000/admin/"
   baseURL: "https://mini-project-backend-nv1x.onrender.com/admin/",
-  // baseURL: "https://mini-project-backend-production.up.railway.app/admin/",
 });
 
 userInstance.interceptors.request.use((request) => {
