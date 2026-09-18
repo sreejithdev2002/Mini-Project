@@ -51,8 +51,7 @@ function Orderlist() {
     return <Empty message="No Orders Available" />;
   }
 
-  const baseURL = "https://mini-project-backend-nv1x.onrender.com";
-  // const baseURL = "http://localhost:8000"
+  const baseURL = import.meta.env.VITE_BASE_URL;
 
   return (
     <div className="my-[140px] lg:my-[50px] mx-2 lg:mx-5 relative top-20">

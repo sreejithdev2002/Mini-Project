@@ -109,7 +109,7 @@ function ProductsTable() {
         <tbody>
           {productsData.map((product) => {
             const imageURL = product.image
-              ? `https://mini-project-backend-nv1x.onrender.com/public/images/products/${product.image}`
+              ? `${import.meta.env.VITE_BASE_URL}/public/images/products/${product.image}`
               : SampleImg;
             return (
               <tr

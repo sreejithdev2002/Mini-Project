@@ -122,8 +122,7 @@ function SingleProduct() {
     return <div>Error: {error}</div>;
   }
 
-  const baseURL = "https://mini-project-backend-nv1x.onrender.com";
-  // const baseURL = "http://localhost:8000"
+  const baseURL = import.meta.env.VITE_BASE_URL;
   const imageURL = `${baseURL}/public/images/products/${product.image}`;
 
   return (
