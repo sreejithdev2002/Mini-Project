@@ -6,7 +6,7 @@ import {
   checkProductInWishlist,
 } from "../../../Services/UserApi";
 import { toast } from "react-toastify";
-import { WishlistIconFalse, WishlistIconTrue } from "../../../assets/Icons";
+import { WishlistIconFalse, WishlistIconTrue } from "../../../Assets/Icons";
 import { FaRegHeart } from "react-icons/fa6";
 
 

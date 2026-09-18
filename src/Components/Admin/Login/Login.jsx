@@ -1,6 +1,6 @@
  ;
 import "./Login.css";
-import loginImage from "../../../assets/Images/login.jpg";
+import loginImage from "../../../Assets/Images/login.jpg";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
