@@ -1,6 +1,6 @@
-import React from "react";
+ ;
 import "./SignUp.css";
-import signupImage from "../../../Assets/Images/signup.jpg";
+import signupImage from "../../../assets/Images/signup.jpg";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
@@ -49,7 +49,7 @@ function SignUp() {
 
   return (
     <>
-      <div className="flex flex-col mt-4 mx-[50px] max-h-[100vh]">
+      <div className="flex flex-col mt-4 mx-[50px] max-h-[100vh] ">
         <h1 className="text-3xl" id="signupBrand">
           SHOOOZ
         </h1>
