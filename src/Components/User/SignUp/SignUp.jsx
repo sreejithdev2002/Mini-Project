@@ -42,14 +42,14 @@ function SignUp() {
   });
 
   return (
-    <div className="min-h-screen flex bg-gray-50">
+    <div className="store-auth">
       {/* Left Side - Image/Brand */}
       <div className="hidden lg:flex lg:w-1/2 relative bg-black items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-black/50 z-10"></div>
+        <div className="absolute inset-0 bg-black/35 z-10"></div>
         <img 
           src={signupImage} 
           alt="Signup" 
-          className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
+          className="absolute inset-0 w-full h-full object-cover "
           onError={(e) => {
             e.target.onerror = null;
             e.target.src = "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=1200";

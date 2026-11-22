@@ -40,14 +40,14 @@ function Login() {
   });
 
   return (
-    <div className="min-h-screen flex bg-gray-50">
+    <div className="store-auth">
       {/* Left Side - Image/Brand */}
       <div className="hidden lg:flex lg:w-1/2 relative bg-black items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-black/40 z-10"></div>
         <img 
           src={loginImage} 
           alt="Login" 
-          className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
+          className="absolute inset-0 w-full h-full object-cover "
           onError={(e) => {
             e.target.onerror = null;
             e.target.src = "https://images.unsplash.com/photo-1552346154-21d32810baa3?auto=format&fit=crop&q=80&w=1200";

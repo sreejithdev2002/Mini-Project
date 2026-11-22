@@ -1,5 +1,5 @@
  ;
-import "./StarRating.css";
+
 
 const StarRating = ({ rating }) => {
   const stars = [];
@@ -12,7 +12,7 @@ const StarRating = ({ rating }) => {
     );
   }
 
-  return <div className="inline-flex">{stars}</div>;
+  return <div className="catalogue-rating" role="img" aria-label={`${rating} out of 5 stars`}>{stars}</div>;
 };
 
 export default StarRating;

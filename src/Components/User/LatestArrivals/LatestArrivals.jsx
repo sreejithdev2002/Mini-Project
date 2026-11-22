@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./LatestArrivals.css";
 import ProductPage from "../ProductPage/ProductPage";
 import { latestArrivals } from "../../../Services/UserApi";
 import Loader from "../Loader/Loader";
@@ -31,22 +30,14 @@ function LatestArrivals() {
     fetchData();
   }, []);
 
-  if (latestarrival.length === 0) {
-    return <Empty message="No Products Available" />;
-  }
-
   return (
     <>
-      <div className="flex flex-col pb-[50px] pt-[200px] bg-[#f0f0f045] lg:pt-[150px]">
-        <div className="ml-[90px] lg:ml-[50px]">
-          <h1 className="text-2xl">Latest Arrivals</h1>
+      <main className="store-section store-section--page">
+        <div className="store-section__heading">
+          <h1>Latest Arrivals</h1>
         </div>
-        {loading ? ( 
-          <Loader />
-        ) : (
-          <ProductPage products={latestarrival} />
-        )}
-      </div>
+        {loading ? <Loader /> : (latestarrival.length ? <ProductPage products={latestarrival} /> : <Empty message="No products available" />)}
+      </main>
     </>
   );
 }

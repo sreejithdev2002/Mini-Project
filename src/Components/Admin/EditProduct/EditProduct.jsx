@@ -62,7 +62,7 @@ const EditProduct = () => {
   }
 
   return (
-    <div className="mt-[200px] lg:mt-[140px] mb-10 mx-[50px]">
+    <div className="workspace-page workspace-form">
       <h1 className="text-3xl mb-3 text-start">Edit Product</h1>
       <div className="bg-[#f8f8f8] rounded-lg p-5">
         <form onSubmit={handleSubmit}>

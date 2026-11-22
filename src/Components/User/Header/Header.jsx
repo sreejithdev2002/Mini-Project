@@ -59,8 +59,8 @@ function Header() {
 
   const navLinks = [
     { name: "New Arrivals", path: "/latestarrival" },
-    { name: "Mens", path: "/mens" },
-    { name: "Womens", path: "/womens" },
+    { name: "Men", path: "/mens" },
+    { name: "Women", path: "/womens" },
     { name: "Categories", path: "/categories" },
     { name: "Luxury", path: "/luxury" },
   ];
@@ -69,14 +69,11 @@ function Header() {
 
   return (
     <header
-      className="store-header fixed inset-x-0 top-0 z-50 py-4"
+      className="store-header"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+      <div className="store-header__inner">
         {/* Logo */}
         <Link to="/" className="store-brand">
-          <div className="store-brand__mark" aria-hidden="true">
-            S
-          </div>
           <span className="font-display">
             SHOOOZ
           </span>
@@ -132,7 +129,7 @@ function Header() {
             </button>
 
             {isDropdownOpen && (
-              <div className="absolute right-0 mt-3 w-56 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden origin-top-right transform transition-all duration-200 opacity-100 scale-100">
+              <div className="store-account">
                 <div className="p-4 border-b border-gray-50 bg-gray-50/50">
                   {loggedIn ? (
                     <div>

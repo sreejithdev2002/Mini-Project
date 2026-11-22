@@ -11,7 +11,7 @@ import AdminReviewsPage from "../Pages/Admin/AdminReviewsPage";
 
 function AdminRouter() {
   return (
-    <div>
+    <div className="admin-workspace">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<AdminLogin />} />

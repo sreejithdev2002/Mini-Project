@@ -21,7 +21,7 @@ const AdminDashboard = () => {
           labels,
           datasets: [{
             data: counts,
-            backgroundColor: ['#FF6384', '#36A2EB'],
+            backgroundColor: ['#ab4935', '#627650'],
           }]
         });
       })
@@ -39,7 +39,7 @@ const AdminDashboard = () => {
           labels,
           datasets: [{
             data: counts,
-            backgroundColor: ['#FFCE56', '#FF6384'],
+            backgroundColor: ['#d5ad59', '#ab4935'],
           }]
         });
       })
@@ -57,7 +57,7 @@ const AdminDashboard = () => {
           labels,
           datasets: [{
             data: counts,
-            backgroundColor: ['#FF6384', '#36A2EB'],
+            backgroundColor: ['#ab4935', '#627650'],
           }]
         });
       })
@@ -75,7 +75,7 @@ const AdminDashboard = () => {
           labels,
           datasets: [{
             data: counts,
-            backgroundColor: ['#36A2EB', '#FF6384', '#FFCE56', '#FF9F40'],
+            backgroundColor: ['#627650', '#ab4935', '#d5ad59', '#786982'],
           }]
         });
       })
@@ -90,8 +90,8 @@ const AdminDashboard = () => {
   }
 
   return (
-    <div className='max-w-[1200px] mx-auto p-5 relative top-28 lg:top-20'>
-      <h2 className='text-center text-3xl my-[50px] underline underline-offset-8 decoration-wavy decoration-from-font decoration-gray-500'>Product Distributions</h2>
+    <div className='workspace-page'>
+      <h2 className='workspace-title'>Product Distributions</h2>
       <div className='charts'>
         <div className="mb-10">
           <h3 className='text-center mb-[10px] text-lg'>Gender Distribution</h3>

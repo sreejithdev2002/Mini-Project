@@ -1,7 +1,9 @@
-import React, { useState } from "react";
-import "./ReviewForm.css";
+import { useId, useState } from "react";
+
 
 function ReviewForm({ onSubmit }) {
+  const ratingId = useId();
+  const commentId = useId();
   const [rating, setRating] = useState(1);
   const [comment, setComment] = useState("");
 
@@ -16,15 +18,16 @@ function ReviewForm({ onSubmit }) {
 
   return (
     <form
-      className="bg-gray-50 border-none rounded p-[20px] w-[80vw] lg:w-[100%] mt-[20px]"
+      className="catalogue-review"
       onSubmit={handleSubmit}
     >
       <div className="mb-[15px]">
-        <label className="block mb-[5px]  text-gray-900">
+        <label htmlFor={ratingId}>
           Rating
         </label>
         <input
-          className="w-[100%] p-2 border-2 border-gray-100 rounded box-border focus:border-blue-400 outline-none"
+          id={ratingId}
+          className="w-full p-2"
           type="number"
           value={rating}
           onChange={(e) => setRating(e.target.value)}
@@ -34,15 +37,17 @@ function ReviewForm({ onSubmit }) {
         />
       </div>
       <div>
-        <label className="block mb-[5px] text-gray-900">Comment</label>
+        <label htmlFor={commentId}>Comment</label>
         <textarea
-          className="w-[100%] p-2 border-2 border-gray-100 rounded box-border focus:border-blue-400 outline-none"
+          id={commentId}
+          rows={4}
+          className="w-full p-2"
           value={comment}
           onChange={(e) => setComment(e.target.value)}
           required
         ></textarea>
       </div>
-      <button className="bg-blue-500 text-white border-none py-[10px] px-5 rounded cursor-pointer hover:bg-blue-600 transition-colors duration-300" type="submit">Submit Review</button>
+      <button className="store-button store-button--accent" type="submit">Submit Review</button>
     </form>
   );
 }

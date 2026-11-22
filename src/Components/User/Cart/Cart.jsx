@@ -29,7 +29,7 @@ function Cart() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="store-loading-page">
         <Loader />
       </div>
     );
@@ -37,7 +37,7 @@ function Cart() {
 
   if (error) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="store-loading-page">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Oops!</h2>
           <p className="text-gray-500">{error}</p>
@@ -49,7 +49,7 @@ function Cart() {
   const subtotal = cartData.reduce((total, item) => total + (item.quantity * item.product.price), 0);
 
   return (
-    <div className="min-h-screen pt-28 pb-16 bg-gray-50">
+    <div className="store-interior store-interior--cart">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="mb-8">

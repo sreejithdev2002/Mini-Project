@@ -1,17 +1,11 @@
- ;
-import "./ErrorPage.css";
+import { Link } from "react-router-dom";
 
-function ErrorPage() {
+export default function ErrorPage() {
   return (
-    <>
-      <div className="flex justify-center h-[100vh]">
-        <h1 className="flex content-center justify-center flex-wrap text-[6rem] font-[system-ui]">
-          <span className="text-[#a50000] text-[5.5em] self-center">404</span>
-          PAGE NOT FOUND
-        </h1>
-      </div>
-    </>
+    <main className="catalogue-state catalogue-state--page">
+      <p>404</p>
+      <h1>Page not found</h1>
+      <Link className="store-button store-button--light" to="/admin">Return to admin</Link>
+    </main>
   );
 }
-
-export default ErrorPage;

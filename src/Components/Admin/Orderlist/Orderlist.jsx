@@ -54,11 +54,11 @@ function Orderlist() {
   const baseURL = import.meta.env.VITE_BASE_URL;
 
   return (
-    <div className="my-[140px] lg:my-[50px] mx-2 lg:mx-5 relative top-20">
+    <div className="workspace-page">
       <h1 className="my-2 lg:my-5 text-4xl">All Orders</h1>
       <h3 className="my-2 lg:my-[10px] flex lg:justify-end font-sans text-xl">Total Orders: {orders.length}</h3>
       <div>
-      <table className="w-[100%] border-collapse mb-[100px]">
+      <div className="workspace-table" tabIndex={0} role="region" aria-label="Data table"><table>
         <thead>
           <tr>
             <th className="px-[4px] lg:p-2 border-2 border-[#ddd] bg-[#f2f2f2] text-left font-sans">User</th>
@@ -105,7 +105,7 @@ function Orderlist() {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table></div>
       </div>
     </div>
   );

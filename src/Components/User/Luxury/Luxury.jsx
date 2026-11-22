@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./Luxury.css";
 import ProductPage from "../ProductPage/ProductPage";
 import { luxury } from "../../../Services/UserApi";
 import Loader from "../Loader/Loader";
@@ -32,18 +31,14 @@ function Luxury() {
   }, []);
 
 
-  if(luxuryData.length === 0){
-    return <Empty message="No Product Available"/>
-  }
-
   return (
     <>
-      <div className="flex flex-col pb-[50px] pt-[200px] bg-[#f0f0f045] lg:pt-[150px]">
-        <div className="ml-[90px] lg:ml-[50px]">
-          <h1 className="text-2xl">Luxury Collection</h1>
+      <main className="store-section store-section--page">
+        <div className="store-section__heading">
+          <h1>Luxury Collection</h1>
         </div>
-        {loading ? <Loader /> : <ProductPage products={luxuryData} />}
-      </div>
+        {loading ? <Loader /> : (luxuryData.length ? <ProductPage products={luxuryData} /> : <Empty message="No products available" />)}
+      </main>
     </>
   );
 }

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./Sandals.css";
 import ProductPage from "../../ProductPage/ProductPage";
 import { sandals } from "../../../../Services/UserApi";
 import Loader from "../../Loader/Loader";
@@ -31,18 +30,14 @@ function Sandals() {
     fetchData();
   }, []);
 
-  if(sandalsData.length === 0){
-    return <Empty message="No Product Available"/>
-  }
-
   return (
     <>
-      <div className="flex flex-col pb-[50px] pt-[200px] bg-[#f0f0f045] lg:pt-[150px]">
-        <div className="ml-[90px] lg:ml-[50px]">
-          <h1 className="text-2xl">Sandals</h1>
+      <main className="store-section store-section--page">
+        <div className="store-section__heading">
+          <h1>Sandals</h1>
         </div>
-        {loading ? <Loader /> : <ProductPage products={sandalsData} />}
-      </div>
+        {loading ? <Loader /> : (sandalsData.length ? <ProductPage products={sandalsData} /> : <Empty message="No products available" />)}
+      </main>
     </>
   );
 }

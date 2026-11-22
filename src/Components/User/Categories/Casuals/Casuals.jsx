@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./Casuals.css";
 import ProductPage from "../../ProductPage/ProductPage";
 import { casuals } from "../../../../Services/UserApi";
 import Loader from "../../Loader/Loader";
@@ -31,18 +30,14 @@ function Casuals() {
     fetchData();
   }, []);
 
-  if(casualsData.length === 0){
-    return <Empty message="No Product Available"/>
-  }
-
   return (
     <>
-      <div className="flex flex-col pb-[50px] pt-[200px] bg-[#f0f0f045] lg:pt-[150px]">
-        <div className="ml-[90px] lg:ml-[50px]">
-          <h1 className="text-2xl">Casuals</h1>
+      <main className="store-section store-section--page">
+        <div className="store-section__heading">
+          <h1>Casuals</h1>
         </div>
-        {loading ? <Loader /> : <ProductPage products={casualsData} />}
-      </div>
+        {loading ? <Loader /> : (casualsData.length ? <ProductPage products={casualsData} /> : <Empty message="No products available" />)}
+      </main>
     </>
   );
 }

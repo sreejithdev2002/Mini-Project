@@ -52,13 +52,13 @@ function ProductCard({ product }) {
 
   return (
     <div 
-      className="store-product-card group relative flex flex-col overflow-hidden w-full max-w-sm mx-auto cursor-pointer"
+      className="store-product-card group relative flex flex-col overflow-hidden w-full cursor-pointer"
       onClick={viewProduct}
     >
       {/* Image Container */}
-      <div className="relative aspect-square overflow-hidden bg-gray-50 flex items-center justify-center p-6">
+      <div className="catalogue-product-photo">
         <img
-          className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ease-out mix-blend-multiply"
+          className="mix-blend-multiply" loading="lazy"
           src={imageURL}
           alt={product.name}
           onError={(e) => {
@@ -85,7 +85,7 @@ function ProductCard({ product }) {
       </div>
 
       {/* Content Container */}
-      <div className="p-6 flex flex-col flex-grow">
+      <div className="catalogue-product-details flex flex-col flex-grow">
         <h2 className="font-display text-lg font-semibold text-gray-900 truncate mb-1">
           {product.name}
         </h2>

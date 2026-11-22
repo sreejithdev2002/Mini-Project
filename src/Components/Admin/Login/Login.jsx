@@ -46,7 +46,7 @@ function Login() {
 
   return (
     <>
-      <div className="flex flex-col my-5 mx-[50px]">
+      <div className="workspace-page workspace-login">
         <h1 className="text-3xl" id="loginBrand">
           SHOOOZ
         </h1>

@@ -124,7 +124,7 @@ function SingleProduct() {
   const imageURL = `${baseURL}/public/images/products/${product.image}`;
 
   return (
-    <div className="pt-24 pb-16 min-h-screen bg-gray-50">
+    <div className="store-interior store-interior--product">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Product Details Section */}
@@ -216,7 +216,7 @@ function SingleProduct() {
                   (expanded ? reviews : reviews.slice(0, 3)).map((review) => (
                     <div key={review._id} className="p-6 rounded-2xl bg-gray-50/50 border border-gray-100">
                       <div className="flex items-center justify-between mb-3">
-                        <h4 className="font-semibold text-gray-900">{review.userId.username}</h4>
+                        <h4 className="font-semibold text-gray-900">{review.userId?.username || "Unknown reviewer"}</h4>
                         <div className="flex items-center gap-2">
                           <StarRating rating={review.rating} />
                         </div>

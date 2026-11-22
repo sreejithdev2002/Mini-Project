@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./Formals.css";
 import ProductPage from "../../ProductPage/ProductPage";
 import { formals } from "../../../../Services/UserApi";
 import Loader from "../../Loader/Loader";
@@ -31,18 +30,14 @@ function Formals() {
     fetchData();
   }, []);
 
-  if(formalsData.length === 0){
-    return <Empty message="No Product Available"/>
-  }
-
   return (
     <>
-      <div className="flex flex-col pb-[50px] pt-[200px] bg-[#f0f0f045] lg:pt-[150px]">
-        <div className="ml-[90px] lg:ml-[50px]">
-          <h1 className="text-2xl">Formals</h1>
+      <main className="store-section store-section--page">
+        <div className="store-section__heading">
+          <h1>Formals</h1>
         </div>
-        {loading ? <Loader /> : <ProductPage products={formalsData} />}
-      </div>
+        {loading ? <Loader /> : (formalsData.length ? <ProductPage products={formalsData} /> : <Empty message="No products available" />)}
+      </main>
     </>
   );
 }

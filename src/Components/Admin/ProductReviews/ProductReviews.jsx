@@ -25,10 +25,10 @@ function ProductReviews() {
   }, []);
 
   return (
-    <div className="my-[140px] lg:my-[50px] mx-2 lg:mx-5 relative top-20">
+    <div className="workspace-page">
       <h1 className="my-2 lg:my-5 text-4xl">Product Reviews</h1>
 
-      <table className="w-[100%] border-collapse mb-[100px]">
+      <div className="workspace-table" tabIndex={0} role="region" aria-label="Data table"><table>
         <thead>
           <tr>
             <th className="px-[4px] lg:p-2 border-2 border-[#ddd] bg-[#f2f2f2] text-left font-sans">
@@ -65,7 +65,7 @@ function ProductReviews() {
                   <img src={imageURL} alt="product" className="h-[50px] max-w-[50px] lg:h-[100px] lg:max-w-[100px]" />
                 </td>
                 <td className="border-2 border-[#ddd] px-[4px] lg:p-2 ">
-                  {review.userId.username}
+                  {review.userId?.username || "Unknown reviewer"}
                 </td>
                 <td className="border-2 border-[#ddd] px-[4px] lg:p-2 ">
                   {review.comment}
@@ -80,7 +80,7 @@ function ProductReviews() {
             );
           })}
         </tbody>
-      </table>
+      </table></div>
     </div>
   );
 }
