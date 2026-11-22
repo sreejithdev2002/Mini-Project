@@ -1,16 +1,15 @@
-import React from 'react';
-import FeaturedProducts from './FeaturedProducts/FeaturedProducts';
-import WelcomePage from './WelcomePage/WelcomePage';
-// import AdsBanner from './AdvertismentBanner/AdsBanner';
+import Categories from "../Categories/Categories";
+import FeaturedProducts from "./FeaturedProducts/FeaturedProducts";
+import WelcomePage from "./WelcomePage/WelcomePage";
 
-const HomePage = () => {
+function HomePage() {
   return (
-    <>
-    <WelcomePage/>
-    <FeaturedProducts/>
-    {/* <AdsBanner/> */}
-    </>
+    <main>
+      <WelcomePage />
+      <Categories embedded />
+      <FeaturedProducts />
+    </main>
   );
-};
+}
 
 export default HomePage;

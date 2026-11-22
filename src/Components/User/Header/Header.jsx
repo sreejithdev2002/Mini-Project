@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { CartIcon, ProfileIcon, WishlistIconTrue } from "../../../assets/Icons";
+import { useState, useEffect, useRef } from "react";
+import { FiHeart, FiMenu, FiShoppingBag, FiUser, FiX } from "react-icons/fi";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { userStatus } from "../../../Services/UserApi";
 
@@ -8,7 +8,6 @@ function Header() {
   const location = useLocation();
   const dropdownRef = useRef(null);
 
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
@@ -34,21 +33,17 @@ function Header() {
   useEffect(() => {
     fetchData();
 
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setIsDropdownOpen(false);
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+
     window.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+
       window.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
@@ -74,63 +69,66 @@ function Header() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ease-in-out border-b border-transparent ${
-        isScrolled
-          ? "bg-white/80 backdrop-blur-xl shadow-sm border-gray-100 py-3"
-          : "bg-transparent py-5"
-      }`}
+      className="store-header fixed inset-x-0 top-0 z-50 py-4"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 bg-black rounded flex items-center justify-center text-white font-bold group-hover:bg-gray-800 transition-colors">
+        <Link to="/" className="store-brand">
+          <div className="store-brand__mark" aria-hidden="true">
             S
           </div>
-          <span className="font-display text-xl font-bold tracking-tight text-gray-900 group-hover:text-gray-700 transition-colors">
+          <span className="font-display">
             SHOOOZ
           </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-1">
+        <nav aria-label="Shop" className="hidden lg:flex items-center space-x-1">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               to={link.path}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                isActive(link.path)
-                  ? "bg-black text-white"
-                  : "text-gray-600 hover:bg-gray-100 hover:text-black"
-              }`}
+              className="store-header__link" aria-current={isActive(link.path) ? "page" : undefined}
             >
               {link.name}
             </Link>
           ))}
         </nav>
 
+        <button
+          type="button"
+          className="store-header__action lg:hidden!"
+          aria-label={isMobileMenuOpen ? "Close shop menu" : "Open shop menu"}
+          aria-expanded={isMobileMenuOpen}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <FiX size={20} /> : <FiMenu size={20} />}
+        </button>
+
         {/* Icons & Actions */}
         <div className="flex items-center space-x-2 relative">
           <Link
-            to="/wishlist"
-            className="p-2.5 rounded-full text-gray-600 hover:bg-gray-100 hover:text-black transition-colors"
+            to="/wishlist" aria-label="Wishlist"
+            className="store-header__action"
           >
-            <WishlistIconTrue className="w-5 h-5" />
+            <FiHeart size={20} />
           </Link>
           <Link
-            to="/cart"
-            className="p-2.5 rounded-full text-gray-600 hover:bg-gray-100 hover:text-black transition-colors"
+            to="/cart" aria-label="Cart"
+            className="store-header__action"
           >
-            <CartIcon className="w-5 h-5" />
+            <FiShoppingBag size={20} />
           </Link>
 
           {/* Profile Dropdown */}
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={toggleDropdown}
-              className="p-2.5 rounded-full text-gray-600 hover:bg-gray-100 hover:text-black transition-colors focus:outline-none"
+              aria-expanded={isDropdownOpen}
+              className="store-header__action"
               title={loggedIn ? userName : "Profile"}
             >
-              <ProfileIcon className="w-5 h-5" />
+              <FiUser size={20} />
             </button>
 
             {isDropdownOpen && (
@@ -185,6 +183,21 @@ function Header() {
           </div>
         </div>
       </div>
+      {isMobileMenuOpen && (
+        <nav aria-label="Shop" className="store-header__mobile lg:hidden">
+          {navLinks.map(({ path, name }) => (
+            <Link
+              key={path}
+              className="store-header__link"
+              to={path}
+              aria-current={isActive(path) ? "page" : undefined}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {name}
+            </Link>
+          ))}
+        </nav>
+      )}
     </header>
   );
 }

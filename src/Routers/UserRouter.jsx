@@ -18,7 +18,7 @@ import UserCart from '../Pages/User/UserCart';
  
 function UserRouter() {
   return (
-    <div>
+    <div className="storefront">
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<UserLogin/>}/>

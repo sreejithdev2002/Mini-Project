@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import "./FeaturedProducts.css";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import ProductPage from "../../ProductPage/ProductPage";
 import { featuredProducts } from "../../../../Services/UserApi";
 import Loader from "../../Loader/Loader";
@@ -19,9 +19,7 @@ function FeaturedProducts() {
     } catch (error) {
       console.log("Error fetching data:", error);
     } finally {
-      setTimeout(() => {
-        setLoading(false);
-      }, 1000);
+      setLoading(false);
     }
   };
 
@@ -30,15 +28,17 @@ function FeaturedProducts() {
   }, []);
 
   return (
-    <>
-      <div className="flex flex-col justify-center items-center mt-5 py-5 bg-[#fafafae6]">
-        <h2 className="text-3xl">Featured Products</h2>
-        <hr id="hr" />
-        <div className="grid grid-cols-1 gap-y-2.5 py-5 lg:custom-grid">
-          {loading ? <Loader /> : <ProductPage products={featuredData} />}
-        </div>
+    <section className="store-section store-featured">
+      <div className="store-section__heading">
+        <h2>Featured footwear</h2>
+        <Link className="store-button store-button--light" to="/latestarrival">Browse new arrivals</Link>
       </div>
-    </>
+      {loading && <Loader />}
+      {!loading && featuredData.length > 0 && <ProductPage products={featuredData} />}
+      {!loading && featuredData.length === 0 && (
+        <p className="store-featured__empty">Featured footwear is unavailable right now.</p>
+      )}
+    </section>
   );
 }
 

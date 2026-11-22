@@ -29,3 +29,220 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+.storefront {
+  --store-ink: #111a17;
+  --store-accent: #c0ff71;
+  min-height: 100vh;
+  background: #f3f5ef;
+}
+
+.storefront :focus-visible {
+  outline: 2px solid #43831b;
+  outline-offset: 3px;
+}
+
+.store-header,
+.store-footer {
+  background: var(--store-ink);
+  color: #eef4ea;
+}
+
+.store-header {
+  background: #111a17f5;
+  border-bottom: 1px solid #c0ff7133;
+  backdrop-filter: blur(14px);
+}
+
+.store-header :focus-visible,
+.store-footer :focus-visible,
+.launch-hero :focus-visible {
+  outline-color: var(--store-accent);
+}
+
+.store-brand,
+.store-header__action,
+.store-header__link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.store-brand {
+  gap: 0.5rem;
+  color: #f3f6f1;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+}
+
+.store-brand__mark {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 0.35rem;
+  background: var(--store-accent);
+  color: var(--store-ink);
+  font: 700 1rem/1 "Outfit", sans-serif;
+}
+
+.store-header__action {
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  justify-content: center;
+  border-radius: 0.4rem;
+}
+
+.store-header__link {
+  padding: 0.625rem 0.875rem;
+  border-radius: 0.4rem;
+  color: #d7e0d7;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.store-header__action:hover,
+.store-header__link:hover,
+.store-header__link[aria-current="page"] {
+  background: #c0ff711a;
+  color: var(--store-accent);
+}
+
+.store-header__mobile {
+  padding: 0.75rem 1rem 0;
+}
+
+.store-header__mobile a {
+  display: flex;
+}
+
+.store-section {
+  max-width: 79rem;
+  margin-inline: auto;
+  padding: clamp(2.5rem, 6vw, 5rem) 1.5rem 0;
+}
+
+.store-section--page {
+  padding-top: 7rem;
+  padding-bottom: 3rem;
+}
+
+.store-section__heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.store-section__heading :is(h1, h2) {
+  color: var(--store-ink);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.store-featured {
+  padding-bottom: clamp(2.5rem, 6vw, 5rem);
+}
+
+.store-featured__empty {
+  padding: 1.25rem;
+  border: 1px solid #d5ded1;
+  border-radius: 0.75rem;
+  color: #435148;
+  background: #fff;
+}
+
+.store-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.4rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.store-button--accent {
+  background: var(--store-accent);
+  color: var(--store-ink);
+}
+
+.store-button--accent:hover {
+  background: #e0ffbb;
+}
+
+.store-button--outline {
+  border-color: #76857b;
+  color: #f3f6f1;
+}
+
+.store-button--outline:hover {
+  border-color: var(--store-accent);
+  color: var(--store-accent);
+}
+
+.store-button--light {
+  border-color: #b2c3af;
+  color: var(--store-ink);
+}
+
+.store-button--light:hover {
+  border-color: #689643;
+  background: #e2f3d2;
+}
+
+.store-product-card {
+  border: 1px solid #d5ded1;
+  border-radius: 0.8rem;
+  background: #fff;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.store-product-card:is(:hover, :focus-within) {
+  border-color: #82a479;
+  box-shadow: 0 0.75rem 2rem #162b161a;
+}
+
+.store-product-card__details {
+  min-height: 2.25rem;
+}
+
+.store-footer__inner,
+.store-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.store-footer__inner {
+  max-width: 79rem;
+  justify-content: space-between;
+  margin-inline: auto;
+  padding: 2rem 1.5rem;
+}
+
+.store-footer__links,
+.store-footer p {
+  font-size: 0.875rem;
+  color: #c0ccc6;
+}
+
+.store-footer a:hover {
+  color: var(--store-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .storefront *,
+  .storefront *::before,
+  .storefront *::after {
+    transition-duration: 0s !important;
+    animation-duration: 0s !important;
+  }
+}

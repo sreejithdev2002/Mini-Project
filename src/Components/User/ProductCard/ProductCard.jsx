@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   AddToWishlist,
@@ -52,7 +52,7 @@ function ProductCard({ product }) {
 
   return (
     <div 
-      className="group relative flex flex-col bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 w-full max-w-sm mx-auto cursor-pointer"
+      className="store-product-card group relative flex flex-col overflow-hidden w-full max-w-sm mx-auto cursor-pointer"
       onClick={viewProduct}
     >
       {/* Image Container */}
@@ -70,6 +70,8 @@ function ProductCard({ product }) {
         {/* Wishlist Button - Floating */}
         <button
           onClick={handleAddToWishlist}
+          aria-label={inWishlist ? "Remove from wishlist" : "Add to wishlist"}
+          aria-pressed={inWishlist}
           className={`absolute top-4 right-4 p-3 rounded-full backdrop-blur-md transition-all duration-300 z-10 ${
             inWishlist 
               ? 'bg-red-50 text-red-500 scale-110 shadow-sm' 
@@ -91,7 +93,7 @@ function ProductCard({ product }) {
           {product.description}
         </p>
         
-        <div className="flex justify-between items-center mt-auto">
+        <div className="flex flex-wrap justify-between items-center gap-2 mt-auto">
           <span className="text-xl font-bold text-gray-900">
             ₹{product.price}
           </span>
@@ -100,7 +102,7 @@ function ProductCard({ product }) {
               e.stopPropagation();
               viewProduct();
             }}
-            className="px-4 py-2 bg-black text-white text-sm font-medium rounded-full opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
+            className="store-button store-button--light store-product-card__details"
           >
             View Details
           </button>

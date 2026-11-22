@@ -1,12 +1,80 @@
-@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
-
-#shoooz {
-  font-family: "Play", sans-serif;
-  font-size: 50px;
+.launch-hero {
+  overflow: hidden;
+  padding: clamp(7rem, 10vw, 10rem) 1.5rem clamp(2.5rem, 6vw, 5rem);
+  color: #f3f6f1;
+  background:
+    radial-gradient(ellipse at 78% 75%, #233733 0%, transparent 53%),
+    linear-gradient(#b4ff6810 1px, transparent 1px),
+    linear-gradient(90deg, #b4ff6810 1px, transparent 1px),
+    var(--store-ink);
+  background-size: auto, 48px 48px, 48px 48px, auto;
 }
 
-@media only screen and (max-width: 768px) {
-  #shoooz {
-    font-size: 35px;
+.launch-hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.96fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  max-width: 76rem;
+  margin: auto;
+}
+
+.launch-hero__label {
+  margin-bottom: 1.25rem;
+  color: var(--store-accent);
+  font: 600 0.875rem/1.4 ui-monospace, monospace;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.launch-hero h1 {
+  font-size: clamp(3.25rem, 7.2vw, 7rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.075em;
+}
+
+.launch-hero h1 em {
+  color: var(--store-accent);
+  font-style: normal;
+}
+
+.launch-hero__description {
+  max-width: 35ch;
+  margin: 1.5rem 0 2rem;
+  color: #c0ccc6;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+.launch-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.launch-hero__image {
+  overflow: hidden;
+  padding: 0.5rem;
+  border: 1px solid #b4ff685c;
+  border-radius: 0.75rem;
+  background: #c8ffad0d;
+  box-shadow: 0 1rem 4rem #050e0c66;
+}
+
+.launch-hero__image img {
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+  border-radius: 0.45rem;
+}
+
+@media (max-width: 767px) {
+  .launch-hero__inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .launch-hero__image img {
+    aspect-ratio: 4 / 3;
   }
 }
