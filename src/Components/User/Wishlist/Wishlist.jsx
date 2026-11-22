@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
-import {
-  addToCart,
-  getWishlist,
-  removeFromWishlist,
-} from "../../../Services/UserApi";
-import "./Wishlist.css";
+import { addToCart, getWishlist, removeFromWishlist } from "../../../Services/UserApi";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Empty from "../../User/Empty/Empty";
 import Loader from "../Loader/Loader";
 
@@ -28,6 +23,7 @@ function Wishlist() {
       }, 1000);
     }
   };
+
   useEffect(() => {
     fetchWishlist();
   }, []);
@@ -37,7 +33,6 @@ function Wishlist() {
       await addToCart(productId);
       toast.success("Product added to cart");
     } catch (error) {
-      console.error("Failed to add product to cart", error);
       toast.error("Failed to add product to cart");
     }
   };
@@ -48,89 +43,103 @@ function Wishlist() {
       setWishlistData(wishlistData.filter((item) => item._id !== productId));
       toast.success("Product removed from wishlist");
     } catch (error) {
-      console.error("Failed to remove product from wishlist", error);
       toast.error("Failed to remove product from wishlist");
     }
   };
 
-  if (loading)
+  if (loading) {
     return (
-      <div style={{ margin: "300px" }}>
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <Loader />
       </div>
     );
+  }
 
-  if (error)
+  if (error) {
     return (
-      <div
-      className="h-[71.2vh] flex justify-center items-center text-[2rem]"
-      >
-        {error}
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Oops!</h2>
+          <p className="text-gray-500">{error}</p>
+        </div>
       </div>
     );
+  }
+
   return (
-    <div className="flex flex-col pb-[50px] pt-[200px] bg-[#f0f0f045] lg:pt-[150px]">
-      <div className="ml-[50px] mb-[20px]">
-        <h1 className="text-2xl">My Wishlist</h1>
-      </div>
-      {wishlistData.length === 0 ? (
-        <Empty message="No Product in Wishlist" />
-      ) : (
-        <table className="w-auto border-collapse mb-[100px] mx-[50px] text-center">
-          <thead>
-            <tr className="even:bg-gray-200">
-              <th className="border-[1px] border-[#ddd] p-2 bg-[#f2f2f2]">
-                Image
-              </th>
-              <th className="border-[1px] border-[#ddd] p-2 bg-[#f2f2f2]">
-                Name
-              </th>
-              <th className="border-[1px] border-[#ddd] p-2 bg-[#f2f2f2]">
-                Price
-              </th>
-              <th className="border-[1px] border-[#ddd] p-2 bg-[#f2f2f2]">
-                Action
-              </th>
-            </tr>
-          </thead>
-          <tbody>
+    <div className="min-h-screen pt-28 pb-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="mb-8 flex justify-between items-end">
+          <div>
+            <h1 className="font-display text-3xl font-bold text-gray-900">My Wishlist</h1>
+            <p className="text-gray-500 mt-2">{wishlistData.length} {wishlistData.length === 1 ? 'item' : 'items'} saved</p>
+          </div>
+          {wishlistData.length > 0 && (
+            <Link to="/latestarrival" className="text-sm font-medium text-black hover:text-gray-600 transition-colors hidden sm:block border-b border-black hover:border-gray-600 pb-0.5">
+              Continue Shopping
+            </Link>
+          )}
+        </div>
+
+        {wishlistData.length === 0 ? (
+          <Empty message="Your wishlist is empty" />
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {wishlistData.map((item) => (
-              <tr key={item._id} className="even:bg-gray-200 hover:bg-[#ddd]">
-                <td className="border-[1px] border-[#ddd] p-1 bg-[#f9f9f9]">
+              <div key={item._id} className="bg-white rounded-2xl p-5 flex flex-col shadow-sm border border-gray-100 group">
+                
+                {/* Image */}
+                <div 
+                  className="relative aspect-square mb-5 bg-gray-50 rounded-xl overflow-hidden cursor-pointer flex items-center justify-center p-4"
+                  onClick={() => navigate(`/product/${item._id}`)}
+                >
                   <img
                     src={`${import.meta.env.VITE_BASE_URL}/public/images/products/${item.image}`}
                     alt={item.name}
-                    className="h-[80px] lg:h-[200px] w-auto cursor-pointer"
-                    onClick={() => {
-                      navigate(`/product/${item._id}`);
+                    className="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&q=80&w=300";
                     }}
                   />
-                </td>
-                <td className="border-[1px] border-[#ddd] p-1 bg-[#f9f9f9]">
-                  {item.name}
-                </td>
-                <td className="border-[1px] border-[#ddd] p-1 bg-[#f9f9f9]">
-                  {item.price.toFixed(2)}
-                </td>
-                <td className="border-[1px] border-[#ddd] p-1 bg-[#f9f9f9]">
+                  <button 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleRemoveFromWishlist(item._id);
+                    }}
+                    className="absolute top-3 right-3 p-2 bg-white/80 hover:bg-white text-gray-400 hover:text-red-500 rounded-full backdrop-blur-sm transition-all shadow-sm"
+                    title="Remove from wishlist"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+
+                {/* Content */}
+                <div className="flex-grow flex flex-col">
+                  <h3 
+                    className="font-display text-lg font-semibold text-gray-900 mb-1 cursor-pointer hover:text-gray-600 truncate"
+                    onClick={() => navigate(`/product/${item._id}`)}
+                  >
+                    {item.name}
+                  </h3>
+                  <p className="text-xl font-bold text-gray-900 mb-6">₹{item.price.toFixed(2)}</p>
+                  
                   <button
                     onClick={() => handleAddToCart(item._id)}
-                    className="p-2 min-w-24 lg:min-w-[100px] lg:min-h-[50px] text-sm lg:p-[10px] border-none bg-green-600 hover:bg-green-700 transition duration-200 text-white rounded mx-[5px] my-1"
+                    className="w-full py-3 mt-auto bg-black text-white rounded-xl font-medium text-sm hover:bg-gray-900 transition-colors shadow-md hover:shadow-lg hover:-translate-y-0.5 duration-200"
                   >
                     Add to Cart
                   </button>
-                  <button
-                    onClick={() => handleRemoveFromWishlist(item._id)}
-                    className="p-2 min-w-24 lg:min-w-[100px] lg:min-h-[50px] text-sm lg:p-[10px] border-none bg-red-600 hover:bg-red-700 transition duration-200 text-white rounded mx-[5px] my-1"
-                  >
-                    Remove
-                  </button>
-                </td>
-              </tr>
+                </div>
+
+              </div>
             ))}
-          </tbody>
-        </table>
-      )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

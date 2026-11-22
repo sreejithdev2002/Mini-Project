@@ -1,21 +1,13 @@
- ;
-import "./SignUp.css";
-import signupImage from "../../../assets/Images/signup.jpg";
+import React from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { useFormik } from "formik";
-import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
-
+import { toast } from "react-toastify";
 import { Signup } from "../../../Services/UserApi";
+import signupImage from "../../../assets/Images/signup.jpg";
 
 function SignUp() {
   const navigate = useNavigate();
-
-  const initialValues = {
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  };
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Name is required"),
@@ -23,179 +15,154 @@ function SignUp() {
       .email("Invalid email address")
       .required("Email is required"),
     password: Yup.string()
-      .min(6, "Password must be at least 6 characters long")
+      .min(6, "Password must be at least 6 characters")
       .required("Password is required"),
     confirmPassword: Yup.string()
       .oneOf([Yup.ref("password"), null], "Passwords must match")
       .required("Confirm Password is required"),
   });
 
-  const onSubmit = async (values) => {
-    console.log(values);
-
-    const { data } = await Signup(values);
-    navigate("/login");
-  };
-
   const formik = useFormik({
-    initialValues,
+    initialValues: {
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
     validationSchema,
-    onSubmit,
+    onSubmit: async (values) => {
+      try {
+        const { data } = await Signup(values);
+        toast.success("Account created successfully!");
+        navigate("/login");
+      } catch (error) {
+        toast.error("Failed to create account. Please try again.");
+      }
+    },
   });
 
-  const goToLogin = () => {
-    navigate("/login");
-  };
-
   return (
-    <>
-      <div className="flex flex-col mt-4 mx-[50px] max-h-[100vh] ">
-        <h1 className="text-3xl" id="signupBrand">
-          SHOOOZ
-        </h1>
-        <div className="flex my-[100px] items-center justify-evenly rounded-sm">
-          <div className="flex justify-center items-center h-[57vh]">
-            <form onSubmit={formik.handleSubmit} className="px-[50px]">
-              <h1 className="text-4xl mb-2">Create your Account</h1>
-              <p>Please enter your details.</p>
-              <div>
-                <div className="flex flex-col mt-2">
-                  <label
-                    htmlFor="name"
-                    className="my-[5px] font-sans font-bold"
-                  >
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    id="signupName"
-                    className="p-2 focus:outline-2 focus:outline-red-400"
-                    placeholder="Enter your name"
-                    value={formik.values.name}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                  />
-                  {formik.touched.name && formik.errors.name && (
-                    <p
-                      className="error-message"
-                      style={{ marginTop: "5px", color: "red" }}
-                    >
-                      {formik.errors.name}
-                    </p>
-                  )}
-                </div>
-                <br />
-                <div className="flex flex-col">
-                  <label
-                    htmlFor="email"
-                    className="my-[5px] font-sans font-bold"
-                  >
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="signupEmail"
-                    className="p-2 focus:outline-2 focus:outline-red-400"
-                    placeholder="Enter your email address"
-                    value={formik.values.email}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                  />
-                  {formik.touched.email && formik.errors.email && (
-                    <p
-                      className="error-message"
-                      style={{ marginTop: "5px", color: "red" }}
-                    >
-                      {formik.errors.email}
-                    </p>
-                  )}
-                </div>
-                <br />
-                <div className="flex flex-col">
-                  <label
-                    htmlFor="password"
-                    className="my-[5px] font-sans font-bold"
-                  >
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    name="password"
-                    id="signupPassword"
-                    className="p-2 focus:outline-2 focus:outline-red-400"
-                    placeholder="Enter password"
-                    value={formik.values.password}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                  />
-                  {formik.touched.password && formik.errors.password && (
-                    <p
-                      className="error-message"
-                      style={{ marginTop: "5px", color: "red" }}
-                    >
-                      {formik.errors.password}
-                    </p>
-                  )}
-                </div>
-                <br />
-                <div className="flex flex-col">
-                  <label
-                    htmlFor="confirmPassword"
-                    className="my-[5px] font-sans font-bold"
-                  >
-                    Confirm Password
-                  </label>
-                  <input
-                    type="password"
-                    name="confirmPassword"
-                    id="confirmPassword"
-                    className="p-2 focus:outline-2 focus:outline-red-400"
-                    placeholder="Confirm your password"
-                    value={formik.values.confirmPassword}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                  />
-                  {formik.touched.confirmPassword &&
-                    formik.errors.confirmPassword && (
-                      <p
-                        className="error-message"
-                        style={{ marginTop: "5px", color: "red" }}
-                      >
-                        {formik.errors.confirmPassword}
-                      </p>
-                    )}
-                </div>
-                <br />
-                <div className="flex items-center justify-center">
-                  <button
-                    type="submit"
-                    className="h-12 bg-red-500 hover:bg-red-600 transition-colors duration-300 w-[100%] text-white rounded-sm"
-                  >
-                    Sign Up
-                  </button>
-                </div>
-                <br />
-                <div className="flex items-center justify-center">
-                  <button
-                    type="button"
-                    onClick={goToLogin}
-                    className="h-12  text-red-500 hover:text-white hover:bg-red-500 border-2 border-red-500 transition-colors duration-300 rounded-sm w-[100%]"
-                  >
-                    Go to Login
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-          <div>
-            <img src={signupImage} alt="" className="hidden lg:block lg:h-[500px] lg:w-[500px] lg:ml-[50px]"
-             />
-          </div>
+    <div className="min-h-screen flex bg-gray-50">
+      {/* Left Side - Image/Brand */}
+      <div className="hidden lg:flex lg:w-1/2 relative bg-black items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-black/50 z-10"></div>
+        <img 
+          src={signupImage} 
+          alt="Signup" 
+          className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=1200";
+          }}
+        />
+        <div className="relative z-20 text-center px-12">
+          <h1 className="font-display text-5xl font-bold text-white tracking-tight mb-4">
+            Join SHOOOZ
+          </h1>
+          <p className="text-gray-300 text-lg max-w-md mx-auto leading-relaxed">
+            Create an account to track your orders, save to wishlist, and get exclusive access to our newest drops.
+          </p>
         </div>
       </div>
-    </>
+
+      {/* Right Side - Form */}
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 sm:p-12 lg:p-24 relative overflow-y-auto">
+        <Link to="/" className="absolute top-8 right-8 text-sm font-medium text-gray-500 hover:text-black transition-colors z-10">
+          &larr; Back to Home
+        </Link>
+        
+        <div className="w-full max-w-md space-y-6 animate-fade-in-up my-auto">
+          <div className="text-center lg:text-left pt-12 lg:pt-0">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-2">
+              Create Account
+            </h2>
+            <p className="text-gray-500 text-sm sm:text-base">
+              Enter your details to get started.
+            </p>
+          </div>
+
+          <form onSubmit={formik.handleSubmit} className="space-y-5">
+            <div className="space-y-1">
+              <label className="block text-sm font-medium text-gray-700">Full Name</label>
+              <input
+                type="text"
+                name="name"
+                className={`w-full px-4 py-3 rounded-xl border bg-white focus:ring-2 focus:ring-black focus:outline-none transition-all ${
+                  formik.touched.name && formik.errors.name ? 'border-red-500' : 'border-gray-200'
+                }`}
+                placeholder="Enter your name"
+                {...formik.getFieldProps("name")}
+              />
+              {formik.touched.name && formik.errors.name && (
+                <p className="text-xs text-red-500 mt-1">{formik.errors.name}</p>
+              )}
+            </div>
+
+            <div className="space-y-1">
+              <label className="block text-sm font-medium text-gray-700">Email Address</label>
+              <input
+                type="email"
+                name="email"
+                className={`w-full px-4 py-3 rounded-xl border bg-white focus:ring-2 focus:ring-black focus:outline-none transition-all ${
+                  formik.touched.email && formik.errors.email ? 'border-red-500' : 'border-gray-200'
+                }`}
+                placeholder="Enter your email"
+                {...formik.getFieldProps("email")}
+              />
+              {formik.touched.email && formik.errors.email && (
+                <p className="text-xs text-red-500 mt-1">{formik.errors.email}</p>
+              )}
+            </div>
+
+            <div className="space-y-1">
+              <label className="block text-sm font-medium text-gray-700">Password</label>
+              <input
+                type="password"
+                name="password"
+                className={`w-full px-4 py-3 rounded-xl border bg-white focus:ring-2 focus:ring-black focus:outline-none transition-all ${
+                  formik.touched.password && formik.errors.password ? 'border-red-500' : 'border-gray-200'
+                }`}
+                placeholder="Create a password"
+                {...formik.getFieldProps("password")}
+              />
+              {formik.touched.password && formik.errors.password && (
+                <p className="text-xs text-red-500 mt-1">{formik.errors.password}</p>
+              )}
+            </div>
+
+            <div className="space-y-1">
+              <label className="block text-sm font-medium text-gray-700">Confirm Password</label>
+              <input
+                type="password"
+                name="confirmPassword"
+                className={`w-full px-4 py-3 rounded-xl border bg-white focus:ring-2 focus:ring-black focus:outline-none transition-all ${
+                  formik.touched.confirmPassword && formik.errors.confirmPassword ? 'border-red-500' : 'border-gray-200'
+                }`}
+                placeholder="Confirm your password"
+                {...formik.getFieldProps("confirmPassword")}
+              />
+              {formik.touched.confirmPassword && formik.errors.confirmPassword && (
+                <p className="text-xs text-red-500 mt-1">{formik.errors.confirmPassword}</p>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              className="w-full py-4 mt-2 bg-black text-white rounded-xl font-medium text-sm sm:text-base hover:bg-gray-900 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 duration-200"
+            >
+              Sign Up
+            </button>
+          </form>
+
+          <p className="text-center text-sm text-gray-600 mt-8">
+            Already have an account?{" "}
+            <Link to="/login" className="font-semibold text-black hover:underline">
+              Sign In
+            </Link>
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 

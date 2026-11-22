@@ -1,13 +1,10 @@
- ; // Import useState
-import "./Login.css";
-import loginImage from "../../../assets/Images/login.jpg";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-
 import { toast } from "react-toastify";
-
 import { login } from "../../../Services/UserApi";
+import loginImage from "../../../assets/Images/login.jpg";
 
 function Login() {
   const navigate = useNavigate();
@@ -27,9 +24,7 @@ function Login() {
     validationSchema: validationSchema,
     onSubmit: async (values) => {
       try {
-        console.log("On Submit !!!");
         const { data } = await login(values);
-        console.log(data, "USER RETURN DATA !!!");
         if (data.created) {
           localStorage.setItem("jwt", data.token);
           toast.success("Login Success", { position: "top-right" });
@@ -39,109 +34,105 @@ function Login() {
         }
       } catch (error) {
         console.log(error);
+        toast.error("An error occurred during login.");
       }
     },
   });
 
-  const handleClick = () => navigate("/signup");
-
   return (
-    <>
-      <div className="flex flex-col my-5 mx-[50px]">
-        <h1 className="text-3xl" id="loginBrand">
-          SHOOOZ
-        </h1>
-        <div className="flex my-[100px] items-center justify-evenly rounded-sm">
-          <div className="flex justify-center items-center h-[57vh]">
-            <form onSubmit={formik.handleSubmit} className="px-[50px]">
-              <h1 className="text-4xl mb-2">Account Login</h1>
-              <p>Please enter your email and password.</p>
-              <div>
-                <div className="flex flex-col mt-2">
-                  <label
-                    htmlFor="email"
-                    className="my-[10px] font-sans font-bold"
-                  >
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="loginEmail"
-                    className="p-2"
-                    placeholder="Enter your email"
-                    value={formik.values.email}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                  />
-                  {formik.touched.email && formik.errors.email && (
-                    <p
-                      className="error-message"
-                      style={{ marginTop: "5px", color: "red" }}
-                    >
-                      {formik.errors.email}
-                    </p>
-                  )}
-                </div>
-                <br />
-                <div className="flex flex-col">
-                  <label
-                    htmlFor="password"
-                    className="my-[10px] font-sans font-bold"
-                  >
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    name="password"
-                    id="loginPassword"
-                    className="p-2"
-                    placeholder="Enter your password"
-                    value={formik.values.password}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                  />
-                  {formik.touched.password && formik.errors.password && (
-                    <p
-                      className="error-message"
-                      style={{ marginTop: "5px", color: "red" }}
-                    >
-                      {formik.errors.password}
-                    </p>
-                  )}
-                </div>
-                <br />
-                <div className="flex items-center justify-center">
-                  <button
-                    type="submit"
-                    className="h-12 bg-red-500 hover:bg-red-600 transition-colors duration-300 w-[100%] text-white rounded-sm"
-                  >
-                    Login
-                  </button>
-                </div>
-                <br />
-                <div className="flex items-center justify-center">
-                  <button
-                    type="button"
-                    onClick={handleClick}
-                    className="h-12  text-red-500 hover:text-white hover:bg-red-500 border-2 border-red-500 transition-colors duration-300 rounded-sm w-[100%]"
-                  >
-                    Create Account
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-          <div>
-            <img
-              src={loginImage}
-              alt=""
-              className="hidden lg:block lg:h-[400px] lg:w-[400px] lg:ml-[50px]"
-            />
-          </div>
+    <div className="min-h-screen flex bg-gray-50">
+      {/* Left Side - Image/Brand */}
+      <div className="hidden lg:flex lg:w-1/2 relative bg-black items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-black/40 z-10"></div>
+        <img 
+          src={loginImage} 
+          alt="Login" 
+          className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = "https://images.unsplash.com/photo-1552346154-21d32810baa3?auto=format&fit=crop&q=80&w=1200";
+          }}
+        />
+        <div className="relative z-20 text-center px-12">
+          <h1 className="font-display text-5xl font-bold text-white tracking-tight mb-4">
+            SHOOOZ
+          </h1>
+          <p className="text-gray-300 text-lg max-w-md mx-auto leading-relaxed">
+            Welcome back to your premium footwear destination. Discover the latest collections curated just for you.
+          </p>
         </div>
       </div>
-    </>
+
+      {/* Right Side - Form */}
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 sm:p-12 lg:p-24 relative">
+        <Link to="/" className="absolute top-8 right-8 text-sm font-medium text-gray-500 hover:text-black transition-colors">
+          &larr; Back to Home
+        </Link>
+        
+        <div className="w-full max-w-md space-y-8 animate-fade-in-up">
+          <div className="text-center lg:text-left">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-3">
+              Welcome back
+            </h2>
+            <p className="text-gray-500 text-sm sm:text-base">
+              Please enter your details to sign in.
+            </p>
+          </div>
+
+          <form onSubmit={formik.handleSubmit} className="space-y-6 mt-8">
+            <div className="space-y-1">
+              <label className="block text-sm font-medium text-gray-700">
+                Email Address
+              </label>
+              <input
+                type="email"
+                name="email"
+                className={`w-full px-4 py-3 rounded-xl border bg-white focus:ring-2 focus:ring-black focus:outline-none transition-all ${
+                  formik.touched.email && formik.errors.email ? 'border-red-500' : 'border-gray-200'
+                }`}
+                placeholder="Enter your email"
+                {...formik.getFieldProps("email")}
+              />
+              {formik.touched.email && formik.errors.email && (
+                <p className="text-xs text-red-500 mt-1">{formik.errors.email}</p>
+              )}
+            </div>
+
+            <div className="space-y-1">
+              <label className="block text-sm font-medium text-gray-700">
+                Password
+              </label>
+              <input
+                type="password"
+                name="password"
+                className={`w-full px-4 py-3 rounded-xl border bg-white focus:ring-2 focus:ring-black focus:outline-none transition-all ${
+                  formik.touched.password && formik.errors.password ? 'border-red-500' : 'border-gray-200'
+                }`}
+                placeholder="Enter your password"
+                {...formik.getFieldProps("password")}
+              />
+              {formik.touched.password && formik.errors.password && (
+                <p className="text-xs text-red-500 mt-1">{formik.errors.password}</p>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              className="w-full py-4 bg-black text-white rounded-xl font-medium text-sm sm:text-base hover:bg-gray-900 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 duration-200"
+            >
+              Sign In
+            </button>
+          </form>
+
+          <p className="text-center text-sm text-gray-600 mt-8">
+            Don't have an account?{" "}
+            <Link to="/signup" className="font-semibold text-black hover:underline">
+              Create one now
+            </Link>
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
 

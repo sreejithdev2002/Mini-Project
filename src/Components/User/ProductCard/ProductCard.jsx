@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
-import "./ProductCard.css";
 import { useNavigate } from "react-router-dom";
 import {
   AddToWishlist,
   checkProductInWishlist,
 } from "../../../Services/UserApi";
 import { toast } from "react-toastify";
-import { WishlistIconFalse, WishlistIconTrue } from "../../../assets/Icons";
-import { FaRegHeart } from "react-icons/fa6";
-
 
 function ProductCard({ product }) {
   const baseURL = import.meta.env.VITE_BASE_URL;
@@ -36,7 +32,8 @@ function ProductCard({ product }) {
     navigate(`/product/${product._id}`);
   };
 
-  const handleAddToWishlist = async () => {
+  const handleAddToWishlist = async (e) => {
+    e.stopPropagation(); // Prevent triggering the card click
     try {
       const productId = product._id;
       const response = await AddToWishlist(productId);
@@ -54,28 +51,58 @@ function ProductCard({ product }) {
   };
 
   return (
-    <div className="flex flex-col items-center border-[1px] border-[#cccccc45] rounded p-4 m-4 w-[80vw] shadow-sm hover:shadow-lg hover:-translate-y-2 transition duration-200 h-[80vh] lg:w-[250px] lg:h-[50vh]">
-      <img
-        className="w-[80%] h-[80%] lg:w-[100%] lg:h-[50%] object-fit lg:object-cover border-b-2 border-[#ccc]"
-        src={imageURL}
-        alt={product.name}
-      />
-      <div className="flex flex-col p-[16px] w-[100%] relative">
-        <h2 className="text-xl my-2 text-nowrap text-start font-medium">{product.name}</h2>
-        <p className="text-sm text-start text-[#666] my-2 h-5">{product.description}</p>
-        <div className="flex justify-between items-center w-[100%] mt-4">
-          <h3 className="text-xl text-[#128c0c]">₹{product.price}</h3>
-          <button
-            onClick={handleAddToWishlist}
-            className="absolute -top-90 lg:-top-44 cursor-pointer right-0 bg-transparent border-none"
-          >
-            {inWishlist ? <WishlistIconTrue /> : <FaRegHeart size={25} color="red" />}
-          </button>
+    <div 
+      className="group relative flex flex-col bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 w-full max-w-sm mx-auto cursor-pointer"
+      onClick={viewProduct}
+    >
+      {/* Image Container */}
+      <div className="relative aspect-square overflow-hidden bg-gray-50 flex items-center justify-center p-6">
+        <img
+          className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ease-out mix-blend-multiply"
+          src={imageURL}
+          alt={product.name}
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&q=80&w=800"; // Elegant fallback
+          }}
+        />
+        
+        {/* Wishlist Button - Floating */}
         <button
-            className="py-2 text-[#fff] bg-[#202633] hover:bg-[#2b3c5e] border-none rounded-md cursor-pointer transition-colors duration-200 w-[60px] h-[35px] text-xs text-nowrap"
-            onClick={viewProduct}
+          onClick={handleAddToWishlist}
+          className={`absolute top-4 right-4 p-3 rounded-full backdrop-blur-md transition-all duration-300 z-10 ${
+            inWishlist 
+              ? 'bg-red-50 text-red-500 scale-110 shadow-sm' 
+              : 'bg-white/80 text-gray-400 hover:text-red-500 hover:bg-white shadow-sm'
+          }`}
+        >
+          <svg className="w-5 h-5" fill={inWishlist ? "currentColor" : "none"} stroke="currentColor" viewBox="0 0 24 24" strokeWidth={inWishlist ? "0" : "2"}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Content Container */}
+      <div className="p-6 flex flex-col flex-grow">
+        <h2 className="font-display text-lg font-semibold text-gray-900 truncate mb-1">
+          {product.name}
+        </h2>
+        <p className="text-sm text-gray-500 line-clamp-2 mb-4 flex-grow">
+          {product.description}
+        </p>
+        
+        <div className="flex justify-between items-center mt-auto">
+          <span className="text-xl font-bold text-gray-900">
+            ₹{product.price}
+          </span>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              viewProduct();
+            }}
+            className="px-4 py-2 bg-black text-white text-sm font-medium rounded-full opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
           >
-            View
+            View Details
           </button>
         </div>
       </div>

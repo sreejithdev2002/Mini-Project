@@ -1,180 +1,18 @@
-// import React, { useState, useEffect } from "react";
-// import { CartIcon, ProfileIcon, WishlistIconTrue } from "../../../assets/Icons";
-// import "./Header.css";
-// import { Link, useNavigate } from "react-router-dom";
-// import { userStatus } from "../../../Services/UserApi";
-
-// function Header() {
-//   const navigate = useNavigate();
-
-//   const [isSolid, setIsSolid] = useState(false);
-//   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-//   const [loggedIn, setLoggedIn] = useState(false);
-//   const [userName, setUserName] = useState("");
-
-//   const fetchData = async () => {
-//     try {
-//       const { user } = await userStatus();
-//       console.log(user.username + "ascesaw");
-//       if (user) {
-//         setLoggedIn(true);
-//         setUserName(user.username);
-//       } else {
-//         setLoggedIn(false);
-//         setUserName("");
-//       }
-//     } catch (error) {
-//       console.log("Error fetching status : ", error);
-//       setLoggedIn(false);
-//       setUserName("");
-//     }
-//   };
-
-//   useEffect(() => {
-//     fetchData();
-
-//     const handleScroll = () => {
-//       const scrollPosition = window.scrollY;
-//       setIsSolid(scrollPosition > 50);
-//     };
-
-//     window.addEventListener("scroll", handleScroll);
-//     return () => window.removeEventListener("scroll", handleScroll);
-//   }, []);
-
-//   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
-
-//   const handleLogout = () => {
-//     localStorage.removeItem("jwt");
-//     setLoggedIn(false);
-//     setUserName("");
-//     navigate("/login");
-//   };
-
-//   const handleLogin = () => navigate("/login");
-
-//   const handleSignup = () => navigate("/signup");
-
-//   return (
-//     <div
-//       className={
-//         isSolid
-//           ? "flex flex-col lg:flex-row justify-between py-[5px] px-[10px] lg:py-[20px] lg:px-[50px] fixed top-0 w-[100%] z-[1] bg-gray-50"
-//           : "flex bg-red-400 flex-col lg:flex-row items-center justify-between py-[5px] px-[10px] lg:py-[20px] lg:px-[50px] fixed top-0 w-[100%] z-[1]"
-//       }
-//     >
-//       <div className="flex">
-//         <Link to="/">
-//           <h2 className="text-xl lg:text-2xl" id="headerBrand">
-//             SHOOOZ
-//           </h2>
-//         </Link>
-//       </div>
-//       <div className="flex">
-//         <Link to="/latestarrival">
-//           <div
-//             className="py-2 px-[10px] lg:px-[20px] rounded hover:bg-gray-100"
-//             id="latestArrivals"
-//           >
-//             <p>Latest Arrivals</p>
-//           </div>
-//         </Link>
-//         <Link to="/mens">
-//           <div className="py-2 px-[10px] rounded hover:bg-gray-100" id="Mens">
-//             <p>Mens</p>
-//           </div>
-//         </Link>
-//         <Link to="/womens">
-//           <div className="py-2 px-[10px] rounded hover:bg-gray-100" id="Womens">
-//             <p>Womens</p>
-//           </div>
-//         </Link>
-//         <Link to="/categories">
-//           <div
-//             className="py-2 px-[10px] rounded hover:bg-gray-100"
-//             id="categories"
-//           >
-//             <p>Categories</p>
-//           </div>
-//         </Link>
-//         <Link to="/luxury">
-//           <div className="py-2 px-[10px] rounded hover:bg-gray-100" id="Luxury">
-//             <p>Luxury</p>
-//           </div>
-//         </Link>
-//       </div>
-//       <div className="flex mt-2">
-//         <Link to="/wishlist">
-//           <div className="py-[10px] px-[13px] mx-[5px] cursor-pointer">
-//             <WishlistIconTrue />
-//           </div>
-//         </Link>
-//         <Link to="/cart">
-//           <div className="py-[10px] px-[13px] mx-[5px] cursor-pointer">
-//             <CartIcon />
-//           </div>
-//         </Link>
-//         <div
-//           className="py-[10px] px-[13px] mx-[5px] cursor-pointer"
-//           onClick={toggleDropdown}
-//           title={loggedIn ? userName : "Profile"}
-//         >
-//           <ProfileIcon />
-//         </div>
-//         {isDropdownOpen && (
-//           <div className="flex relative top-2 left-2">
-//             {loggedIn ? (
-//               <div className="flex">
-//                 <p className="mr-4 text-xl text-green-700">{userName}</p>
-//                 <button
-//                   className="px-2 h-8 mx-2 border-none rounded cursor-pointer text-white bg-red-500 hover:bg-red-600 text-sm transition duration-300"
-//                   onClick={handleLogout}
-//                   id="headerSignupLogout"
-//                 >
-//                   Logout
-//                 </button>
-//               </div>
-//             ) : (
-//               <div className="flex">
-//                 <button
-//                   className="px-2 h-8 mx-2 border-none rounded cursor-pointer bg-green-500 hover:bg-green-600 transition-colors duration-300 text-white"
-//                   onClick={handleLogin}
-//                   id="headerLogin"
-//                 >
-//                   Login
-//                 </button>
-//                 <button
-//                   className="px-2 h-8 mx-2 border-none rounded cursor-pointer text-white bg-red-500 hover:bg-red-600 transition-colors duration-300"
-//                   onClick={handleSignup}
-//                   id="headerSignupLogout"
-//                 >
-//                   SignUp
-//                 </button>
-//               </div>
-//             )}
-//           </div>
-//         )}
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Header;
-
 import React, { useState, useEffect, useRef } from "react";
 import { CartIcon, ProfileIcon, WishlistIconTrue } from "../../../assets/Icons";
-import "./Header.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { userStatus } from "../../../Services/UserApi";
 
 function Header() {
   const navigate = useNavigate();
+  const location = useLocation();
   const dropdownRef = useRef(null);
 
-  const [isSolid, setIsSolid] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const fetchData = async () => {
     try {
@@ -197,7 +35,7 @@ function Header() {
     fetchData();
 
     const handleScroll = () => {
-      setIsSolid(window.scrollY > 40);
+      setIsScrolled(window.scrollY > 20);
     };
 
     const handleClickOutside = (e) => {
@@ -224,110 +62,130 @@ function Header() {
     navigate("/login");
   };
 
-  const handleLogin = () => navigate("/login");
-  const handleSignup = () => navigate("/signup");
+  const navLinks = [
+    { name: "New Arrivals", path: "/latestarrival" },
+    { name: "Mens", path: "/mens" },
+    { name: "Womens", path: "/womens" },
+    { name: "Categories", path: "/categories" },
+    { name: "Luxury", path: "/luxury" },
+  ];
+
+  const isActive = (path) => location.pathname === path;
 
   return (
-    <div
-      className={`flex flex-col lg:flex-row justify-between items-center fixed top-0 w-full z-20 px-5 lg:px-12 transition-all duration-300 ${
-        isSolid
-          ? "bg-white/80 backdrop-blur-md shadow-sm py-3"
-          : "bg-transparent py-4"
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ease-in-out border-b border-transparent ${
+        isScrolled
+          ? "bg-white/80 backdrop-blur-xl shadow-sm border-gray-100 py-3"
+          : "bg-transparent py-5"
       }`}
     >
-      {/* Brand */}
-      <Link to="/">
-        <h2 className="text-2xl font-medium tracking-wide" id="headerBrand">
-          SHOOOZ
-        </h2>
-      </Link>
-
-      {/* Nav Links */}
-      <div className="flex mt-2 lg:mt-0">
-        <Link to="/latestarrival">
-          <p className="py-2 px-3 rounded-md hover:bg-gray-100 transition-colors">
-            Latest Arrivals
-          </p>
-        </Link>
-        <Link to="/mens">
-          <p className="py-2 px-3 rounded-md hover:bg-gray-100 transition-colors">
-            Mens
-          </p>
-        </Link>
-        <Link to="/womens">
-          <p className="py-2 px-3 rounded-md hover:bg-gray-100 transition-colors">
-            Womens
-          </p>
-        </Link>
-        <Link to="/categories">
-          <p className="py-2 px-3 rounded-md hover:bg-gray-100 transition-colors">
-            Categories
-          </p>
-        </Link>
-        <Link to="/luxury">
-          <p className="py-2 px-3 rounded-md hover:bg-gray-100 transition-colors">
-            Luxury
-          </p>
-        </Link>
-      </div>
-
-      {/* Right Icons */}
-      <div className="flex items-center mt-2 lg:mt-0 space-x-3 relative">
-        <Link to="/wishlist">
-          <div className="p-2 rounded-full transition cursor-pointer">
-            <WishlistIconTrue />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2 group">
+          <div className="w-8 h-8 bg-black rounded flex items-center justify-center text-white font-bold group-hover:bg-gray-800 transition-colors">
+            S
           </div>
-        </Link>
-        <Link to="/cart">
-          <div className="p-2 rounded-full transition cursor-pointer">
-            <CartIcon />
-          </div>
+          <span className="font-display text-xl font-bold tracking-tight text-gray-900 group-hover:text-gray-700 transition-colors">
+            SHOOOZ
+          </span>
         </Link>
 
-        {/* Profile Dropdown */}
-        <div
-          className="p-2 rounded-full hover:bg-gray-100 transition cursor-pointer"
-          onClick={toggleDropdown}
-          title={loggedIn ? userName : "Profile"}
-        >
-          <ProfileIcon />
-        </div>
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-1">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              to={link.path}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                isActive(link.path)
+                  ? "bg-black text-white"
+                  : "text-gray-600 hover:bg-gray-100 hover:text-black"
+              }`}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </nav>
 
-        {isDropdownOpen && (
-          <div
-            ref={dropdownRef}
-            className="absolute right-0 top-12 bg-white shadow-lg rounded-lg p-4 w-44 animate-fadeIn"
+        {/* Icons & Actions */}
+        <div className="flex items-center space-x-2 relative">
+          <Link
+            to="/wishlist"
+            className="p-2.5 rounded-full text-gray-600 hover:bg-gray-100 hover:text-black transition-colors"
           >
-            {loggedIn ? (
-              <div className="flex flex-col space-y-2">
-                <p className="text-gray-700 font-medium">👋 {userName}</p>
-                <button
-                  className="w-full px-3 py-1 rounded bg-red-500 text-white text-sm hover:bg-red-600 transition"
-                  onClick={handleLogout}
-                >
-                  Logout
-                </button>
-              </div>
-            ) : (
-              <div className="flex flex-col space-y-2">
-                <button
-                  className="w-full px-3 py-1 rounded bg-green-500 text-white text-sm hover:bg-green-600 transition"
-                  onClick={handleLogin}
-                >
-                  Login
-                </button>
-                <button
-                  className="w-full px-3 py-1 rounded bg-blue-500 text-white text-sm hover:bg-blue-600 transition"
-                  onClick={handleSignup}
-                >
-                  Sign Up
-                </button>
+            <WishlistIconTrue className="w-5 h-5" />
+          </Link>
+          <Link
+            to="/cart"
+            className="p-2.5 rounded-full text-gray-600 hover:bg-gray-100 hover:text-black transition-colors"
+          >
+            <CartIcon className="w-5 h-5" />
+          </Link>
+
+          {/* Profile Dropdown */}
+          <div className="relative" ref={dropdownRef}>
+            <button
+              onClick={toggleDropdown}
+              className="p-2.5 rounded-full text-gray-600 hover:bg-gray-100 hover:text-black transition-colors focus:outline-none"
+              title={loggedIn ? userName : "Profile"}
+            >
+              <ProfileIcon className="w-5 h-5" />
+            </button>
+
+            {isDropdownOpen && (
+              <div className="absolute right-0 mt-3 w-56 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden origin-top-right transform transition-all duration-200 opacity-100 scale-100">
+                <div className="p-4 border-b border-gray-50 bg-gray-50/50">
+                  {loggedIn ? (
+                    <div>
+                      <p className="text-xs text-gray-500 mb-1">Signed in as</p>
+                      <p className="text-sm font-semibold text-gray-900 truncate">
+                        {userName}
+                      </p>
+                    </div>
+                  ) : (
+                    <p className="text-sm font-medium text-gray-900">
+                      Welcome to Shoooz
+                    </p>
+                  )}
+                </div>
+                <div className="p-2">
+                  {loggedIn ? (
+                    <button
+                      onClick={handleLogout}
+                      className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-colors font-medium"
+                    >
+                      Sign Out
+                    </button>
+                  ) : (
+                    <div className="space-y-1">
+                      <button
+                        onClick={() => {
+                          setIsDropdownOpen(false);
+                          navigate("/login");
+                        }}
+                        className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg transition-colors font-medium"
+                      >
+                        Sign In
+                      </button>
+                      <button
+                        onClick={() => {
+                          setIsDropdownOpen(false);
+                          navigate("/signup");
+                        }}
+                        className="w-full text-center px-4 py-2 mt-2 text-sm text-white bg-black hover:bg-gray-800 rounded-lg transition-colors font-medium"
+                      >
+                        Create Account
+                      </button>
+                    </div>
+                  )}
+                </div>
               </div>
             )}
           </div>
-        )}
+        </div>
       </div>
-    </div>
+    </header>
   );
 }
 
